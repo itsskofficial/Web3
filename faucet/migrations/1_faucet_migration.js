@@ -1,4 +1,4 @@
-const Faucet = artifacts.require("Faucet")
+const Faucet = artifact.require("Faucet")
 
 module.exports = function (deployer) {
     deployer.deploy(Faucet)
