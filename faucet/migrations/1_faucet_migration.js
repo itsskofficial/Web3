@@ -1,1 +1,2 @@
-const Faucet = artifact.require()
+import artif
+const Faucet = artifact.require("Faucet")
