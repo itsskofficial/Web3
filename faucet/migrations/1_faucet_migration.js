@@ -1,0 +1,1 @@
+const Faucet = artifact.require()
