@@ -18,5 +18,5 @@ contract Faucet{
         return funders;
     }
 
-    function getFunder
+    function getFunder(uint8 )
 }
