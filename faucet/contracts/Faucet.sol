@@ -14,5 +14,5 @@ contract Faucet{
         return 2+2;
     }
 
-    function 
+    function getFunders() external view returns (address[] )
 }
