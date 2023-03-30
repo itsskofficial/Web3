@@ -17,4 +17,6 @@ contract Faucet{
     function getFunders() external view returns (address[] memory){
         return funders;
     }
+
+    function getFunder
 }
