@@ -3,5 +3,5 @@ pragma solidity >=0.8.19;
 
 contract Faucet{
     function receive external payable () {}
-    function add
+    function addFunds external payable () {}
 }
