@@ -14,12 +14,12 @@ contract Faucet{
         return 2+2;
     }
 
-    function getFunders() external view returns (address[] memory){
+    function getFunders() public view returns (address[] memory){
         return funders;
     }
 
     function getFunder(uint8 index) external view returns (address){
         address[] memory funders = getFunders();
-        return funders[index]
+        return funders[index];
     }
 }
