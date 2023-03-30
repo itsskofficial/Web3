@@ -1,4 +1,4 @@
-const {artifacts} = require(truff)
+const {artifacts} = require()
 const Faucet = artifacts.require("Faucet")
 
 module.exports = function (deployer) {
