@@ -5,7 +5,7 @@ contract Faucet{
     address [] public funders;
     receive() external payable {}
     function addFunds() external payable {
-        funders.push(msg:)
+        funders.push(msg:address)
     }
     function test() external pure returns (uint256){
         return 2+2;
