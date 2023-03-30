@@ -1,4 +1,4 @@
-import artifacts from ""
+import artifacts from "truffle"
 const Faucet = artifacts.require("Faucet")
 
 module.exports = function (deployer) {
