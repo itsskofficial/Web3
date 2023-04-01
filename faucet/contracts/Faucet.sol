@@ -8,7 +8,8 @@ contract Faucet{
     receive() external payable {}
 
     function addFunds() external payable {
-        index = noOfFunders++;
+        uint index = noOfFunders++;
+        
     }
 
     function getFunders() public view returns (address[] memory){
