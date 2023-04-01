@@ -12,9 +12,9 @@ contract Faucet{
         funders[index]=msg.sender;
     }
 
-    // function getFunders() public view returns (address[] memory){
-    //     return funders;
-    // }
+    function getFunders() public view returns (address[] memory){
+        return funders;
+    }
 
     function getFunder(uint8 index) external view returns (address){
         return funders[index];
