@@ -10,10 +10,6 @@ contract Faucet{
         funders.push(msg.sender);
     }
 
-    function test() external pure returns (uint256){
-        return 2+2;
-    }
-
     function getFunders() public view returns (address[] memory){
         return funders;
     }
