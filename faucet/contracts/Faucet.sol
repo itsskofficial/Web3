@@ -2,7 +2,7 @@
 pragma solidity >=0.8.19;
 
 contract Faucet{
-    mapping(uint) public funders;
+    mapping(uint=>address) public funders;
 
     receive() external payable {}
 
