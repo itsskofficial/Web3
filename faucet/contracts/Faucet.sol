@@ -12,6 +12,7 @@ contract Faucet{
         uint index = noOfFunders++;
         address funder = msg.sender;
         if (!fundersExist[funder]){
+            fundersExist[funder]=true;
             
         }
         funders[index]= funder;
