@@ -12,7 +12,7 @@ contract Faucet{
         uint index = noOfFunders++;
         address funder = msg.sender;
         if (!fundersExist[index])
-        funders[index]=msg.sender;
+        funders[index]= funder;
     }
 
     function getFunders() public view returns (address[] memory){
