@@ -13,7 +13,7 @@ contract Faucet{
         address funder = msg.sender;
         if (!fundersExist[funder]){
             fundersExist[funder]=true;
-            
+            funders[index]
         }
         funders[index]= funder;
     }
