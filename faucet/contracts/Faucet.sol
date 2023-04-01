@@ -10,6 +10,7 @@ contract Faucet{
 
     function addFunds() external payable {
         uint index = noOfFunders++;
+        
         if (!fundersExist[index])
         funders[index]=msg.sender;
     }
