@@ -9,7 +9,7 @@ contract Faucet{
 
     function addFunds() external payable {
         uint index = noOfFunders++;
-        
+        funders
     }
 
     function getFunders() public view returns (address[] memory){
