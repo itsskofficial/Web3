@@ -13,7 +13,7 @@ contract Faucet{
     }
 
     function getFunders() public view returns (address[] memory){
-        address[] memory allFunders = new address[] memory
+        address[] memory allFunders = new address[](noOfFunders);
         for (uint i=0; i<noOfFunders; i++){
             allFunders[i] = funders[i];
         }
