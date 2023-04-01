@@ -15,7 +15,6 @@ contract Faucet{
             fundersExist[funder]=true;
             funders[index]=funder;
         }
-        funders[index]= funder;
     }
 
     function getFunders() public view returns (address[] memory){
