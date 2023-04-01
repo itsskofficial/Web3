@@ -2,13 +2,13 @@
 pragma solidity >=0.8.19;
 
 contract Faucet{
-    uint public noOfFunders
+    uint public noOfFunders;
     mapping(uint=>address) public funders;
 
     receive() external payable {}
 
     function addFunds() external payable {
-        funders.push(msg.sender);
+        noOfFunders
     }
 
     function getFunders() public view returns (address[] memory){
