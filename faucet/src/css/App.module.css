@@ -25,9 +25,9 @@
 }
 
 .deposit, .withdraw{
-    padding: 0px;
+    padding: 10px;
     background-color: #171717;
     font-family: 'Montserrat', sans-serif;
     color: white;
-    font-size: 20px;
+    font-size: 15px;
 }
