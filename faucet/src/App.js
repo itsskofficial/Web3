@@ -60,12 +60,12 @@ function App() {
       const account = await web3API.web3.ethereum.getAccounts()
     }
 
-    console.log(account)
 
     getAccount()
 
   },[web3API])
 
+    console.log(account)
   
   // const loadAccounts = async () => {
   //   const accounts = await window.ethereum.request({method:'eth_requestAccounts'})
