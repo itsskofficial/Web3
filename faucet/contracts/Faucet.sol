@@ -2,6 +2,7 @@
 pragma solidity >=0.8.19;
 
 import './Owner.sol';
+import './Logger
 
 contract Faucet is Owner{
     uint public noOfFunders;
