@@ -40,4 +40,6 @@ contract Faucet is Owner, Logger{
     function withdraw(uint amount) external withdrawLimit() {
         payable(msg.sender).transfer(amount);
     }
+
+    function 
 }
