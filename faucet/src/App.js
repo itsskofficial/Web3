@@ -10,7 +10,7 @@ function App() {
             Current balance is <strong>10</strong> ETH
           </div>
           <div className={classes.actions}>
-            <button className={classes.ethereum}>
+            <button className={classes.ethereum} onClick={}>
               Enable Ethereum
             </button>
             <button className={classes.deposit}>
