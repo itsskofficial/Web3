@@ -1,17 +1,40 @@
 import {Fragment, useEffect} from 'react'
 import classes from './css/App.module.css'
+import Web3 from 'web3'
 
 function App() {
 
+  const [web3API,setWeb3API] = useState({
+    web3:null,
+    provider:null
+  })
+
   useEffect(() => {
-    console.log(window.web3)
-    console.log(window.ethereum)
+    const loadProvider = async () => {
+      let provider = null
+      if (window.ethereum){
+        provider = window.ethereum
+      }
+      else if (window.web3){
+        provider = window.web3.currentProvider
+      }
+      else if (!process.env.production){
+        provider = new Web3.providers.HttpProvider("http://localhost:7545")
+      }
+      setWeb3API({
+        web3:
+      })
+    }
+
+    loadProvider()
+
   }, [])
   
   const loadAccounts = async () => {
     const accounts = await window.ethereum.request({method:'eth_requestAccounts'})
     console.log(accounts)
   }
+
   return (
     <Fragment>
       <div className={classes.wrapper}>
