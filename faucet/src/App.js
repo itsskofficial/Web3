@@ -22,7 +22,7 @@ function App() {
         provider = new Web3.providers.HttpProvider("http://localhost:7545")
       }
       setWeb3API({
-        web3: new Web3(provider)
+        web3: new Web3(provider),
         provider:provider
       })
     }
