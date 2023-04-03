@@ -51,7 +51,7 @@ function App() {
 
     loadProvider()
 
-  }, [web3API])
+  }, [])
 
   console.log(web3API)
 
