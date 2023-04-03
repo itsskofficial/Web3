@@ -29,7 +29,7 @@ contract Faucet{
         return funders[index];
     }
 
-    function withdraw(uint amount) external {
+    function withdraw(uint withdrawAmount) external {
         if (amount<1000000000000000000){
             payable(msg.sender).transfer(amount);
         }
