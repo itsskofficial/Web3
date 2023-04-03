@@ -75,6 +75,7 @@ function App() {
     <Fragment>
       <div className={classes.wrapper}>
         <div className={classes.faucet}>
+          <div></div>
           <div className={classes.balance}>
             Current balance is <strong>10</strong> ETH
           </div>
