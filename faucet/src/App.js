@@ -2,6 +2,7 @@ import {Fragment, useEffect, useState} from 'react'
 import classes from './css/App.module.css'
 import Web3 from 'web3'
 
+
 function App() {
 
   const [web3API,setWeb3API] = useState({
