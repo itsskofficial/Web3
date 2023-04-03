@@ -8,6 +8,8 @@ function App() {
     web3:null,
     provider:null
   })
+  
+  const [account,]
 
   useEffect(() => {
 
