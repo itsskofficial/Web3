@@ -5,7 +5,9 @@ function App() {
     <Fragment>
       <div className={classes.wrapper}>
         <div className={classes.faucet}>
-          <div className={balance}
+          <div className={classes.balance}>
+            
+          </div>
         </div>
 
       </div>
