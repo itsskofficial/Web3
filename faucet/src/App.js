@@ -10,10 +10,10 @@ function App() {
             Current balance is <strong>10</strong> ETH
           </div>
           <div className={classes.actions}>
-            <button className={classes.deposit}>
+            <button id='deposit'>
               Deposit
             </button>
-            <button className={classes.withdraw}>
+            <button id=''>
               Withdraw
             </button>
           </div>
