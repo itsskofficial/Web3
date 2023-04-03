@@ -1,8 +1,8 @@
-import fra
+
 
 function App() {
   return (
-    <Fragment
+    <Fra
   );
 }
 
