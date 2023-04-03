@@ -1,7 +1,7 @@
 //SPDX-License-Identifier: MIT
 pragma solidity >=0.8.19;
 
-import './O
+import './Owner'
 
 contract Faucet{
     uint public noOfFunders;
