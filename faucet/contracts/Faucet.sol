@@ -42,7 +42,7 @@ contract Faucet is Owner, Logger{
     }
 
     
-    function log() external returns (bytes32){
+    function log() public pure returns (bytes32){
         return "Transaction successful";
     }
 
