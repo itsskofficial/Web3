@@ -19,9 +19,8 @@ function App() {
           provider.enable()
         }
         catch {
-          
+          console.error("")
         }
-        provider.enable()
       }
       else if (window.web3){
         provider = window.web3.currentProvider
