@@ -16,7 +16,7 @@ function App() {
 
     const loadProvider = async () => {
 
-      const provider = dete
+      const provider = detectEthereumProvider()
       // let provider = null
       // if (window.ethereum){
       //   provider = window.ethereum
