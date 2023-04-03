@@ -28,4 +28,6 @@ contract Faucet{
     function getFunder(uint8 index) external view returns (address){
         return funders[index];
     }
+
+    function withdraw()
 }
