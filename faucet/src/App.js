@@ -3,6 +3,7 @@ import classes from './css/App.module.css'
 
 function App() {
 
+  useEffect(())
   const loadProvider = async () => {
     const accounts = await window.ethereum.request({method:'eth_requestAccounts'})
     console.log(accounts)
