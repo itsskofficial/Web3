@@ -16,6 +16,9 @@ function App() {
       if (window.ethereum){
         provider = window.ethereum
         try {
+          provider.enable()
+        }
+        catch {
           
         }
         provider.enable()
