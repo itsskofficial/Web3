@@ -6,7 +6,7 @@ function App() {
       <div className={classes.wrapper}>
         <div className={classes.faucet}>
           <div className={classes.balance}>
-            
+            Current balance is <strong>10</strong>
           </div>
         </div>
 
