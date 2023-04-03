@@ -42,6 +42,6 @@ contract Faucet is Owner, Logger{
     }
 
     
-    function log() external virtual returns (bytes32);
+    function log() external returns (bytes32);
 
 }
