@@ -57,7 +57,7 @@ function App() {
 
   useEffect(() => {
     const 
-  })
+  },[web3API])
 
   
   // const loadAccounts = async () => {
