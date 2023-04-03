@@ -15,6 +15,9 @@ function App() {
       let provider = null
       if (window.ethereum){
         provider = window.ethereum
+        try {
+          
+        }
         provider.enable()
       }
       else if (window.web3){
