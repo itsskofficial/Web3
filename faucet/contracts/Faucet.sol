@@ -37,12 +37,12 @@ contract Faucet is Owner, Logger{
         return funders[index];
     }
 
-    function withdraw(uint amount) external withdrawLimit() {
+    function withdraw(uint amount) external withdrawLimit(amount) {
         payable(msg.sender).transfer(amount);
     }
 
     
-    function log() public pure returns (bytes32){
+    function log() public pure override returns (bytes32){
         return "Transaction successful";
     }
 
