@@ -25,10 +25,22 @@ function App() {
 
       else if (window.web3){
         provider = window.web3.currentProvider
+        try {
+          await provider.enable()
+        }
+        catch {
+          console.error("User denied account access")
+        }
       }
         
       else if (!process.env.production){
         provider = new Web3.providers.HttpProvider("http://localhost:7545")
+        try {
+          await provider.enable()
+        }
+        catch {
+          console.error("User denied account access")
+        }
       }
 
       setWeb3API({
