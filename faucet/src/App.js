@@ -60,7 +60,6 @@ function App() {
       const account = await web3API.web3.ethereum.getAccounts()
     }
 
-
     getAccount()
 
   },[web3API])
