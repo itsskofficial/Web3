@@ -5,7 +5,7 @@ function App() {
 
   useEffect(() => {
     console.log(window.web3)
-    console.log(w)
+    console.log(window.)
   })
   const loadProvider = async () => {
     const accounts = await window.ethereum.request({method:'eth_requestAccounts'})
