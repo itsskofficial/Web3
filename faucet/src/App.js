@@ -28,7 +28,7 @@ function App() {
       else if (window.web3){
         provider = window.web3.currentProvider
         try {
-          await provider.enable()
+          await provider.request({method:''})
         }
         catch {
           console.error("User denied account access")
