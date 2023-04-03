@@ -2,7 +2,8 @@
     padding: 20px;
     background-color: #171717;
     display: flex;
-    
+    justify-content: center;
+    align-items: center;
 }
 
 .faucet{
