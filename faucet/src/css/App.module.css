@@ -24,15 +24,7 @@
     justify-content: space-between;
 }
 
-.deposit{
-    padding: 20px;
-    background-color: #171717;
-    font-family: 'Montserrat', sans-serif;
-    color: white;
-    font-size: 10px;
-}
-
-.withdraw{
+.deposit, .withdraw{
     padding: 20px;
     background-color: #171717;
     font-family: 'Montserrat', sans-serif;
