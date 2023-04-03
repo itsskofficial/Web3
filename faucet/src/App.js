@@ -47,7 +47,8 @@ function App() {
 
       console.log(web3API)
 
-    }, [])
+    }
+  }, [])
 }
 
 
