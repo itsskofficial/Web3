@@ -48,7 +48,7 @@ function App() {
       console.log(web3API)
 
     }
-  }, [])
+  }, [web3API])
 
 
   setWeb3API({
