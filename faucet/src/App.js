@@ -13,7 +13,7 @@ function App() {
             <button id='deposit'>
               Deposit
             </button>
-            <button id=''>
+            <button id='withdraw'>
               Withdraw
             </button>
           </div>
