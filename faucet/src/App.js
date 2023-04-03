@@ -53,7 +53,7 @@ function App() {
 
     loadProvider()
 
-  }, [web3API])
+  }, [])
   
   // const loadAccounts = async () => {
   //   const accounts = await window.ethereum.request({method:'eth_requestAccounts'})
