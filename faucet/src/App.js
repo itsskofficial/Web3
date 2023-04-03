@@ -4,7 +4,8 @@ import classes from './css/App.module.css'
 function App() {
 
   const loadProvider = async () => {
-    const accounts = await window.ethereum.request({method:''})
+    const accounts = await window.ethereum.request({method:'eth_requestAccounts'})
+    console.log(accounts)
   }
   return (
     <Fragment>
