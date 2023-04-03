@@ -24,7 +24,7 @@
     justify-content: space-between;
 }
 
-.deposit, .withdraw{
+.ethereum, .deposit, .withdraw{
     padding: 10px;
     background-color: #171717;
     font-family: 'Montserrat', sans-serif;
