@@ -3,7 +3,9 @@ import classes from './css/App.module.css'
 
 function App() {
 
-  const 
+  const loadProvider = async () => {
+    
+  }
   return (
     <Fragment>
       <div className={classes.wrapper}>
