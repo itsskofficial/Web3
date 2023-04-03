@@ -65,7 +65,7 @@ function App() {
 
   },[web3API])
 
-    console.log(account)
+  console.log(account)
   
   // const loadAccounts = async () => {
   //   const accounts = await window.ethereum.request({method:'eth_requestAccounts'})
