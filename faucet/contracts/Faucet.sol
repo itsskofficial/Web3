@@ -12,7 +12,9 @@ contract Faucet{
         _;
     }
 
-    modifier 
+    modifier onlyOwner(){
+        require();
+    }
 
     receive() external payable {}
 
