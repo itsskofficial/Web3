@@ -19,7 +19,7 @@ function App() {
           provider.enable()
         }
         catch {
-          console.error("")
+          console.error("User denied account access")
         }
       }
       else if (window.web3){
