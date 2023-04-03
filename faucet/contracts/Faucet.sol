@@ -4,7 +4,7 @@ pragma solidity >=0.8.19;
 import './Owner.sol';
 import './Logger.sol';
 
-contract Faucet is Owner{
+contract Faucet is Owner, Logger{
     uint public noOfFunders;
     mapping(uint=>address) public funders;
     mapping(address=>bool) public fundersExist;
