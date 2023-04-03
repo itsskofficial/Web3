@@ -55,10 +55,10 @@ function App() {
 
   }, [])
   
-  const loadAccounts = async () => {
-    const accounts = await window.ethereum.request({method:'eth_requestAccounts'})
-    console.log(accounts)
-  }
+  // const loadAccounts = async () => {
+  //   const accounts = await window.ethereum.request({method:'eth_requestAccounts'})
+  //   console.log(accounts)
+  // }
 
   return (
     <Fragment>
