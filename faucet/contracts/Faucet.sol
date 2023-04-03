@@ -13,7 +13,7 @@ contract Faucet{
     }
 
     modifier onlyOwner(){
-        require(msg.sender===owner, "");
+        require(msg.sender===owner, "Only owner can call this function");
     }
 
     receive() external payable {}
