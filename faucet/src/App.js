@@ -1,5 +1,5 @@
 import {Fragment} from 'react'
-import classes from './css/app.css'
+import classes from './css/App.module.css'
 
 function App() {
   return (
