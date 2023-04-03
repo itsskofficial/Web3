@@ -8,7 +8,7 @@ function App() {
     console.log(window.ethereum)
   }, [])
   
-  const loadProvider = async () => {
+  const loadAccounts = async () => {
     const accounts = await window.ethereum.request({method:'eth_requestAccounts'})
     console.log(accounts)
   }
