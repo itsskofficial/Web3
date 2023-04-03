@@ -48,10 +48,14 @@ function App() {
       //   }
       // }
 
-      setWeb3API({
-        web3: new Web3(provider),
-        provider:provider
-      })
+      if (provider) {
+        setWeb3API({
+          web3: new Web3(provider),
+          provider:provider
+        })
+      }
+
+      
     }
 
     loadProvider()
