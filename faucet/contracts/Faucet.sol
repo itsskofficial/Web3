@@ -7,6 +7,12 @@ contract Faucet{
     mapping(uint=>address) public funders;
     mapping(address=>bool) public fundersExist;
 
+    modifier withdrawLimit(uint amount){
+        require(amount<=1000000000000000000,"Cannot withdraw more than one ether");
+        _;
+
+    }
+
     receive() external payable {}
 
     function addFunds() external payable {
