@@ -16,7 +16,7 @@ function App() {
       if (window.ethereum){
         provider = window.ethereum
         try {
-          provider.enable()
+          await provider.enable()
         }
         catch {
           console.error("User denied account access")
