@@ -56,7 +56,7 @@ function App() {
   }, [])
 
   useEffect(() => {
-    const account = 
+    const account = Web3.
   },[web3API])
 
   
