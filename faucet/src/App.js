@@ -57,8 +57,6 @@ function App() {
       else {
         console.error("Please install Metamask")
       }
-
-      
     }
 
     loadProvider()
