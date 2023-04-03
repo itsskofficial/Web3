@@ -41,5 +41,7 @@ contract Faucet is Owner, Logger{
         payable(msg.sender).transfer(amount);
     }
 
-    function 
+    
+    function log() external virtual returns (bytes32);
+
 }
