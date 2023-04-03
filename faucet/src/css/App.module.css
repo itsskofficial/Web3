@@ -35,7 +35,7 @@
     justify-content: space-between;
 }
 
-.ethereum, .deposit, .withdraw,, .{
+.ethereum, .deposit, .withdraw,, .wallet{
     padding: 10px;
     background-color: #171717;
     font-family: 'Montserrat', sans-serif;
