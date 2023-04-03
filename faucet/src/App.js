@@ -9,7 +9,7 @@ function App() {
     provider:null
   })
   
-  const [account,]
+  const [account,setAccount] = useState(null)
 
   useEffect(() => {
 
