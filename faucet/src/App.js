@@ -42,6 +42,7 @@ function App() {
           console.error("User denied account access")
         }
       }
+    }
 
       loadProvider()
 
