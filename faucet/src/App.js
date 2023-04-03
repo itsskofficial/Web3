@@ -11,7 +11,7 @@ function App() {
           </div>
           <div className={classes.actions}>
             <button className={classes.ethereum}>
-
+              Enable Ethereum
             </button>
             <button className={classes.deposit}>
               Deposit
