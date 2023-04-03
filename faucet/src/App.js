@@ -43,17 +43,17 @@ function App() {
         }
       }
 
-      setWeb3API({
-        web3: new Web3(provider),
-        provider:provider
-      })
-    }
-
     loadProvider()
 
     console.log(web3API)
 
   }, [])
+
+  setWeb3API({
+    web3: new Web3(provider),
+    provider:provider
+  })
+}
   
   // const loadAccounts = async () => {
   //   const accounts = await window.ethereum.request({method:'eth_requestAccounts'})
