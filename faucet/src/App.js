@@ -10,6 +10,7 @@ function App() {
   })
 
   useEffect(() => {
+    
     const loadProvider = async () => {
       let provider = null
       if (window.ethereum){
@@ -21,6 +22,7 @@ function App() {
       else if (!process.env.production){
         provider = new Web3.providers.HttpProvider("http://localhost:7545")
       }
+
       setWeb3API({
         web3: new Web3(provider),
         provider:provider
