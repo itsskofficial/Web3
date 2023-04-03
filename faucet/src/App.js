@@ -51,8 +51,6 @@ function App() {
 
     loadProvider()
 
-    console.log(web3API)
-
   }, [])
   
   // const loadAccounts = async () => {
