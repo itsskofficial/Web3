@@ -49,9 +49,11 @@ function App() {
       })
     }
 
-    console.log(web3API)
+    
 
     loadProvider()
+
+    console.log(web3API)
 
   }, [])
   
