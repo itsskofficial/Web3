@@ -29,5 +29,7 @@ contract Faucet{
         return funders[index];
     }
 
-    function withdraw()
+    function withdraw() external {
+        payable(msg.sender)
+    }
 }
