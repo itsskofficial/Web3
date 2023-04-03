@@ -6,9 +6,6 @@ contract Faucet{
     mapping(uint=>address) public funders;
     mapping(address=>bool) public fundersExist;
 
-    constructor(){
-        owner=msg.sender;
-    }
 
     modifier withdrawLimit(uint amount){
         require(amount<=1000000000000000000,"Cannot withdraw more than one ether");
