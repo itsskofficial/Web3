@@ -30,7 +30,7 @@ contract Faucet{
     }
 
     function withdraw(uint amount) external {
-        if ()
+        if (amount<1)
         payable(msg.sender).transact("500000000000000000");
     }
 }
