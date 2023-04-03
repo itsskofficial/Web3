@@ -6,4 +6,7 @@ contract Owner {
     constructor(){
         owner=msg.sender;
     }
+    modifier onlyOwner(){
+        require(msg.sender===owner, "Only owner can call this function");
+    }
 }
