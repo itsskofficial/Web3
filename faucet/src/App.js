@@ -50,7 +50,7 @@ function App() {
           <div className={classes.account}>
             Account : {account ? account :
               <button className={classes.wallet} onClick={() => {
-                provider.request
+                provider.request({method:'eth_requestAccounts'})
               }}>
                 Connect Wallet   
             </button>}
