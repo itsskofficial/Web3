@@ -3,8 +3,11 @@ import {Fragment} from "react"
 function App() {
   return (
     <Fragment>
-      <div>
-        
+      <div className={classes.wrapper}>
+        <div>
+          
+        </div>
+
       </div>
     </Fragment>
   );
