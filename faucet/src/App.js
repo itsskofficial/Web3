@@ -43,12 +43,6 @@ function App() {
 
   },[web3API])
 
-  
-  // const loadAccounts = async () => {
-  //   const accounts = await window.ethereum.request({method:'eth_requestAccounts'})
-  //   console.log(accounts)
-  // }
-
   return (
     <Fragment>
       <div className={classes.wrapper}>
