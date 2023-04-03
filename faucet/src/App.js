@@ -84,8 +84,9 @@ function App() {
       <div className={classes.wrapper}>
         <div className={classes.faucet}>
           <div className={classes.account}>
-            Account : {account ? account : <button className={classes.wallet}>
-              
+            Account : {account ? account :
+              <button className={classes.wallet}>
+                
             </button>}
           </div>
           <div className={classes.balance}>
