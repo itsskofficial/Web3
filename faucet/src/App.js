@@ -13,7 +13,7 @@ function App() {
             <button className={classes.deposit}>
               Deposit
             </button>
-            <button>
+            <button className={classes.withdraw}>
               Withdraw
             </button>
           </div>
