@@ -4,16 +4,16 @@ import Web3 from 'web3'
 
 function App() {
 
-  const [web3API,setWeb3API] = useState({
-    web3:null,
-    provider:null
+  const [web3API, setWeb3API] = useState({
+    web3: null,
+    provider: null
   })
 
   useEffect(() => {
 
     const loadProvider = async () => {
       let provider = null
-      if (window.ethereum){
+      if (window.ethereum) {
         provider = window.ethereum
         try {
           await provider.enable()
@@ -23,7 +23,7 @@ function App() {
         }
       }
 
-      else if (window.web3){
+      else if (window.web3) {
         provider = window.web3.currentProvider
         try {
           await provider.enable()
@@ -33,7 +33,7 @@ function App() {
         }
       }
         
-      else if (!process.env.production){
+      else if (!process.env.production) {
         provider = new Web3.providers.HttpProvider("http://localhost:7545")
         try {
           await provider.enable()
@@ -43,17 +43,18 @@ function App() {
         }
       }
 
-    loadProvider()
+      loadProvider()
 
-    console.log(web3API)
+      console.log(web3API)
 
-  }, [])
+    }, [])
+}
 
   setWeb3API({
     web3: new Web3(provider),
     provider:provider
   })
-}
+
   
   // const loadAccounts = async () => {
   //   const accounts = await window.ethereum.request({method:'eth_requestAccounts'})
