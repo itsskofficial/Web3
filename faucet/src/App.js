@@ -49,7 +49,6 @@ function App() {
 
     }
   }, [])
-}
 
 
   setWeb3API({
