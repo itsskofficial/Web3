@@ -3,7 +3,6 @@ pragma solidity >=0.8.19;
 
 contract Faucet{
     uint public noOfFunders;
-    address owner;
     mapping(uint=>address) public funders;
     mapping(address=>bool) public fundersExist;
 
