@@ -28,7 +28,7 @@ function App() {
       else if (window.web3){
         provider = window.web3.currentProvider
         try {
-          await provider.request({method:''})
+          await provider.request({method:'eth_requestAccounts'})
         }
         catch {
           console.error("User denied account access")
