@@ -30,11 +30,11 @@ contract Faucet{
     }
 
     modifier withdrawLimit(uint amount){
-        require(());
+                require(amount<=1000000000000000000,"Cannot withdraw more than one ether");
+
     }
 
     function withdraw(uint amount) external {
-        require(amount<=1000000000000000000,"Cannot withdraw more than one ether");
         payable(msg.sender).transfer(amount);
     }
 }
