@@ -86,7 +86,7 @@ function App() {
           <div className={classes.account}>
             Account : {account ? account :
               <button className={classes.wallet} onClick={() => {
-                
+                provide
               }}>
                 Connect Wallet   
             </button>}
