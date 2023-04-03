@@ -8,7 +8,7 @@ contract Faucet{
     mapping(address=>bool) public fundersExist;
 
     constructor(){
-        
+        owner=msg.sender;
     }
 
     modifier withdrawLimit(uint amount){
