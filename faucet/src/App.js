@@ -15,36 +15,36 @@ function App() {
   useEffect(() => {
 
     const loadProvider = async () => {
-      let provider = null
-      if (window.ethereum){
-        provider = window.ethereum
-        try {
-          await provider.enable()
-        }
-        catch {
-          console.error("User denied account access")
-        }
-      }
+      //let provider = null
+      // if (window.ethereum){
+      //   provider = window.ethereum
+      //   try {
+      //     await provider.enable()
+      //   }
+      //   catch {
+      //     console.error("User denied account access")
+      //   }
+      // }
 
-      else if (window.web3){
-        provider = window.web3.currentProvider
-        try {
-          await provider.request({method:'eth_requestAccounts'})
-        }
-        catch {
-          console.error("User denied account access")
-        }
-      }
+      // else if (window.web3){
+      //   provider = window.web3.currentProvider
+      //   try {
+      //     await provider.request({method:'eth_requestAccounts'})
+      //   }
+      //   catch {
+      //     console.error("User denied account access")
+      //   }
+      // }
         
-      else if (!process.env.production){
-        provider = new Web3.providers.HttpProvider("http://localhost:7545")
-        try {
-          await provider.enable()
-        }
-        catch {
-          console.error("User denied account access")
-        }
-      }
+      // else if (!process.env.production){
+      //   provider = new Web3.providers.HttpProvider("http://localhost:7545")
+      //   try {
+      //     await provider.enable()
+      //   }
+      //   catch {
+      //     console.error("User denied account access")
+      //   }
+      // }
 
       setWeb3API({
         web3: new Web3(provider),
