@@ -50,7 +50,7 @@ function App() {
           <div className={classes.account}>
             Account : {account ? account :
               <button className={classes.wallet} onClick={() => {
-                provide
+                provider.request
               }}>
                 Connect Wallet   
             </button>}
