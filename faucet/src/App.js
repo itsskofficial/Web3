@@ -15,7 +15,9 @@ function App() {
   useEffect(() => {
 
     const loadProvider = async () => {
-      //let provider = null
+
+      
+      // let provider = null
       // if (window.ethereum){
       //   provider = window.ethereum
       //   try {
