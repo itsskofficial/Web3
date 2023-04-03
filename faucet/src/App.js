@@ -11,7 +11,10 @@ function App() {
           </div>
           <div className={classes.actions}>
             <button>
-              
+              Deposit
+            </button>
+            <button>
+              Withdraw
             </button>
           </div>
         </div>
