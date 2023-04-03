@@ -1,4 +1,4 @@
-import {Fragment, useEffect} from 'react'
+import {Fragment, useEffect, useState} from 'react'
 import classes from './css/App.module.css'
 import Web3 from 'web3'
 
