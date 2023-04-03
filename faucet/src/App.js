@@ -10,11 +10,12 @@ function App() {
   })
 
   useEffect(() => {
-    
+
     const loadProvider = async () => {
       let provider = null
       if (window.ethereum){
         provider = window.ethereum
+        provider.enable()
       }
       else if (window.web3){
         provider = window.web3.currentProvider
