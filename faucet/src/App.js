@@ -69,7 +69,7 @@ function App() {
     toggleUpdateBalance()
   }, [web3API, account, toggleUpdateBalance])
 
-  const withdraw = () => useCallback({
+  const withdraw = useCallback((){=
     const { contract, web3 } = web3API
     contract.withdraw({
       from: account,
