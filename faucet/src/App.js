@@ -51,7 +51,7 @@ function App() {
   useEffect(() => {
     const loadBalance = async () => {
       const {contract, web3} = web3API
-      const balance=await web3.et
+      const balance=await web3.eth.
     }
   })
 
