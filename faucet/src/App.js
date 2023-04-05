@@ -131,7 +131,7 @@ function App() {
             Current balance is <strong>{balance}</strong> ETH
           </div>
           <div className={classes.actions}>
-            <button className={classes.deposit} onClick={addFunds} disabled={!account}>
+            <button className={classes.deposit} onClick={addFunds} disabled={!account && }>
               Deposit
             </button>
             <button className={classes.withdraw} onClick={withdraw} disabled={!account}>
