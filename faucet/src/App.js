@@ -60,7 +60,7 @@ function App() {
       from: account,
       value: web3.utils.toWei('1', 'ether')
     })
-  })
+  }, [web3API, account])
 
   return (
     <Fragment>
