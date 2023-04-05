@@ -51,7 +51,7 @@ function App() {
       setBalance(web3.utils.fromWei(balance, 'ether'))
     }
 
-    loadBalance()
+    web3APIloadBalance()
   })
 
   const addFunds = useCallback(() => {
