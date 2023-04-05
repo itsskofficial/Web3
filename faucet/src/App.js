@@ -51,8 +51,8 @@ function App() {
       setBalance(web3.utils.fromWei(balance, 'ether'))
     }
 
-    web3APIloadBalance()
-  })
+    web3API.contract && loadBalance()
+  }, [])
 
   const addFunds = useCallback(() => {
     const { contract, web3 } = web3API
