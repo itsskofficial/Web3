@@ -100,6 +100,9 @@ function App() {
               !web3API.provider ?
                 <div>
                   Wallet Not Connected
+                  <a>
+                    Install Metamask
+                  </a>
               <button className={classes.wallet} onClick={() => {
                 web3API.provider.request({method:'eth_requestAccounts'})
               }}>
