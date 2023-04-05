@@ -12,7 +12,8 @@ function App() {
     contract:null
   })
   
-  const [account,setAccount] = useState(null)
+  const [account, setAccount] = useState(null)
+  const 
 
   useEffect(() => {
 
