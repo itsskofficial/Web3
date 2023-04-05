@@ -1,1 +1,3 @@
-const load
+const loadContract = (name) => {
+    
+}
