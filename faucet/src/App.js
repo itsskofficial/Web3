@@ -48,7 +48,7 @@ function App() {
         })
       }
       else {
-        console.error("Please install Metamask")
+        console.error("Metamask is specifically used for this application. So please install Metamask")
       }
     }
 
