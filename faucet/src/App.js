@@ -132,7 +132,7 @@ function App() {
           </div>
           {!networkConnected && <p>
             Please connect to Ganache
-            <p>
+            </p>
           }
           <div className={classes.actions}>
             <button className={classes.deposit} onClick={addFunds} disabled={account && networkConnected}>
