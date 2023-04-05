@@ -34,26 +34,27 @@ function App() {
   }
 
   useEffect(() => {
-      const loadProvider = async () => {
+    const loadProvider = async () => {
       const provider = await detectEthereumProvider()
       const contract = await loadContract('Faucet', provider)
 
-        if (provider) {
+      if (provider) {
         changeAccountListener(provider)
         setWeb3API({
           web3: new Web3(provider),
           provider: provider,
           contract: contract,
-          isProviderLoaded:true
+          isProviderLoaded: true
         })
       }
-        else {
-          setWeb3API((web3API) => {
-            return {}
-            
+      else {
+        setWeb3API((web3API) => {
+          return {}
+
             ...web3API,
-            isProviderLoaded:true
-          })
+          isProviderLoaded: true
+          }
+    })
         console.error("Metamask is specifically used for this application. So please install Metamask")
       }
     }
