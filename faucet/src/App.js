@@ -58,6 +58,10 @@ function App() {
     loadBalance()
   })
 
+  const addFunds = () => {
+    
+  }
+
   return (
     <Fragment>
       <div className={classes.wrapper}>
