@@ -119,10 +119,9 @@ function App() {
             </button>}
               </div> :
               <span>
-                
+                Looking for Web3 provider...
               </span>
             }
-            
           </div>
           <div className={classes.balance}>
             Current balance is <strong>{balance}</strong> ETH
