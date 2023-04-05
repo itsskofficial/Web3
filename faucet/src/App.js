@@ -97,6 +97,7 @@ function App() {
         <div className={classes.faucet}>
           <div className={classes.account}>
             Account : {account ? account :
+               
               <button className={classes.wallet} onClick={() => {
                 web3API.provider.request({method:'eth_requestAccounts'})
               }}>
