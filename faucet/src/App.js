@@ -48,6 +48,10 @@ function App() {
 
   },[web3API])
 
+  useEffect(() => {
+    
+  })
+
   return (
     <Fragment>
       <div className={classes.wrapper}>
