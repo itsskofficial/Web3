@@ -103,7 +103,7 @@ function App() {
         <div className={classes.faucet}>
           <div className={classes.account}>
             {web3API.isProviderLoaded ? 
-            }
+            <di}
             Account : {account ? account :
               !web3API.provider ?
                 <div className={classes.wallet}>
