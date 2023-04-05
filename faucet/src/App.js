@@ -131,8 +131,9 @@ function App() {
             Current balance is <strong>{balance}</strong> ETH
           </div>
           {!networkConnected && <p>
-            Please connect to Ganache}
-          <p>
+            Please connect to Ganache
+            <p>
+          }
           <div className={classes.actions}>
             <button className={classes.deposit} onClick={addFunds} disabled={account && networkConnected}>
               Deposit
