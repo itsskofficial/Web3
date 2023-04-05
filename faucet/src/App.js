@@ -31,6 +31,7 @@ function App() {
         console.error("Please install Metamask")
       }
     }
+
     loadProvider()
   }, [])
 
@@ -39,6 +40,7 @@ function App() {
       const accounts = await web3API.web3.eth.getAccounts()
       setAccount(accounts[0])
     }
+    
     getAccount()
   },[web3API])
 
