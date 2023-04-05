@@ -1,4 +1,4 @@
-import {Fragment, useEffect, useState} from 'react'
+import {Fragment, useCallback, useEffect, useState} from 'react'
 import classes from './css/App.module.css'
 import Web3 from 'web3'
 import detectEthereumProvider from '@metamask/detect-provider'
@@ -40,7 +40,7 @@ function App() {
       const accounts = await web3API.web3.eth.getAccounts()
       setAccount(accounts[0])
     }
-    
+
     getAccount()
   },[web3API])
 
@@ -54,13 +54,13 @@ function App() {
     loadBalance()
   })
 
-  const addFunds = () => {
+  const addFunds = useCallback(() => {
     const { contract, web3 } = web3API
     contract.addFunds({
       from: account,
       value: web3.utils.toWei('1', 'ether')
     })
-  }
+  })
 
   return (
     <Fragment>
