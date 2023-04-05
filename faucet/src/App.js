@@ -98,7 +98,7 @@ function App() {
           <div className={classes.account}>
             Account : {account ? account :
               !web3API.provider ?
-                <div>
+                <div className={classes.wallet}>
                   Wallet Not Connected
                   <a href='https://docs.metamask.io'>
                     Install Metamask
