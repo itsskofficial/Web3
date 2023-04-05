@@ -49,8 +49,7 @@ function App() {
       }
       else {
         setWeb3API((web3API) => {
-          return {}
-
+          return {
             ...web3API,
           isProviderLoaded: true
           }
