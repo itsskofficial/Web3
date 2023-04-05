@@ -117,6 +117,8 @@ function App() {
               }}>
                 Connect Wallet   
             </button>}
+              </div> :
+              
             }
             
           </div>
