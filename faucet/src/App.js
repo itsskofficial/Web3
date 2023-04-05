@@ -71,7 +71,7 @@ function App() {
 
   const withdraw = () => {
     const { contract, web3 } = web3API
-    
+    contract.withdraw()
   }
 
   return (
