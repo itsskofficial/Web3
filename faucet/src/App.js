@@ -17,7 +17,7 @@ function App() {
   const [balance, setBalance] = useState(null)
   const [updateBalance, setUpdateBalance] = useState(false)
   
-  const can
+  const c
 
   const toggleUpdateBalance = useCallback(() => {
     setUpdateBalance(!updateBalance)
