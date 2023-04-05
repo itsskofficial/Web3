@@ -104,7 +104,6 @@ function App() {
           <div className={classes.account}>
             {web3API.isProviderLoaded ? 
             <div>
-            }
             Account : {account ? account :
               !web3API.provider ?
                 <div className={classes.wallet}>
@@ -118,6 +117,8 @@ function App() {
               }}>
                 Connect Wallet   
             </button>}
+            }
+            
           </div>
           <div className={classes.balance}>
             Current balance is <strong>{balance}</strong> ETH
