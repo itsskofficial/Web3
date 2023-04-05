@@ -134,7 +134,7 @@ function App() {
             <button className={classes.deposit} onClick={addFunds} disabled={!account && !networkConnected}>
               Deposit
             </button>
-            <button className={classes.withdraw} onClick={withdraw} disabled={!account}>
+            <button className={classes.withdraw} onClick={withdraw} disabled={!account && !networkConnected}>
               Withdraw
             </button>
           </div>
