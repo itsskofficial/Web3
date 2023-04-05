@@ -60,11 +60,10 @@ function App() {
 
   const addFunds = () => {
     const { contract, web3 } = web3API
-    const funds = contract.addFunds({
+    contract.addFunds({
       from: account,
       value: web3.utils.toWei('1', 'ether')
     })
-    
   }
 
   return (
