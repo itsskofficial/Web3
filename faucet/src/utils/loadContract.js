@@ -5,3 +5,5 @@ const loadContract = async (name) => {
         contract : Artifact
     }
 }
+
+export default loadContract
