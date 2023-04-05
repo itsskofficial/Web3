@@ -18,7 +18,11 @@ function App() {
 
   const toggleUpdateBalance = useCallback(() => {
     setUpdateBalance(!updateBalance)
-  },[updateBalance])
+  }, [updateBalance])
+  
+  const changeAccountListener = () => {
+    
+  }
 
   useEffect(() => {
       const loadProvider = async () => {
