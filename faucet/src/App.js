@@ -70,7 +70,8 @@ function App() {
   }, [web3API, account, toggleUpdateBalance])
 
   const withdraw = () => {
-    const {contract, web3}
+    const { contract, web3 } = web3API
+    
   }
 
   return (
