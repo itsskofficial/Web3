@@ -8,7 +8,8 @@ function App() {
 
   const [web3API,setWeb3API] = useState({
     web3:null,
-    provider:null
+    provider:null,
+    contract:null
   })
   
   const [account,setAccount] = useState(null)
