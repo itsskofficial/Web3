@@ -22,7 +22,7 @@ function App() {
   
   const changeAccountListener = (provider) => {
     provider.on('accountsChanged', accounts => setAccount(accounts[0]))
-    provider._jsonRpcConnection.events.on('notification', (method) => {
+    provider._jsonRpcConnection.events.on('notification', (payload) => {
 
     })
   }
