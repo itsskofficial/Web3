@@ -16,10 +16,8 @@ function App() {
   const [balance, setBalance] = useState(null)
   const [updateBalance, setUpdateBalance] = useState(false)
 
-  const 
-
   useEffect(() => {
-    const loadProvider = async () => {
+      const loadProvider = async () => {
       const provider = await detectEthereumProvider()
       const contract = await loadContract('Faucet', provider)
 
