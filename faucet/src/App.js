@@ -28,6 +28,8 @@ function App() {
     //     setAccount(null)
     //   }
     // })
+
+    provider.on('accountsChanged', accounts => setAccount(accounts[0]))
   }
 
   useEffect(() => {
