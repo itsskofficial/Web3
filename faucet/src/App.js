@@ -49,8 +49,8 @@ function App() {
   },[web3API])
 
   useEffect(() => {
-    const loadBalance = () => {
-      const balance=await 
+    const loadBalance = async () => {
+      const balance=await web3.et
     }
   })
 
