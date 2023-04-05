@@ -29,7 +29,7 @@ function App() {
     //   }
     // })
 
-    provider.on('accountsChanged', accounts => setAccount(accounts[0]))
+    provider.on('accountsChanged', _ => window.location.reload())
   }
 
   useEffect(() => {
