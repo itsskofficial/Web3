@@ -24,7 +24,7 @@ function App() {
     provider.on('accountsChanged', accounts => setAccount(accounts[0]))
     provider._jsonRpcConnection.events.on('notification', (payload) => {
       const method = { payload }
-      
+      if (method==='metamask')
     })
   }
 
