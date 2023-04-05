@@ -70,7 +70,7 @@ function App() {
 
   const withdraw = useCallback(async () => {
     const { contract, web3 } = web3API
-    await contract.withdraw({
+    await contract.withdraw(amount,{
       from: account,
       value:web3.utils.toWei('1', 'ether')
     })
