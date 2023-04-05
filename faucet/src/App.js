@@ -50,6 +50,7 @@ function App() {
 
   useEffect(() => {
     const loadBalance = async () => {
+      const {contract, web3}
       const balance=await web3.et
     }
   })
