@@ -71,7 +71,10 @@ function App() {
 
   const withdraw = () => {
     const { contract, web3 } = web3API
-    contract.withdraw()
+    contract.withdraw({
+      from: account,
+      value:web3.utils.toWei('1')
+    })
   }
 
   return (
