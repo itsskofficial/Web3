@@ -103,7 +103,7 @@ function App() {
                   <a href='https://docs.metamask.io'>
                     Install Metamask
                   </a>
-                </div>
+                </div> :
               <button className={classes.wallet} onClick={() => {
                 web3API.provider.request({method:'eth_requestAccounts'})
               }}>
