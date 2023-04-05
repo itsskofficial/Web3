@@ -5,7 +5,7 @@ const loadContract = async (name, provider) => {
     const Artifact = await res.json()
     const abstraction = contract(Artifact)
     abstraction.setProvider(provider)
-    const awa
+    const deployedContract = 
 }
 
 export default loadContract
