@@ -70,10 +70,9 @@ function App() {
 
   const withdraw = useCallback(async () => {
     const { contract, web3 } = web3API
-    const amount = value:web3.utils.toWei('1', 'ether')
+    const amount = web3.utils.toWei('1', 'ether')
     await contract.withdraw(amount,{
       from: account,
-      
     })
 
     toggleUpdateBalance()
