@@ -14,7 +14,7 @@ function App() {
   
   const [account, setAccount] = useState(null)
   const [balance, setBalance] = useState(null)
-  const [up]
+  const [updateBalance, setUpdateBalance] = useState(false)
 
   useEffect(() => {
     const loadProvider = async () => {
