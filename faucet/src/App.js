@@ -59,6 +59,7 @@ function App() {
   })
 
   const addFunds = () => {
+    const { contract, web3 } = web3API
     
   }
 
