@@ -1,3 +1,5 @@
+import contrac
+
 const loadContract = async (name) => {
     const res = await fetch(`/contracts/${name}.json`)
     const Artifact = await res.json()
