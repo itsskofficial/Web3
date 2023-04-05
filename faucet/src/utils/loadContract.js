@@ -5,6 +5,7 @@ const loadContract = async (name, provider) => {
     const Artifact = await res.json()
     const abstraction = contract(Artifact)
     abstraction.setProvider(provider)
+    let deployedContract = null
     const deployedContract = await abstraction.deployed()
     return deployedContract
 }
