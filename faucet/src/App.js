@@ -71,7 +71,7 @@ function App() {
             </button>}
           </div>
           <div className={classes.balance}>
-            Current balance is <strong>10</strong> ETH
+            Current balance is <strong>{balance}</strong> ETH
           </div>
           <div className={classes.actions}>
             <button className={classes.deposit}>
