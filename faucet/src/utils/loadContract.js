@@ -1,4 +1,4 @@
-import contrac
+import contract from '@truffle/contract'
 
 const loadContract = async (name) => {
     const res = await fetch(`/contracts/${name}.json`)
