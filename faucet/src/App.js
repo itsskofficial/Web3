@@ -69,6 +69,8 @@ function App() {
     toggleUpdateBalance()
   }, [web3API, account, toggleUpdateBalance])
 
+  const withdraw = ()
+
   return (
     <Fragment>
       <div className={classes.wrapper}>
