@@ -33,7 +33,7 @@ function App() {
     // })
 
     provider.on('accountsChanged', _ => window.location.reload())
-    provider.on('accountsChanged', _ => window.location.reload())
+    provider.on('chainChanged', _ => window.location.reload())
   }
 
   useEffect(() => {
