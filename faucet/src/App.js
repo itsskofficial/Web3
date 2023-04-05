@@ -99,7 +99,7 @@ function App() {
             Account : {account ? account :
               !web3API.provider ?
                 <div>
-                  
+                  Wallet Not Connected
               <button className={classes.wallet} onClick={() => {
                 web3API.provider.request({method:'eth_requestAccounts'})
               }}>
