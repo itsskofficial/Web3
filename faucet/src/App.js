@@ -61,7 +61,7 @@ function App() {
 
   const addFunds = useCallback(() => {
     const { contract, web3 } = web3API
-    contract.addFunds({
+    await contract.addFunds({
       from: account,
       value: web3.utils.toWei('1', 'ether')
     })
