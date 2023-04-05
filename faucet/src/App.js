@@ -47,7 +47,13 @@ function App() {
           isProviderLoaded:true
         })
       }
-      else {
+        else {
+          setWeb3API({
+            web3: new Web3(provider),
+            provider: provider,
+            contract: contract,
+            isProviderLoaded:true
+          })
         console.error("Metamask is specifically used for this application. So please install Metamask")
       }
     }
