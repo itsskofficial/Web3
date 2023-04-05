@@ -49,7 +49,7 @@ function App() {
       }
         else {
           setWeb3API({
-            ...,
+            ...web3API,
             isProviderLoaded:true
           })
         console.error("Metamask is specifically used for this application. So please install Metamask")
