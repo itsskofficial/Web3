@@ -50,7 +50,7 @@ function App() {
 
   useEffect(() => {
     const loadBalance = () => {
-      const balance
+      const balance=await 
     }
   })
 
