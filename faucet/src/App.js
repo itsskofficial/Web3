@@ -52,7 +52,7 @@ function App() {
     }
 
     web3API.contract && loadBalance()
-  }, [])
+  }, [web3API])
 
   const addFunds = useCallback(() => {
     const { contract, web3 } = web3API
