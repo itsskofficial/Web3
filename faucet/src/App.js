@@ -17,7 +17,7 @@ function App() {
   const [updateBalance, setUpdateBalance] = useState(false)
 
   const toggleUpdateBalance = () => {
-    set
+    setUpdateBalance(!updateBalance)
   }
 
   useEffect(() => {
@@ -67,7 +67,7 @@ function App() {
     })
 
     toggleUpdateBalance()
-  }, [web3API, account])
+  }, [web3API, account, toggleUpdateBalance])
 
   return (
     <Fragment>
