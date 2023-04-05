@@ -8,4 +8,4 @@ const loadContract = async (name, provider) => {
     const deployedContract = await abstraction.deployed()
 }
 
-export default deploye
+export default loadContract
