@@ -13,7 +13,7 @@ function App() {
   })
   
   const [account, setAccount] = useState(null)
-  const 
+  const [balance, setBalance] = useState(null)
 
   useEffect(() => {
 
