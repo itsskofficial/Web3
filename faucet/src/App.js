@@ -16,6 +16,10 @@ function App() {
   const [balance, setBalance] = useState(null)
   const [updateBalance, setUpdateBalance] = useState(false)
 
+  const toggleUpdateBalance = () => {
+    set
+  }
+
   useEffect(() => {
       const loadProvider = async () => {
       const provider = await detectEthereumProvider()
