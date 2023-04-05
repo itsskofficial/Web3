@@ -130,6 +130,7 @@ function App() {
           <div className={classes.balance}>
             Current balance is <strong>{balance}</strong> ETH
           </div>
+          {!networkConnected? }
           <p></p>
           <div className={classes.actions}>
             <button className={classes.deposit} onClick={addFunds} disabled={account && networkConnected}>
