@@ -62,7 +62,7 @@ function App() {
       value: web3.utils.toWei('1', 'ether')
     })
 
-    setUpdateBalance(!updateBalance)
+    toggleUpdateBalance()
   }, [web3API, account])
 
   return (
