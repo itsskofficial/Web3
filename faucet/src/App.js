@@ -62,7 +62,7 @@ function App() {
     const { contract, web3 } = web3API
     const funds = contract.addFunds({
       from: account,
-      value: 
+      value: web3.utils.toWei
     })
   }
 
