@@ -1,3 +1,4 @@
 const loadContract = (name) => {
-    await fetch(`/contracts/${name}.json`)
+    const res = await fetch(`/contracts/${name}.json`)
+    const 
 }
