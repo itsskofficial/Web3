@@ -67,7 +67,7 @@ function App() {
     })
 
     toggleUpdateBalance()
-  }, [web3API, account, toggleUpdateBalance])
+  }, [web3API, account])
 
   return (
     <Fragment>
