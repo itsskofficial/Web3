@@ -26,7 +26,7 @@ function App() {
       const contract = await loadContract('Faucet', provider)
 
         if (provider) {
-        set
+        changeAccountListener(provider)
         setWeb3API({
           web3: new Web3(provider),
           provider: provider,
