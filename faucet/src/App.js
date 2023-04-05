@@ -49,7 +49,9 @@ function App() {
   },[web3API])
 
   useEffect(() => {
-    
+    const loadBalance = () => {
+      
+    }
   })
 
   return (
