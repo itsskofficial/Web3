@@ -77,7 +77,7 @@ function App() {
     })
 
     toggleUpdateBalance()
-  },[]
+  },[web3API]
 
   return (
     <Fragment>
