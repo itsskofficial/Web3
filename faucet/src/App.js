@@ -77,7 +77,7 @@ function App() {
     })
 
     toggleUpdateBalance()
-  }
+  },[]
 
   return (
     <Fragment>
