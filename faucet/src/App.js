@@ -98,7 +98,7 @@ function App() {
             <button className={classes.deposit} onClick={addFunds}>
               Deposit
             </button>
-            <button className={classes.withdraw}>
+            <button className={classes.withdraw} onClick={withdraw}>
               Withdraw
             </button>
           </div>
