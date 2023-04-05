@@ -59,7 +59,7 @@ function App() {
     web3API.contract && loadBalance()
   }, [web3API, updateBalance])
 
-  const addFunds = useCallback(() => {
+  const addFunds = useCallback(async () => {
     const { contract, web3 } = web3API
     await contract.addFunds({
       from: account,
@@ -68,7 +68,7 @@ function App() {
     toggleUpdateBalance()
   }, [web3API, account, toggleUpdateBalance])
 
-  const withdraw = useCallback(async ()) => {
+  const withdraw = useCallback(async () => {
     const { contract, web3 } = web3API
     await contract.withdraw({
       from: account,
