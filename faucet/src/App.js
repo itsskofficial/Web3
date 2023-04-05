@@ -16,9 +16,9 @@ function App() {
   const [balance, setBalance] = useState(null)
   const [updateBalance, setUpdateBalance] = useState(false)
 
-  const toggleUpdateBalance = () => {
+  const toggleUpdateBalance = useCallback(() => {
     setUpdateBalance(!updateBalance)
-  }
+  })
 
   useEffect(() => {
       const loadProvider = async () => {
