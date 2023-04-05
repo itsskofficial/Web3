@@ -25,7 +25,8 @@ function App() {
       const provider = await detectEthereumProvider()
       const contract = await loadContract('Faucet', provider)
 
-      if (provider) {
+        if (provider) {
+        set
         setWeb3API({
           web3: new Web3(provider),
           provider: provider,
