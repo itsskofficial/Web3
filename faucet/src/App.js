@@ -17,7 +17,7 @@ function App() {
   const [balance, setBalance] = useState(null)
   const [updateBalance, setUpdateBalance] = useState(false)
   
-  const networkConnected = account && web3API.
+  const networkConnected = account && web3API.contract
 
   const toggleUpdateBalance = useCallback(() => {
     setUpdateBalance(!updateBalance)
