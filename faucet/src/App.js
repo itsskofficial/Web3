@@ -43,7 +43,7 @@ function App() {
           web3: new Web3(provider),
           provider: provider,
           contract: contract,
-          
+          isProviderLoaded:false
         })
       }
       else {
