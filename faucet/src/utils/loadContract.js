@@ -6,6 +6,7 @@ const loadContract = async (name, provider) => {
     const abstraction = contract(Artifact)
     abstraction.setProvider(provider)
     const deployedContract = await abstraction.deployed()
+    return deployedContract
 }
 
 export default loadContract
