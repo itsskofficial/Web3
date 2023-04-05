@@ -69,7 +69,9 @@ function App() {
     toggleUpdateBalance()
   }, [web3API, account, toggleUpdateBalance])
 
-  const withdraw = ()
+  const withdraw = () => {
+    const {contract, web3}
+  }
 
   return (
     <Fragment>
