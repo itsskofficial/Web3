@@ -100,7 +100,7 @@ function App() {
               !web3API.provider ?
                 <div>
                   Wallet Not Connected
-                  <a href='https://'>
+                  <a href='https://docs.metamask.io'>
                     Install Metamask
                   </a>
               <button className={classes.wallet} onClick={() => {
