@@ -20,8 +20,8 @@ function App() {
     setUpdateBalance(!updateBalance)
   }, [updateBalance])
   
-  const changeAccountListener = () => {
-    provider.on('accountsChanged', account => setAccount(accounts[0]))
+  const changeAccountListener = (provider) => {
+    provider.on('accountsChanged', accounts => setAccount(accounts[0]))
   }
 
   useEffect(() => {
