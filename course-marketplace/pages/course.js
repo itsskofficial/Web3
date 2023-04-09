@@ -10,6 +10,9 @@ export default function Course() {
 
   return (
     <BaseLayout>
+      <div>
+        
+      </div>
       <CourseHero />
       <Keypoints />
       <Curriculum />
