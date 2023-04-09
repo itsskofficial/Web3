@@ -13,7 +13,6 @@ export default function Course() {
       <div className="py-4">
         <CourseHero/>
       </div>
-      <CourseHero />
       <Keypoints />
       <Curriculum />
       <Modal />
