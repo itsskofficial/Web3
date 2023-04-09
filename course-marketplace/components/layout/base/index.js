@@ -1,4 +1,4 @@
-import { Navbar } from "@components/common";
+import { Footer, Navbar } from "@components/common";
 import { Fragment } from "react";
 
 export default function BaseLayout(props) {
