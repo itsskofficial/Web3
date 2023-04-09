@@ -10,7 +10,7 @@ export default function Course() {
 
   return (
     <BaseLayout>
-      <div className="">
+      <div className="py-4">
         <CourseHero/>
       </div>
       <CourseHero />
