@@ -1,6 +1,6 @@
 import { Fragment } from 'react'
 
-const Home() {
+const Home = () => {
   return (
     <Fragment>
       <h1>
