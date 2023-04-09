@@ -8,7 +8,11 @@ export default function Home() {
   return (
       <BaseLayout>
         <Hero />
-           Q
+        <Breadcrumbs />
+        <WalletBar />
+        <EthRates />
+        <OrderCard />
+        <CourseList />
       </BaseLayout>
         <div className="relative max-w-7xl mx-auto px-4">
           <Navbar />
