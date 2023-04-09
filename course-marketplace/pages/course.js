@@ -10,8 +10,8 @@ export default function Course() {
 
   return (
     <BaseLayout>
-      <div>
-        
+      <div className="">
+        <CourseHero/>
       </div>
       <CourseHero />
       <Keypoints />
