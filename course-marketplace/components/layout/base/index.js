@@ -5,7 +5,8 @@ export default function BaseLayout(props) {
         <Fragment>
             <div className="relative max-w-7xl mx-auto px-4">
                 <Navbar />
-                    <div className="fit">
+                <div className="fit">
+                    
                     </div>
                 </div>
             <Footer />
