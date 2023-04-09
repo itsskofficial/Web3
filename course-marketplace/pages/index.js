@@ -1,6 +1,6 @@
 import { Fragment } from 'react'
 
-export default function Home() {
+const Home = () {
   return (
     <Fragment>
       <h1>
