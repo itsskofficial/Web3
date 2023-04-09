@@ -10,11 +10,10 @@ export default function Course() {
 
   return (
     <BaseLayout>
-      
-    </BaseLayout>
       <CourseHero />
       <Keypoints />
       <Curriculum />
       <Modal />
+    </BaseLayout>  
   )
 }
