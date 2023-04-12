@@ -28,7 +28,7 @@ export function getStaticPaths() {
   return {
     paths: data.map(c => ({
       params: {
-        slug: c.slug
+        course: c.slug
       }
     })),
     fallback: false
@@ -38,7 +38,7 @@ export function getStaticPaths() {
 
 export function getStaticProps({params}) {
   const { data } = getAllCourses()
-  const course = data.filter(c => c.slug === params.slug)[0]
+  const course = data.filter(c => c.slug === params.c)[0]
 
   return {
     props: {
