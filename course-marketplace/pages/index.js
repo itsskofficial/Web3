@@ -12,3 +12,7 @@ export default function Home() {
       </BaseLayout>
   )
 }
+
+export function getStaticProps() {
+  
+}
