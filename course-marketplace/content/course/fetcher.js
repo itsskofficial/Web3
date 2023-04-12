@@ -1,6 +1,6 @@
 const fetchCourseData = () => {
     return (
         data: courses,
-        courseMap
+        courseMap : courses.reduce((a,c,i))
     )
 }
