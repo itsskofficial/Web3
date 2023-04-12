@@ -8,10 +8,7 @@ export default function Home() {
   return (
       <BaseLayout>
         <Hero />
-        <Breadcrumbs />
-        <WalletBar />
-        <EthRates />
-        <OrderCard />
+        
         <CourseList />
       </BaseLayout>
   )
