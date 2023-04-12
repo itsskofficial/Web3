@@ -5,7 +5,7 @@ import fetchCourseData from "@content/course/fetcher"
 export default function Home() {
   return (
       <BaseLayout>
-        <Hero />
+      <Hero />
         <CourseList />
       </BaseLayout>
   )
