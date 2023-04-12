@@ -5,6 +5,7 @@ import {
   Keypoints
 } from "@components/course";
 import BaseLayout from "@components/layout/base";
+import fetchCourseData from "@content/course/fetcher";
 
 export default function Course() {
 
@@ -21,7 +22,7 @@ export default function Course() {
 }
 
 export function getStaticPaths() {
-  const { data } = getAllCourses()
+  const { data } = fetchCourseData()
 
   return {
     paths: data.map(c => ({
