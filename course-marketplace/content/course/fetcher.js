@@ -11,4 +11,4 @@ const fetchCourseData = () => {
     }
 }
 
-export fetchCourseData
+export default fetchCourseData

@@ -3,6 +3,7 @@ import { CourseList } from "@components/course"
 import BaseLayout from "@components/layout/base"
 import { OrderCard } from "@components/order"
 import { EthRates, WalletBar } from "@components/web3"
+import fetchCourseData from "@content/course/fetcher"
 
 export default function Home() {
   return (
@@ -14,5 +15,5 @@ export default function Home() {
 }
 
 export function getStaticProps() {
-  const {data} = 
+  const {data} = fetchCourseData()
 }
