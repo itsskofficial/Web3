@@ -4,47 +4,18 @@ import {
   Curriculum,
   Keypoints
 } from "@components/course";
-import { BaseLayout } from "@components/layout";
-import { getAllCourses } from "@content/courses/fetcher";
+import BaseLayout from "@components/layout/base";
 
-export default function Course({course}) {
+export default function Course() {
 
   return (
-    <>
-      {course.title}
+    <BaseLayout>
       <div className="py-4">
-        <CourseHero />
+        <CourseHero/>
       </div>
       <Keypoints />
       <Curriculum />
       <Modal />
-    </>
+    </BaseLayout>  
   )
 }
-
-export function getStaticPaths() {
-  const { data } = getAllCourses()
-
-  return {
-    paths: data.map(c => ({
-      params: {
-        course: c.slug
-      }
-    })),
-    fallback: false
-  }
-}
-
-
-export function getStaticProps({params}) {
-  const { data } = getAllCourses()
-  const course = data.filter(c => c.slug === params.course)[0]
-
-  return {
-    props: {
-      course
-    }
-  }
-}
-
-Course.Layout = BaseLayout
