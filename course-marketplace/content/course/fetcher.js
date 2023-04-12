@@ -1,3 +1,5 @@
+import courses from './index.json'
+
 const fetchCourseData = () => {
     return (
         data: courses,
