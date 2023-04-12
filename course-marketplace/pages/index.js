@@ -13,5 +13,7 @@ export default function Home() {
 
 export function getStaticProps() {
   const { data } = fetchCourseData()
-    
+  return {
+    props
+  }
 }
