@@ -6,8 +6,8 @@ export default function Home(props) {
   return (
       <BaseLayout>
         <Hero />
-        {props.courses}
-        <CourseList />
+        
+        <CourseList courses=/>
       </BaseLayout>
   )
 }
