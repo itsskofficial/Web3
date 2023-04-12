@@ -6,7 +6,7 @@ export default function Home() {
   return (
       <BaseLayout>
       <Hero />
-        
+        {}
         <CourseList />
       </BaseLayout>
   )
