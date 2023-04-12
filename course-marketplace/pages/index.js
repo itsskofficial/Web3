@@ -14,5 +14,5 @@ export default function Home() {
 }
 
 export function getStaticProps() {
-  
+  const {data} = 
 }
