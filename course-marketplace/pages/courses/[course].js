@@ -38,7 +38,7 @@ export function getStaticPaths() {
 
 export function getStaticProps({params}) {
   const { data } = getAllCourses()
-  const course = data.filter(c => c.slug === params.c)[0]
+  const course = data.filter(c => c.slug === params.course)[0]
 
   return {
     props: {
