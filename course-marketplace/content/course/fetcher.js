@@ -1,1 +1,3 @@
-const fetchCourseData = ()
+const fetchCourseData = () => {
+    
+}
