@@ -17,7 +17,7 @@ export default function Marketplace({courses}) {
       <CourseList
         courses={courses}
       />
-    </>
+    </BaseLayout>
   )
 }
 
