@@ -11,8 +11,8 @@ const useAccount = (web3) => {
         web3 && getAccounts()
     }, [web3])
     
-    return(
-     
+    return (
+     account
     )
 }
 
