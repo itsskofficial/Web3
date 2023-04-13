@@ -1,1 +1,3 @@
-const useNetwork = ()
+const useNetwork = () => {
+    
+}
