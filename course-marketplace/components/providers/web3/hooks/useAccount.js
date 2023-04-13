@@ -15,7 +15,7 @@ const useAccount = (web3) => {
         web3.provider && web3.provider.on('accountsChanged',
             accounts => setAccount(account[0]??null)
             ) 
-    })
+    }, provider)
     
     return (
      account
