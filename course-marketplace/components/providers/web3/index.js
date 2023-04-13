@@ -12,7 +12,8 @@ export default function Web3Provider({ children }) {
     })
 
     useEffect(() => {
-        const provider = detectEthereumProvider()
+        const loadProvider = () => {
+            const provider = detectEthereumProvider()
 
         if (provider){
             const web3= new Web3(provider)
@@ -30,6 +31,8 @@ export default function Web3Provider({ children }) {
             })
             console.error("Please install Metamask")
         }
+        }
+        
     }, [])
    
 
