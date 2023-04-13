@@ -21,6 +21,9 @@ export default function Web3Provider({ children }) {
             contract:null
         })
     }
+    else{
+        
+    }
     
 
   return (
