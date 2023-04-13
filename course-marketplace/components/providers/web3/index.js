@@ -5,7 +5,7 @@ const Web3Context = createContext(null)
 
 export default function Web3Provider({ children }) {
     const provider = detectEthereumProvider()
-    con
+    const 
   return (
     <Web3Context.Provider value={{test: "Hello"}}>
       {children}
