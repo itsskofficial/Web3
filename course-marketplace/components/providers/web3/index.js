@@ -42,15 +42,15 @@ export default function Web3Provider({ children }) {
       <Web3Context.Provider value={{
           web3API,
           connect: web3API.provider ?
-              () => {
+              async () => {
                   try {
                       await web3API.provider.request("eth_RequestAccounts")
                   }
                   catch {
-                      console.log("Cannot retrieve Metamask account")
+                      console.error("Cannot retrieve Metamask account")
                   }
               } :
-              console.log("Web3 provider not initialized")
+              console.error("Web3 provider not initialized")
           
       }}>
       {children}
