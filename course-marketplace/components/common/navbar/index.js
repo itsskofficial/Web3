@@ -1,5 +1,5 @@
 import { Web3Provider } from "@components/providers"
-import Link from "next/link""
+import Link from "next/link"
 import { useContext } from "react"
 
 export default function Footer() {
