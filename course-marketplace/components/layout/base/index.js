@@ -13,7 +13,7 @@ export default function BaseLayout(props) {
                         </div>
                 </div>
                 <Footer />
-            <Web3Provider/
         </Fragment>
         
     )
+}
