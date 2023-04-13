@@ -30,9 +30,8 @@ export default function Web3Provider({ children }) {
             })
             console.error("Please install Metamask")
         }
-    })
+    }, [])
    
-    
 
   return (
     <Web3Context.Provider value={web3API}>
