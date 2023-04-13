@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 
 const useAccount = (web3) => {
     const { mutate, ...rest } = useSWR(() =>
