@@ -49,8 +49,8 @@ export default function Web3Provider({ children }) {
                   catch {
                       console.log("Cannot retrieve Metamask account")
                   }
-              }
-              
+              } :
+              console.log("No Web")
           
       }}>
       {children}
