@@ -37,6 +37,3 @@ export default function Web3Provider({ children }) {
   )
 }
 
-export function useWeb3() {
-  return useContext(Web3Context)
-}
