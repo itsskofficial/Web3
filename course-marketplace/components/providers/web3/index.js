@@ -1,10 +1,11 @@
+import detectEthereumProvider from "@metamask/detect-provider"
 import { createContext, useContext } from "react"
 
 const Web3Context = createContext(null)
 
 export default function Web3Provider({ children }) {
     const provider = detectEthereumProvider()
-    
+    con
   return (
     <Web3Context.Provider value={{test: "Hello"}}>
       {children}
