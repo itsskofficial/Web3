@@ -50,7 +50,7 @@ export default function Web3Provider({ children }) {
                       console.log("Cannot retrieve Metamask account")
                   }
               } :
-              console.log("No Web")
+              console.log("Web3 provider not initialized")
           
       }}>
       {children}
