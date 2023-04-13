@@ -47,7 +47,7 @@ export default function Footer() {
                     Loading
                 </button> :
                 isWeb3Loaded ?
-                  account00000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+                  account?
                 <button
                   onClick={web3.connect}
                   className="px-8 py-3 border rounded-md text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700">
