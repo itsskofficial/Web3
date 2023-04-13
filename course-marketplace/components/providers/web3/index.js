@@ -43,7 +43,7 @@ export default function Web3Provider({ children }) {
           web3API,
             connect: web3API.provider?
           try{
-                await web3.
+                await web3API.provider.request()
             }
       }>
       {children}
