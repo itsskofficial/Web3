@@ -1,7 +1,7 @@
 import { useSWRConfig } from "swr"
 
 const useNetwork = () => {
-    const {mutate,...rest} = useSWRConfig()
+    const {mutate,...rest} = useSWR()
 }
 
 export default useNetwork
