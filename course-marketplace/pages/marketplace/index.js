@@ -8,7 +8,7 @@ export default function Marketplace({courses}) {
   const { account } = useAccount()
 
   return (
-    <>
+    <BaseLayout>
       <div className="py-4">
         <WalletBar
           address={account.data}
