@@ -41,7 +41,8 @@ export default function Web3Provider({ children }) {
   return (
       <Web3Context.Provider value={
           web3API,
-          connect:
+            connect:
+      function 
       }>
       {children}
     </Web3Context.Provider>
