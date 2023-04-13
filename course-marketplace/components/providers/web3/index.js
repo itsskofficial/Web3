@@ -1,5 +1,5 @@
 import detectEthereumProvider from "@metamask/detect-provider"
-import { createContext, useContext, useState } from "react"
+import { createContext, useState } from "react"
 
 const Web3Context = createContext(null)
 
