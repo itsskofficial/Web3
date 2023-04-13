@@ -36,4 +36,3 @@ export default function Web3Provider({ children }) {
     </Web3Context.Provider>
   )
 }
-
