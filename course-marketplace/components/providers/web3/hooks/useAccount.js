@@ -1,6 +1,6 @@
 const useAccount = (web3) => {
     return{
-    { web3 ? 'Test' : }
+    { web3 ? 'Test' : null}
 }
 }
 
