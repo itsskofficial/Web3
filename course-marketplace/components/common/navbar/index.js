@@ -4,6 +4,7 @@ import { useContext } from "react"
 
 export default function Footer() {
   const web3 = useContext(Web3Provider)
+  
 
   return (
     <section>
