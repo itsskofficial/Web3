@@ -13,7 +13,7 @@ const useAccount = (web3) => {
 
     useEffect(() => {
         web3.provider && web3.provider.on('accountsChanged',
-            accounts => setAccount(account[0])
+            accounts => setAccount(account[0]??null)
             ) 
     })
     
