@@ -41,7 +41,7 @@ export default function Footer() {
                 href="#"
                 className="px-8 py-3 border rounded-md text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700">
                   Connect
-              </a>
+              </button>
             </div>
           </div>
         </nav>
