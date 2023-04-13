@@ -1,6 +1,6 @@
 import useSWR from 'swr'
 
-const useNetwork = () => {
+const useNetwork = (web3) => {
     const { mutate, ...rest } = useSWR(() =>
     web3 ? "web3/network" : null,
     async () => {
