@@ -35,6 +35,8 @@ export default function Web3Provider({ children }) {
         
         loadProvider()
     }, [])
+
+    
    
 
   return (
