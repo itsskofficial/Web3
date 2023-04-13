@@ -3,6 +3,7 @@ import BaseLayout from "@components/layout/base"
 import fetchCourseData from "@content/course/fetcher"
 
 export default function Home(props) {
+  
   return (
       <BaseLayout>
         <Hero />
