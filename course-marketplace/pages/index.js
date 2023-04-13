@@ -5,11 +5,11 @@ import fetchCourseData from "@content/course/fetcher"
 import { useContext } from "react"
 
 export default function Home(props) {
-  const web3API = useContext(Web3Provider)
+  const web3 = useContext(Web3Provider)
   
   return (
     <Web3Provider>
-      {web3API.initialized ? "Web3 Provider Initialized" : "Loading Web3 Provider"}
+      {web3.web3API.initialized ? "Web3 Provider Initialized" : "Loading Web3 Provider"}
       <BaseLayout>
         <Hero />
         <CourseList courses={props.courses} />
