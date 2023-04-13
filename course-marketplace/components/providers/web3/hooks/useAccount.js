@@ -11,7 +11,7 @@ const useAccount = (web3) => {
 
     useEffect(() => {
         web3.provider && web3.provider.on('accountsChanged',
-            accounts => setAccount(accounts[0]??null)
+            accounts => mutate(accounts[0]??null)
             ) 
     }, web3.provider)
     
