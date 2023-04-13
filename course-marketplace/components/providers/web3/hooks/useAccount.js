@@ -27,7 +27,7 @@ export const handler = (web3, provider) => () => {
           data,
           isAdmin: (
         data &&
-        adminAddresses[web3.utils.keccak256(data)]) ?? false
+        adminAddresses[web3.utils.keccak256(data)]) ?? false,
       mutate,
       ...rest
     }
