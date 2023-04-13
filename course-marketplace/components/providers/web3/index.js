@@ -8,7 +8,8 @@ export default function Web3Provider({ children }) {
     const [web3API, setWeb3API] = useState({
         provider:null,
         web3:null,
-        initialized
+        initialized: false,
+        
     })
 
   return (
