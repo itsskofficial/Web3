@@ -22,7 +22,12 @@ export default function Web3Provider({ children }) {
         })
     }
     else{
-        
+        setWeb3API({
+            provider:provider,
+            web3:web3,
+            initialized: ,
+            contract:null
+        })
     }
     
 
