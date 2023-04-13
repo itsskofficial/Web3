@@ -5,14 +5,14 @@ import { Fragment } from "react";
 export default function BaseLayout(props) {
     return (
         <Fragment>
-            <web3
-            <div className="relative max-w-7xl mx-auto px-4">
-                <Navbar />
-                    <div className="fit">
-                        {props.children}
+            <Web3Provider>
+                <div className="relative max-w-7xl mx-auto px-4">
+                    <Navbar />
+                        <div className="fit">
+                            {props.children}
+                        </div>
                     </div>
-                </div>
-            <Footer />
+                <Footer />
             <Web3Provider/>
         </Fragment>
         
