@@ -39,6 +39,7 @@ export default function Footer() {
                   Wishlist
                 </a>
               </Link>
+              
               <button
                 onClick={web3.connect}
                 className="px-8 py-3 border rounded-md text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700">
