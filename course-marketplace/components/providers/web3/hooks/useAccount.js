@@ -4,8 +4,9 @@ const useAccount = (web3) => {
     const [account, setAccount] = useState(null)
     useEffect(() => {
         const getAccounts = async () => {
-        const accounts = await web3.eth.getAccounts()
-        setAccount(accounts[0])
+            const accounts = await web3.eth.getAccounts()
+            setAccount(accounts[0])
+        }
     }, [web3])
     
     return(
