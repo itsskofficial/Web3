@@ -48,6 +48,7 @@ export default function Web3Provider({ children }) {
                   }
                   catch {
                       console.error("Cannot retrieve Metamask account")
+                      window.location.reload()
                   }
               } :
               console.error("Web3 provider not initialized")
