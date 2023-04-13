@@ -31,7 +31,7 @@ export default function Web3Provider({ children }) {
     
 
   return (
-    <Web3Context.Provider value={{test: "Hello"}}>
+    <Web3Context.Provider value={web3API}>
       {children}
     </Web3Context.Provider>
   )
