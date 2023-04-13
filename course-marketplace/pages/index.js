@@ -15,6 +15,7 @@ export default function Home(props) {
         <CourseList courses={props.courses} />
       </BaseLayout>
     </Web3Provider>
+  )
 }
 
 export function getStaticProps() {
