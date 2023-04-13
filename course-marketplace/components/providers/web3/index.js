@@ -13,7 +13,8 @@ export default function Web3Provider({ children }) {
     const provider = detectEthereumProvider()
 
     if (provider){
-        const web3= new Web3
+        const web3= new Web3(provider)
+        setWeb3API{}
     }
     
 
