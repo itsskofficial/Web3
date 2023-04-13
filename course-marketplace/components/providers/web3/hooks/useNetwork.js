@@ -1,5 +1,5 @@
 const useNetwork = () => {
-    const {mutate,...rest} = use
+    const {mutate,...rest} = useSWR()
 }
 
 export default useNetwork
