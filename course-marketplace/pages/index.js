@@ -6,6 +6,7 @@ import { useContext } from "react"
 
 export default function Home(props) {
   const web3API = useContext(Web3Provider)
+  
   return (
       <BaseLayout>
         <Hero />
