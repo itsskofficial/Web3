@@ -7,10 +7,12 @@ const useAccount = (web3) => {
             const accounts = await web3.eth.getAccounts()
             setAccount(accounts[0])
         }
+
+        web3 && getAccounts()
     }, [web3])
     
     return(
-     web3 ? 'Test' : null
+     
     )
 }
 
