@@ -8,6 +8,9 @@ export default function Home(props) {
   const web3API = useContext(Web3Provider)
   
   return (
+    <Web3Provider>
+      
+  
       {web3API.initialized ? "Web3 Provider Initialized" : "Loading Web3 Provider"}
       <BaseLayout>
         <Hero />
