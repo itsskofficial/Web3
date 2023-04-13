@@ -11,7 +11,9 @@ export default function Web3Provider({ children }) {
         contract:null
     })
 
-    useEffect(())
+    useEffect(() => {
+        
+    })
     const provider = detectEthereumProvider()
 
     if (provider){
