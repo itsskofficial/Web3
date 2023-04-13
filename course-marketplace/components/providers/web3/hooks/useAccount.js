@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 
 const useAccount = (web3) => {
     const [account, setAccount] = useState(null)
-    useEffect(async () => {
+    useEffect(() => {
         const accounts = await web3.eth.getAccounts()
         setAccount(accounts[0])
     }, [web3])
