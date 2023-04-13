@@ -1,5 +1,5 @@
 import { useEffect } from "react"
-import useSw
+import useSWR
 
 const useAccount = (web3) => {
     const { mutate, ...rest } = useSWR(() =>
