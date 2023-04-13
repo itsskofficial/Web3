@@ -1,6 +1,6 @@
 
 
-export default function WalletBar() {
+export default function WalletBar({address}) {
 
   return (
     <section className="text-white bg-indigo-600">
