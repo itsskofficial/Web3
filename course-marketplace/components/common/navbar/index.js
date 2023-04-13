@@ -5,7 +5,7 @@ import { useContext } from "react"
 export default function Footer() {
   const web3 = useContext(Web3Provider)
   const isLoading = !web3.web3API.initalized
-  const isWeb3Loaded = web3.web3
+  const isWeb3Loaded = web3.web3API.
 
   return (
     <section>
