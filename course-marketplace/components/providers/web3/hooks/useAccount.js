@@ -5,7 +5,8 @@ const useAccount = (web3) => {
     useEffect(async () => {
         const accounts = await web3.eth.getAccounts()
         setAccount(accounts[0])
-    },)
+    }, [web3])
+    
     return(
      web3 ? 'Test' : null
     )
