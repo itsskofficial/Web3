@@ -5,6 +5,7 @@ const useNetwork = () => {
         web3 ? 'web3/network' : null,
         async () => {
             const netId = web3.eth.net.getId()
+            return netId
         }
     )
 }
