@@ -22,6 +22,7 @@ export default function Footer() {
                 </a>
               </Link>
               <Link href="/marketplace" >
+                
                 <a
                   className="font-medium mr-8 text-gray-500 hover:text-gray-900">
                   Marketplace
