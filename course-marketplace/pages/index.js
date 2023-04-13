@@ -14,7 +14,7 @@ export default function Home(props) {
         <Hero />
         <CourseList courses={props.courses} />
       </BaseLayout>
-    
+    </Web3Provider>
 }
 
 export function getStaticProps() {
