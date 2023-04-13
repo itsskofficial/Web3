@@ -5,9 +5,8 @@ export default function WalletBar() {
   return (
     <section className="text-white bg-indigo-600">
       <div className="p-8">
-        <h1 className="text-2xl">        <h1 className="text-2xl">Hello, {address}</h1>
-</h1>
-        <h2 className="subtitle mb-5 text-xl">I hope you are having a great day!</h2>
+        <h1 className="text-2xl">Hello, {address}</h1>
+          <h2 className="subtitle mb-5 text-xl">I hope you are having a great day!</h2>
         <div className="flex justify-between items-center">
           <div className="sm:flex sm:justify-center lg:justify-start">
             <div className="rounded-md shadow">
