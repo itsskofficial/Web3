@@ -1,6 +1,5 @@
 import { CourseList } from "@components/ui/course"
 import { BaseLayout } from "@components/ui/layout"
-import { getAllCourses } from "@content/courses/fetcher"
 import { WalletBar } from "@components/ui/web3"
 import { useAccount } from "@components/hooks/web3/useAccount"
 import fetchCourseData from "@content/course/fetcher"
