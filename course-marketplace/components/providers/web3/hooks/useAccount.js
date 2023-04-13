@@ -12,7 +12,9 @@ const useAccount = (web3) => {
     }, [web3])
 
     useEffect(() => {
-        web3.provider && web3.provider.on('accountsChanged', ) 
+        web3.provider && web3.provider.on('accountsChanged',
+            accounts =>
+            ) 
     })
     
     return (
