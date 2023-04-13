@@ -11,9 +11,9 @@ export default function BaseLayout(props) {
                         <div className="fit">
                             {props.children}
                         </div>
-                    </div>
+                </div>
                 <Footer />
-            <Web3Provider/>
+            <Web3Provider>
         </Fragment>
         
     )
