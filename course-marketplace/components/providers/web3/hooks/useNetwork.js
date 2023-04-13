@@ -1,4 +1,4 @@
-import { useSWRConfig } from "swr"
+import 
 
 const useNetwork = () => {
     const {mutate,...rest} = useSWR()
