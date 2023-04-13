@@ -15,24 +15,25 @@ export default function Web3Provider({ children }) {
         const loadProvider = () => {
             const provider = detectEthereumProvider()
 
-        if (provider){
-            const web3= new Web3(provider)
-            setWeb3API({
-                provider:provider,
-                web3:web3,
-                initialized: true,
-                contract:null
-            })
-        }
-        else{
-            setWeb3API({
-                ...web3API,
-                initialized:true
-            })
-            console.error("Please install Metamask")
-        }
+            if (provider){
+                const web3= new Web3(provider)
+                setWeb3API({
+                    provider:provider,
+                    web3:web3,
+                    initialized: true,
+                    contract:null
+                })
+            }
+            else{
+                setWeb3API({
+                    ...web3API,
+                    initialized:true
+                })
+                console.error("Please install Metamask")
+            }
         }
         
+        loadProvider()
     }, [])
    
 
