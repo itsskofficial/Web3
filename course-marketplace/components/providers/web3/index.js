@@ -36,7 +36,6 @@ export default function Web3Provider({ children }) {
         loadProvider()
     }, [])
 
-    const web3API
    
 
   return (
