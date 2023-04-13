@@ -4,6 +4,7 @@ import { useContext } from "react"
 
 export default function Footer() {
   const web3API = useContext(Web3Provider)
+  
   return (
     <section>
       <div className="relative pt-6 px-4 sm:px-6 lg:px-8">
