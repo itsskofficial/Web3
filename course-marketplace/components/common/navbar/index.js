@@ -1,13 +1,11 @@
 import { Web3Provider } from "@components/providers"
-import Link from "next/link"
-import { useRouter } from "next/router"
+import Link from "next/link""
 import { useContext } from "react"
 
 export default function Footer() {
   const web3 = useContext(Web3Provider)
   const isLoading = !web3.web3API.initalized
   const isWeb3Loaded = web3.web3API.web3
-  const router = useRouter()
 
   return (
     <section>
