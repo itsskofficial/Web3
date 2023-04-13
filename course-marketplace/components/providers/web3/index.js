@@ -16,7 +16,7 @@ export default function Web3Provider({ children }) {
         const web3= new Web3(provider)
         setWeb3API({
             provider:provider,
-            web3:null,
+            web3:web3,
             initialized: true,
             contract:null
         })
