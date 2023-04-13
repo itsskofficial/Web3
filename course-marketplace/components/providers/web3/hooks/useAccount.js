@@ -15,9 +15,9 @@ const useAccount = (web3) => {
         )
     }, web3.provider)
     
-    return (
+    return {
         account: { mutate,...rest}
-    )
+}
 }
 
 export default useAccount
