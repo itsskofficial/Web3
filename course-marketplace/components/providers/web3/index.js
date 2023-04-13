@@ -13,7 +13,7 @@ export default function Web3Provider({ children }) {
     const provider = detectEthereumProvider()
 
     if (provider){
-        set
+        
     }
     
 
