@@ -21,7 +21,7 @@ export default function Footer() {
                   Home
                 </a>
               </Link>
-              <Link href="/" >
+              <Link href="/marketplace" >
                 <a
                   className="font-medium mr-8 text-gray-500 hover:text-gray-900">
                   Marketplace
