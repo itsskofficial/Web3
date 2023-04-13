@@ -38,7 +38,7 @@ export default function Footer() {
                 </a>
               </Link>
               <button
-                href="#"
+                onClick={}
                 className="px-8 py-3 border rounded-md text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700">
                   Connect
               </button>
