@@ -11,7 +11,7 @@ const useNetwork = (web3) => {
 
   useEffect(() => {
     web3.provider &&
-    provider.on("chainChanged", netId => mutate(netId))
+    web3.provider.on("chainChanged", netId => mutate(netId))
   }, [web3])
 }
 
