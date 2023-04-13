@@ -12,7 +12,7 @@ const useAccount = (web3) => {
     }, [web3])
 
     useEffect(() => {
-        provider = 
+        web3.provider = 
     })
     
     return (
