@@ -13,7 +13,6 @@ const useNetwork = () => {
     provider &&
     provider.on("chainChanged", netId => mutate(netId))
   }, [web3])
-    )
 }
 
 export default useNetwork
