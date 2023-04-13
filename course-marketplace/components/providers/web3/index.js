@@ -39,19 +39,19 @@ export default function Web3Provider({ children }) {
    
 
   return (
-      <Web3Context.Provider value={
+      <Web3Context.Provider value={{
           web3API,
-          connect: web3API.provider?
-          () => {
-            try{
-                await web3API.provider.request("eth_RequestAccounts")
-            }
-          catch{
-          console.log("Cannot retrieve Metamask account")
-      },
-          }
+          connect: web3API.provider ?
+              () => {
+                  try {
+                      await web3API.provider.request("eth_RequestAccounts")
+                  }
+                  catch {
+                      console.log("Cannot retrieve Metamask account")
+                  },
+              }
           
-      }>
+      }}>
       {children}
     </Web3Context.Provider>
   )
