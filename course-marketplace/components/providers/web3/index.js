@@ -43,8 +43,11 @@ export default function Web3Provider({ children }) {
           web3API,
             connect: web3API.provider?
           try{
-                await web3API.provider.request("_ethRequestAccounts")
+                await web3API.provider.request("eth_RequestAccounts")
             }
+          catch{
+          
+      }
       }>
       {children}
     </Web3Context.Provider>
