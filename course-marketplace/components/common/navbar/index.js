@@ -3,7 +3,7 @@ import Link from "next/link"
 import { useContext } from "react"
 
 export default function Footer() {
-  const web3API = useContext(Web3Provider)
+  const web3 = useContext(Web3Provider)
 
   return (
     <section>
@@ -38,7 +38,7 @@ export default function Footer() {
                 </a>
               </Link>
               <button
-                onClick={web3API.connect}
+                onClick={web3.connect}
                 className="px-8 py-3 border rounded-md text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700">
                   Connect
               </button>
