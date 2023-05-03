@@ -123,6 +123,8 @@ contract Marketplace is ERC721URIStorage {
                 currentIndex += 1;
             }
         }
+
+        return unsoldNFTs;
     }
 
     function fetchUserNFTs () public view returns(NFT[] memory) {
