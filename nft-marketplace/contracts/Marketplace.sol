@@ -164,6 +164,10 @@ contract Marketplace is ERC721URIStorage {
             }
         }
 
-        NFT[] memory userListedNFTs = new NFT[]
+        NFT[] memory userListedNFTs = new NFT[](itemCount);
+
+        for (uin256 i =0; i< totalCount; i++){
+            if ()
+        }
     }
 }
