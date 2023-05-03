@@ -85,10 +85,10 @@ contract Marketplace is ERC721URIStorage {
         require(NFTs[tokenId].owner == msg.sender, 'only owner can access resell operation');
         require(msg.value ==  listingPrice, 'price must be equal to listing price');
 
-        NFts[tokenId].isSold = false;
-        NFts[tokenId].price = price;
-        NFts[tokenId].seller = payable(msg.sender);
-        NFts[tokenId].owner = payable(address(this));
+        NFTs[tokenId].isSold = false;
+        NFTs[tokenId].price = price;
+        NFTs[tokenId].seller = payable(msg.sender);
+        NFTs[tokenId].owner = payable(address(this));
 
     }
     
