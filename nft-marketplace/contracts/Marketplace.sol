@@ -100,6 +100,8 @@ contract Marketplace is ERC721URIStorage {
 
         NFTs[tokenId].owner = payable(msg.sender);
         NFTs[tokenId].isSold = true;
-        NFTs[tokenId].isSold = payable(address(0));
+        NFTs[tokenId].owner = payable(address(0));
+
+        
     }
 }
