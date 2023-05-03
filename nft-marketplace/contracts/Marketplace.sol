@@ -82,8 +82,8 @@ contract Marketplace is ERC721URIStorage {
     }
 
     function resellToken (uint256 tokenId, uint256 price) public payable {
-        require (NFTs[tokenId].owner == msg.sender);
-        
+        require (NFTs[tokenId].owner == msg.sender, 'only owner can ');
+
     }
     
 }
