@@ -23,13 +23,13 @@ contract Marketplace is ERC721URIStorage {
         bool isSold;
     }
 
-    event idNFTCreated {
+    event idNFTCreated (
         uint256 indexed tokenId,
         address seller,
         address owner,
         uint256 price,
         bool isSold
-    };
+    );
 
     modifier onlyOwner() {
         require(msg.sender == owner, 'only owner of the marketplace can change the listing price');
