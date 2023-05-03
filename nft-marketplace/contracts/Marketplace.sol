@@ -113,6 +113,6 @@ contract Marketplace is ERC721URIStorage {
         uint256 unsoldItemCount = _tokenIds.current() - _tokensSold.current();
         uint256 currentIndex = 0;
 
-        NFTs[] memory unsold
+        NFTs[] memory unsoldNFTs = new NFTs[]
     }
 }
