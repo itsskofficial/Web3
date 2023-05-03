@@ -40,8 +40,8 @@ contract Marketplace is ERC721URIStorage {
         owner == payable(msg.sender);
     }
 
-    function updateListingPrice(uint256 listingPrice) public payable onlyOwner {
-        listingPrice = listingPrice;
+    function updateListingPrice(uint256 newListingPrice) public payable onlyOwner {
+        listingPrice = newListingPrice;
     }
 
     function getListingPrice() public view returns (uint256) {
