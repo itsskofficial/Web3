@@ -119,7 +119,8 @@ contract Marketplace is ERC721URIStorage {
             if (NFTs[i+1].owner == address(this)) {
                 uint256 currentId = i+1;
                 NFT storage currentItem = NFTs[currentId];
-                unsoldNFTs[curre]
+                unsoldNFTs[currentIndex] = currentItem;
+                
             }
         }
     }
