@@ -110,6 +110,7 @@ contract Marketplace is ERC721URIStorage {
 
     function fetchNFT() public view returns (NFTS[] memory){
         uint256 itemCount = _tokenIds.current();
-        uint256 unSoldItemCount = _tokenIds.current() - 
+        uint256 unSoldItemCount = _tokenIds.current() - _tokensSold.current();
+        
     }
 }
