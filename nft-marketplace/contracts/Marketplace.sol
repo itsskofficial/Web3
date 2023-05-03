@@ -8,7 +8,7 @@ import '@openzeppelin/contracts/token/ERC721/ERC721.sol';
 import 'hardhat/console.sol'
 
 contract Marketplace is ERC721URIStorage {
-    u
+    using Counters for Counters.counter
     constructor() {
         
     }
