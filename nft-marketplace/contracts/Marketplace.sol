@@ -123,9 +123,9 @@ contract Marketplace is ERC721URIStorage {
                 currentIndex += 1;
             }
         
-        return unsoldNFTs;
+        }  
 
-        }   
+        return unsoldNFTs; 
     }
 
     function fetchUserNFTs () public view returns(NFT[] memory) {
@@ -153,5 +153,5 @@ contract Marketplace is ERC721URIStorage {
         return items;
     }
 
-    
+
 }
