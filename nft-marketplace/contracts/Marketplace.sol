@@ -53,7 +53,7 @@ contract Marketplace is ERC721URIStorage {
         _tokenIds.increment();
         uint256 newTokenId = _tokenIds.current();
         mint(msg.sender, newTokenId);
-        _se
+        _setTokenURI(new)
         
     }
     
