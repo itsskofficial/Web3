@@ -13,5 +13,5 @@ contract Marketplace is ERC721URIStorage {
     Counters.Counter private _tokensSold;
     address payable owner;
     mapping(uint256=>MarketItem) private idMarketItem;
-    
+    struct MarketItem
 }
