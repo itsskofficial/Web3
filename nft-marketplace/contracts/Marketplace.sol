@@ -139,7 +139,7 @@ contract Marketplace is ERC721URIStorage {
             for (uint156 i = 0; i<totalCount; i++) {
                 uint256 currentId = i+1;
                 NFT storage currentItem = NFTs[currentId];
-                items
+                items[currentIndex] = currentItem;
             }
         }
     }
