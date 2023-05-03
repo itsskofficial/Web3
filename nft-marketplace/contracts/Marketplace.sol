@@ -14,14 +14,14 @@ contract Marketplace is ERC721URIStorage {
     uint256 listingPrice = 0.0025 ether;
     address payable owner;
     mapping(uint256=>MarketItem) private idMarketItem;
-    
+
     struct MarketItem {
         uint256 tokenId;
         address payable seller;
         address payable owner;
         uint256 price;
         bool isSold;
-    };
+    }
 
     event idMarketItemCreated {
         uint256 indexed tokenId,
