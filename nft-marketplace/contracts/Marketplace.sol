@@ -153,5 +153,5 @@ contract Marketplace is ERC721URIStorage {
         return userNFTs;
     }
 
-    function fetchUser
+    function fetchUserListedNFTs ()
 }
