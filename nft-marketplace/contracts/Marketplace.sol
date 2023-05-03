@@ -70,7 +70,8 @@ contract Marketplace is ERC721URIStorage {
             false
         );
 
-        _transfer(msg.sender)
+        _transfer(msg.sender, address(this), tokenId);
+        
     }
     
 }
