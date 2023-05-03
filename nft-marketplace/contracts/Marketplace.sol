@@ -136,6 +136,7 @@ contract Marketplace is ERC721URIStorage {
             if (NFTs[i+1].owner == msg.sender) { 
                 itemCount += 1;
             }
+        }
 
             NFT[] memory userNFTs = new NFT[](itemCount);
             for (uint256 j = 0; j < totalCount; j++) {
@@ -147,9 +148,8 @@ contract Marketplace is ERC721URIStorage {
                 }
                 
             }
-        }
 
-      
+          return userNFTs;
     }
 
     function fetchUserListedNFTs () public view returns (NFT[] memory){
