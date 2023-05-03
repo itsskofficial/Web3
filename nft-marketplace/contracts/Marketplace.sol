@@ -98,6 +98,7 @@ contract Marketplace is ERC721URIStorage {
         uint256 price = NFTs[tokenId].price;
         require(msg.value == price, 'submit the asking price to complete the order');
 
+        NFTs[tokenId].owner = payable(msg.sender);
         NFTs[tokenId]
     }
 }
