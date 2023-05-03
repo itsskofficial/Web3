@@ -136,7 +136,7 @@ contract Marketplace is ERC721URIStorage {
             }
 
             NFT[] memory items = new NFT[](itemCount);
-            for (uint256 i = 0; i < totalCount; i++) {
+            for (uint256 j = 0; j < totalCount; i++) {
                 uint256 currentId = i+1;
                 NFT storage currentItem = NFTs[currentId];
                 items[currentIndex] = currentItem;
