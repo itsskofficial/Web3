@@ -105,6 +105,6 @@ contract Marketplace is ERC721URIStorage {
         _tokensSold.increment();
 
         _transfer(address(this), msg.sender, tokenId);
-        
+        payable(owner)._transfer
     }
 }
