@@ -48,4 +48,6 @@ contract Marketplace is ERC721URIStorage {
     function getListingPrice() public view returns (uint256) {
         return listingPrice;
     }
+
+    //
 }
