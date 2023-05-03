@@ -132,8 +132,9 @@ contract Marketplace is ERC721URIStorage {
 
         for (uint256 i=0; i<totalCount; i++){
             if (NFts[i+1].owner == msg.sender) { 
-                itemCount + 
+                itemCount += 1;
             }
+            
         }
     }
 }
