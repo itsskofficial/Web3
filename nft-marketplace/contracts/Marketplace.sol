@@ -74,9 +74,9 @@ contract Marketplace is ERC721URIStorage {
 
         emit NFTCreated(
             tokenId= tokenId,
-            seller = msg.sender,
+            msg.sender,
             owner= address(this),
-            price = price,
+            price,
             isSold = false
         );
     }
