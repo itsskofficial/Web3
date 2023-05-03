@@ -49,7 +49,7 @@ contract Marketplace is ERC721URIStorage {
         return listingPrice;
     }
 
-    function createToken(string memory tokenURI())  returns () {
+    function createToken(string memory tokenURI, uint256 price)  returns () {
         
     }
     
