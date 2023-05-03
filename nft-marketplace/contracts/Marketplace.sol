@@ -30,7 +30,7 @@ contract Marketplace is ERC721URIStorage {
     };
 
     modifier onlyOwner {
-        require(msg.sender == owner, 'O owner of the marketplace can change the listing price');
+        require(msg.sender == owner, 'only owner of the marketplace can change the listing price');
 
     }
 
