@@ -13,7 +13,7 @@ contract Marketplace is ERC721URIStorage {
     Counters.Counter private _tokensSold;
     uint256 listingPrice = 0.0025 ether;
     address payable owner;
-    mapping(uint256=>NFT) private idNFT;
+    mapping(uint256=>NFT) private idNFTs;
 
     struct NFT {
         uint256 tokenId;
