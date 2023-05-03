@@ -65,7 +65,9 @@ contract Marketplace is ERC721URIStorage {
         NFTS[tokenId] = NFT(
             tokenId,
             payable(msg.sender),
-            payable(address(this))
+            payable(address(this)),
+            price,
+            false,
             )
     }
     
