@@ -29,5 +29,7 @@ contract Marketplace is ERC721URIStorage {
         bool isSold
     };
 
-    constructor () ERC721('NFT Token', 'NFT')
+    constructor () ERC721('NFT Token', 'NFT'){
+        
+    }
 }
