@@ -173,7 +173,8 @@ contract Marketplace is ERC721URIStorage {
                 userListedNFTs[currentIndex] = currentItem;
                 currentIndex+=1;
             }
-            
         }
+
+        return userListedNFTs;
     }
 }
