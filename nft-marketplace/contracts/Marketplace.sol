@@ -76,7 +76,7 @@ contract Marketplace is ERC721URIStorage {
         seller = msg.sender,
         owner,
         price,
-         isSold)
+        isSold)
     }
     
 }
