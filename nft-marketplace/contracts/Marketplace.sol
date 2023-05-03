@@ -55,6 +55,7 @@ contract Marketplace is ERC721URIStorage {
         _mint(msg.sender, newTokenId);
         _setTokenURI(newTokenId, tokenURI);
 
+        createMarketItem(newTokenId, price);
         
         
     }
