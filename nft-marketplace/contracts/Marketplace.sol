@@ -81,6 +81,6 @@ contract Marketplace is ERC721URIStorage {
         );
     }
 
-    function resellToken (ui)
+    function resellToken (uint256)
     
 }
