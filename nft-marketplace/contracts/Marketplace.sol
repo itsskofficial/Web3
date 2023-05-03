@@ -30,7 +30,7 @@ contract Marketplace is ERC721URIStorage {
     };
 
     modifier onlyOwner {
-        require('msg.msg.sender')
+        require(msg.sender)
     }
 
     constructor () ERC721('NFT Token', 'NFT') {
