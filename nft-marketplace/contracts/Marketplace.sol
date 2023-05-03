@@ -23,7 +23,7 @@ contract Marketplace is ERC721URIStorage {
         bool isSold;
     }
 
-    event idNFTCreated (
+    event NFTCreated (
         uint256 indexed tokenId,
         address seller,
         address owner,
