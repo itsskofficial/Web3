@@ -144,5 +144,7 @@ contract Marketplace is ERC721URIStorage {
                 items[currentIndex] = currentItem;
             }
         }
+        
+        return items;
     }
 }
