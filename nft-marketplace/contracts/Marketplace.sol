@@ -70,7 +70,7 @@ contract Marketplace is ERC721URIStorage {
             false
         );
 
-    _transfer
+        _transfer(msg.sender)
     }
     
 }
