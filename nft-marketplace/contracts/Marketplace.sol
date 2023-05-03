@@ -30,8 +30,8 @@ contract Marketplace is ERC721URIStorage {
     };
 
     modifier onlyOwner {
-        require(msg.sender == owner, 'Only owner of the marketplace can change the listing price');
-        
+        require(msg.sender == owner, 'O owner of the marketplace can change the listing price');
+
     }
 
     constructor () ERC721('NFT Token', 'NFT') {
