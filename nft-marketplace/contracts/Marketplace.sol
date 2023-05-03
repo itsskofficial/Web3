@@ -21,7 +21,7 @@ contract Marketplace is ERC721URIStorage {
         bool isSold;
     };
 
-    event idMarketItemCreated{
+    event idMarketItemCreated {
         uint256 indexed tokenId,
         address seller,
         address owner,
@@ -29,7 +29,7 @@ contract Marketplace is ERC721URIStorage {
         bool isSold
     };
 
-    constructor () ERC721('NFT Token', 'NFT'){
+    constructor () ERC721('NFT Token', 'NFT') {
         owner == payable(msg.sender);
     }
 
