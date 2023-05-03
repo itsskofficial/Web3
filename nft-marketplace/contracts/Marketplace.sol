@@ -21,5 +21,7 @@ contract Marketplace is ERC721URIStorage {
         bool isSold;
     }
 
-    event 
+    event idMarketItemCreated{
+        
+    }
 }
