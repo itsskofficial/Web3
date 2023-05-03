@@ -11,6 +11,7 @@ contract Marketplace is ERC721URIStorage {
     using Counters for Counters.Counter;
     Counters.Counter private _tokenIds;
     Counters.Counter private _tokensSold;
+    uint256 
     address payable owner;
     mapping(uint256=>MarketItem) private idMarketItem;
     struct MarketItem {
@@ -39,7 +40,7 @@ contract Marketplace is ERC721URIStorage {
     }
 
     function updateListingPrice(uint256 listingPrice) public payable onlyOwner {
-        
+
 
     }
 }
