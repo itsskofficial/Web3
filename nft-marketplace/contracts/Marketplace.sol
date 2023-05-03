@@ -68,7 +68,7 @@ contract Marketplace is ERC721URIStorage {
             payable(address(this)),
             price,
             false,
-            )
+        );
     }
     
 }
