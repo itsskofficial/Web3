@@ -29,5 +29,5 @@ contract Marketplace is ERC721URIStorage {
         bool isSold
     };
 
-    constructor () 
+    constructor () ERC721()
 }
