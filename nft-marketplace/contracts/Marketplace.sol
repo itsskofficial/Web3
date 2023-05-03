@@ -22,6 +22,8 @@ contract Marketplace is ERC721URIStorage {
     }
 
     event idMarketItemCreated{
+        uint256 indexed tokenId,
+        address seller,
         
     }
 }
