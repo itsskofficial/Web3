@@ -87,7 +87,7 @@ contract Marketplace is ERC721URIStorage {
 
         NFts[tokenId].isSold = false;
         NFts[tokenId].price = price;
-        NFts[tokenId].isSold = false;
+        NFts[tokenId].seller = ms;
     }
     
 }
