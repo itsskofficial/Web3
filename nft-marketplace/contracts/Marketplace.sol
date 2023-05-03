@@ -115,6 +115,8 @@ contract Marketplace is ERC721URIStorage {
 
         NFTs[] memory unsoldNFTs = new NFTs[](unsoldItemCount);
 
-        for 
+        for (uint256 i = 0; i <itemCount; i++) {
+            if ()
+        }
     }
 }
