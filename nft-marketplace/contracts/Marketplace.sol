@@ -158,6 +158,6 @@ contract Marketplace is ERC721URIStorage {
         uint256 itemCount = 0;
         uint256 currentIndex = 0;
 
-        for (uint256 i =0; i )
+        for (uint256 i =0; i < totalCount )
     }
 }
