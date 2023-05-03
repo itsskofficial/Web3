@@ -160,7 +160,7 @@ contract Marketplace is ERC721URIStorage {
 
         for (uint256 i =0; i < totalCount; i++ ){
             if (NFTs[i+1].seller == msg.sender){
-                
+                itemCount +=1;
             }
         }
     }
