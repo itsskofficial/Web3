@@ -1,0 +1,11 @@
+{
+  "name": "nft-marketplace",
+  "version": "1.0.0",
+  "description": "A compilation of web3 projects, resources and much more",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
