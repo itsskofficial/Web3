@@ -125,5 +125,7 @@ contract Marketplace is ERC721URIStorage {
         }
     }
 
-    function fetchUserNFTs () public view returns(NFT[] memory) 
+    function fetchUserNFTs () public view returns(NFT[] memory) {
+        uint256 totalCount = _tokenIds.current()
+    }
 }
