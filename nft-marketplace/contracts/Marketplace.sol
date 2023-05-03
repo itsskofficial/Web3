@@ -134,7 +134,8 @@ contract Marketplace is ERC721URIStorage {
             if (NFts[i+1].owner == msg.sender) { 
                 itemCount += 1;
             }
-            
+
+            NFT[]
         }
     }
 }
