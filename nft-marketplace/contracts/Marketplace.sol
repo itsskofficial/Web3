@@ -86,7 +86,7 @@ contract Marketplace is ERC721URIStorage {
         require(msg.value ==  listingPrice, 'price must be equal to listing price');
 
         NFts[tokenId].isSold = false;
-        NFts[tokenId].i = false;
+        NFts[tokenId].price = price;
         NFts[tokenId].isSold = false;
     }
     
