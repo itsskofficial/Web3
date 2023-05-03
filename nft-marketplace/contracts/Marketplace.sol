@@ -164,6 +164,6 @@ contract Marketplace is ERC721URIStorage {
             }
         }
 
-        NFT[] memory fetchUserListedBFTs = new 
+        NFT[] memory userListedNFTs = new NFT[]
     }
 }
