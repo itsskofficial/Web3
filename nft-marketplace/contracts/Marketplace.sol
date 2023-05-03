@@ -63,7 +63,8 @@ contract Marketplace is ERC721URIStorage {
         require(price > 0, 'price must be greater than 0');
         require(msg.value == listingPrice, 'price must be equal to listing price');
         NFTS[tokenId] = NFT(
-            tokenId
+            tokenId,
+            payable(msg.sender)
             )
     }
     
