@@ -15,7 +15,7 @@ contract Marketplace is ERC721URIStorage {
     address payable owner;
     mapping(uint256=>NFT) private idNFT;
 
-    struct MarketItem {
+    struct NFT {
         uint256 tokenId;
         address payable seller;
         address payable owner;
