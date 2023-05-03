@@ -94,5 +94,7 @@ contract Marketplace is ERC721URIStorage {
         _transfer(msg.sender, address(this), tokenId);
     }
     
-    function sellNFT(uint256 tokenId)
+    function sellNFT(uint256 tokenId) public payable {
+        uint256 price = 
+    }
 }
