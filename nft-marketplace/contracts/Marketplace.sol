@@ -29,6 +29,10 @@ contract Marketplace is ERC721URIStorage {
         bool isSold
     };
 
+    modifier onlyOwner {
+        
+    }
+
     constructor () ERC721('NFT Token', 'NFT') {
         owner == payable(msg.sender);
     }
