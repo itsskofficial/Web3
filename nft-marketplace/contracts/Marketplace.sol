@@ -20,4 +20,6 @@ contract Marketplace is ERC721URIStorage {
         uint256 price;
         bool isSold;
     }
+
+    event 
 }
