@@ -59,6 +59,6 @@ contract Marketplace is ERC721URIStorage {
         return newTokenId;
     }
 
-    function createMarketItem()
+    function createNFT()
     
 }
