@@ -60,7 +60,7 @@ contract Marketplace is ERC721URIStorage {
     }
 
     function createNFT(uint256 tokenId, uint256 price) private {
-        require(price > 0, 'p')
+        require(price > 0, 'price must be')
     }
     
 }
