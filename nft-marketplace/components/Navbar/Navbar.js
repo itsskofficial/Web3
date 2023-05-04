@@ -27,7 +27,7 @@ const Navbar = () => {
                     </div>
                     <div className={styles.navbarContainerLeftInput}>
                         <div className={styles.navbarContainerLeftInputBox}>
-                            <input type='text' plac
+                            <input type='text' placeholder=''
                         </div>
                     </div>
                 </div>
