@@ -1,9 +1,9 @@
 import '../styles/globals.css'
 
-const MyApp = ({ Component, pageProps }) => {
+const App = ({ Component, pageProps }) => {
     return (
         <Component {...pageProps} />
     )
 }
 
-export default MyApp
+export default App
