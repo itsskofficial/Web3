@@ -27,7 +27,7 @@ const Navbar = () => {
                     </div>
                     <div className={styles.navbarContainerLeftInput}>
                         <div className={styles.navbarContainerLeftInputBox}>
-                            <input type='text' placeholder=''
+                            <input type='text' placeholder='Search NFTs'></input>
                         </div>
                     </div>
                 </div>
