@@ -12,9 +12,15 @@ import Button from '@components/UI/Button/Button'
 import images from '@public/images/index'
 
 const Navbar = () => {
+    const [discover, setdiscover] = useState(false)
+    const [help, setHelp] = useState(false)
+    const [notifications, setNotifications] = useState(false)
+    const [profile, setProfile] = useState(false)
+    const [openSideMenu, setOpenSideMenu] = useState(false)
+
     return (
-        const [discover, setdiscover] = useState(false);
+        <div clas
     )
 }
  
-export default Navbar;
+export default Navbar
