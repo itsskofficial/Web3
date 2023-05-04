@@ -1,5 +1,7 @@
 const Sidebar = () => {
-    return (  );
+    return (
+
+    )
 }
  
-export default Sidebar;
+export default Sideba
