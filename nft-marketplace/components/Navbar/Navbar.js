@@ -76,7 +76,7 @@ const Navbar = () => {
                         <p onClick={(e) => {openMenu(e)}}>
                             Help
                         </p>
-                        {help &&  <div className={styles.navbarContainerRightHelpBox}>
+                        {help &&  <div className={styles.navbarContainerRightNotificationsBox}>
                             <Help/>
                         </div>}
                     </div>
