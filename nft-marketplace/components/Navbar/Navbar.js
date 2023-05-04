@@ -25,6 +25,11 @@ const Navbar = () => {
                     <div className={styes.logo}>
                         <Image src={images.logo} alt='nft marketplace logo' height={100} width={100} />
                     </div>
+                    <div className={styles.navbarContainerLeftInput}>
+                        <div className={styles.navbarContainerLeftInputBox}>
+                            <input type='text' plac
+                        </div>
+                    </div>
                 </div>
                 <div classname={styles.navbarContainerRight}>                    
                 </div>
