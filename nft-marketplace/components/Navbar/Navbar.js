@@ -63,7 +63,14 @@ const Navbar = () => {
                         {discover &&  <div className={styles.navbarContainerRightDiscoverBox}>
                             <Discover/>
                         </div>}
-                       
+                    </div>
+                    <div className={styles.navbarContainerRightHelp}>
+                        <p onClick={(e) => {openMenu(e)}}>
+                            Help
+                        </p>
+                        {help &&  <div className={styles.navbarContainerRightHelp}>
+                            <Helpr/>
+                        </div>}
                     </div>
                 </div>
             </div>
