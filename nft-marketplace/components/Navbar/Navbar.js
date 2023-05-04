@@ -19,7 +19,9 @@ const Navbar = () => {
     const [openSideMenu, setOpenSideMenu] = useState(false)
 
     return (
-        <div className={styles.navbar}></div>
+        <div className={styles.navbar}>
+            <div className={styles.}
+        </div>
     )
 }
  
