@@ -28,7 +28,7 @@ const Navbar = () => {
                     <div className={styles.navbarContainerLeftInput}>
                         <div className={styles.navbarContainerLeftInputBox}>
                             <input type='text' placeholder='Search NFTs'>
-                                <BsSearch onClick={() => {}}
+                                <BsSearch onClick={() => {}} className={styles.search}
                             </input>
                         </div>
                     </div>
