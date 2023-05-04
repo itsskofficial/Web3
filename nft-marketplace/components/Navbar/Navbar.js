@@ -20,7 +20,7 @@ const Navbar = () => {
 
     return (
         <div className={styles.navbar}>
-            <div className={styles.}
+            <div className={styles.navbarContainer}
         </div>
     )
 }
