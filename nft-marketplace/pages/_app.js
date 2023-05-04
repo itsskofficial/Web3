@@ -1,3 +1,5 @@
 import '../styles/globals.css'
 
-const MyApp = ({Component, pageProps})
+const MyApp = ({ Component, pageProps }) => {
+    
+}
