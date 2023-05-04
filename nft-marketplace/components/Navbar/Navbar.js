@@ -8,10 +8,11 @@ import Discover from './Discover/Discover'
 import Profile from './Profile/Profile'
 import Notifications from './Notifications/Notifications'
 import Sidebar from './Sidebar/Sidebar'
+import Button from '@components/UI/Button/Button'
 
 const Navbar = () => {
     return (
-        
+
     )
 }
  
