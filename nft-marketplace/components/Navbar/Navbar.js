@@ -40,6 +40,18 @@ const Navbar = () => {
         }
     }
 
+    const openNotifications = (event) => {
+        if (!notifications) {
+            setDiscover(false)
+            setHelp(false)
+            setNotifications(true)
+            setProfile(false)
+        }
+        else {
+            setNotifications(true)
+        }
+    }
+
     return (
         <div className={styles.navbar}>
             <div className={styles.navbarContainer}>
@@ -73,13 +85,13 @@ const Navbar = () => {
                         </div>}
                     </div>
                     <div className={styles.navbarContainerRightNotifications}>
-                        <p onClick={(e) => {openMenu(e)}}>
-                            Help
-                        </p>
-                        {help &&  <div className={styles.navbarContainerRightNotificationsBox}>
-                            <Help/>
-                        </div>}
+                        <MdNotifications className={styles.notify} onClick={(e) => { openNotifications(e) }} />
+                        {notifications && <Notifications/>}
                     </div>
+                    <div className={styles.navbarContainerRightButton}>
+                        <Button btnText='Create'/>
+                    </div>
+                    <div className={styles.navbarContainerRightProfile}
                 </div>
             </div>
         </div>
