@@ -12,11 +12,27 @@ import Button from '@components/UI/Button/Button'
 import images from '@public/images/index'
 
 const Navbar = () => {
-    const [discover, setdiscover] = useState(false)
+    const [discover, setDiscover] = useState(false)
     const [help, setHelp] = useState(false)
     const [notifications, setNotifications] = useState(false)
     const [profile, setProfile] = useState(false)
     const [openSideMenu, setOpenSideMenu] = useState(false)
+
+    const openMenu = (event) => {
+        const btnText = event.target.innerText
+        if (btnText == 'Discover') {
+            setDiscover(true)
+            setHelp(false)
+            setNotifications(false)
+            setProfile(false)
+        }
+        else if (btnText == 'Help') {
+            setDiscover(false)
+            setHelp(true)
+            setNotifications(false)
+            setProfile(false)
+        }
+    }
 
     return (
         <div className={styles.navbar}>
@@ -35,7 +51,7 @@ const Navbar = () => {
                 </div>
                 <div classname={styles.navbarContainerRight}>                    
                     <div className={styles.navbarContainerRightDiscover}>
-                        <p onClick={(e) => { }}>
+                        <p onClick={(e) => {openMenu(e)}}>
                             Discover
                         </p>
                         <div className={styles.navbarContainerRightDiscoverBox}>
