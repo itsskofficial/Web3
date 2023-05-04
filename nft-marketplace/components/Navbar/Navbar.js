@@ -93,7 +93,7 @@ const Navbar = () => {
                     </div>
                     <div className={styles.navbarContainerRightProfileBox}>
                         <div className={styles.navbarContainerRightProfile}>
-                            <Image src={images.user1}
+                            <Image src={images.user1} alt=''
                         </div>
                     </div>
                 </div>
