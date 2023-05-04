@@ -23,7 +23,7 @@ const Navbar = () => {
             <div className={styles.navbarContainer}>
                 <div classname={styles.navbarContainerLeft}>
                     <div className={styes.logo}>
-                        <Image src={images.logo} alt='nft marketplace logo' height={100}/>
+                        <Image src={images.logo} alt='nft marketplace logo' height={100} width={100} />
                     </div>
                 </div>
                 <div classname={styles.navbarContainerRight}>                    
