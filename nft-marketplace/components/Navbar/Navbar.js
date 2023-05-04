@@ -23,7 +23,8 @@ const Navbar = () => {
             <div className={styles.navbarContainer}>
                 <div classname={styles.navbarContainerLeft}>
                 </div>
-                <div classname={styles.navbarContainerLeft}>
+                <div classname={styles.navbarContainerRight}>
+                    
                 </div>
 
             </div>
