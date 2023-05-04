@@ -91,7 +91,9 @@ const Navbar = () => {
                     <div className={styles.navbarContainerRightButton}>
                         <Button btnText='Create'/>
                     </div>
-                    <div className={styles.navbarContainerRightProfile}
+                    <div className={styles.navbarContainerRightProfileBox}>
+                        <div className={styles.navbarContainerRightProfil}
+                    </div>
                 </div>
             </div>
         </div>
