@@ -22,7 +22,8 @@ const Navbar = () => {
         <div className={styles.navbar}>
             <div className={styles.navbarContainer}>
                 <div classname={styles.navbarContainerLeft}>
-                    
+                </div>
+                <div classname={styles.navbarContainerLeft}>
                 </div>
 
             </div>
