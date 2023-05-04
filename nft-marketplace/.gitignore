@@ -9,9 +9,6 @@ typechain-types
 cache
 artifacts
 
-/.pnp
-.pnp.js
-
 # testing
 /coverage
 
