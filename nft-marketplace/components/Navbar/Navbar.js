@@ -32,6 +32,12 @@ const Navbar = () => {
             setNotifications(false)
             setProfile(false)
         }
+        else {
+            setDiscover(false)
+            setHelp(true)
+            setNotifications(false)
+            setProfile(false)
+        }
     }
 
     return (
