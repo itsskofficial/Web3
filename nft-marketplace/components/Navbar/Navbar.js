@@ -4,7 +4,8 @@ import Link from 'next/link'
 import { MdNotifications } from 'react-icons/md'
 import { BsSearch } from 'react-icons/bs'
 import {CgMenuLeft, CgMenuRight} from 'react-icons/cg'
-import Disco
+import Discover from './Discover/Discover'
+import Profile
 
 const Navbar = () => {
     return (
