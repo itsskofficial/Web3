@@ -1,1 +1,3 @@
-const Home 
+const Home = () => {
+    
+}
