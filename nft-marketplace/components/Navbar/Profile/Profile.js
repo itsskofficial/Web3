@@ -2,6 +2,6 @@ const Profile = () => {
     return ( 
 
     )
-}
+e
  
-export default Profil;
+export default Profile
