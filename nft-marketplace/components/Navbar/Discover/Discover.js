@@ -4,4 +4,4 @@ const Discover = () => {
     )
 }
  
-export default Discove
+export default Discover
