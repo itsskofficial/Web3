@@ -68,8 +68,16 @@ const Navbar = () => {
                         <p onClick={(e) => {openMenu(e)}}>
                             Help
                         </p>
-                        {help &&  <div className={styles.navbarContainerRightHelp}>
-                            <Helpr/>
+                        {help &&  <div className={styles.navbarContainerRightHelpBox}>
+                            <Help/>
+                        </div>}
+                    </div>
+                    <div className={styles.navbarContainerRightNotifications}>
+                        <p onClick={(e) => {openMenu(e)}}>
+                            Help
+                        </p>
+                        {help &&  <div className={styles.navbarContainerRightHelpBox}>
+                            <Help/>
                         </div>}
                     </div>
                 </div>
