@@ -5,7 +5,7 @@ import { MdNotifications } from 'react-icons/md'
 import { BsSearch } from 'react-icons/bs'
 import {CgMenuLeft, CgMenuRight} from 'react-icons/cg'
 import Discover from './Discover/Discover'
-import Profile
+import Profil
 
 const Navbar = () => {
     return (
