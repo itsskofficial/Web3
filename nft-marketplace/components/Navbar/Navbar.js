@@ -6,6 +6,8 @@ import { BsSearch } from 'react-icons/bs'
 import {CgMenuLeft, CgMenuRight} from 'react-icons/cg'
 import Discover from './Discover/Discover'
 import Profile from './Profile/Profile'
+import Notifications from './Notifications/Notifications'
+import Side
 
 const Navbar = () => {
     return (
