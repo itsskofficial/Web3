@@ -9,10 +9,11 @@ import Profile from './Profile/Profile'
 import Notifications from './Notifications/Notifications'
 import Sidebar from './Sidebar/Sidebar'
 import Button from '@components/UI/Button/Button'
+import images from '@public/images/index'
 
 const Navbar = () => {
     return (
-
+        us
     )
 }
  
