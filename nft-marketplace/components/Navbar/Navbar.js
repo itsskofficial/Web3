@@ -26,10 +26,8 @@ const Navbar = () => {
                         <Image src={images.logo}/>
                     </div>
                 </div>
-                <div classname={styles.navbarContainerRight}>
-                    
+                <div classname={styles.navbarContainerRight}>                    
                 </div>
-
             </div>
         </div>
     )
