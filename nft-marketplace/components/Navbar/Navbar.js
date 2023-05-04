@@ -1,4 +1,4 @@
-import 
+import {useState, useEffect}
 
 const Navbar = () => {
     return (
