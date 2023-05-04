@@ -7,11 +7,11 @@ import {CgMenuLeft, CgMenuRight} from 'react-icons/cg'
 import Discover from './Discover/Discover'
 import Profile from './Profile/Profile'
 import Notifications from './Notifications/Notifications'
-import Side
+import Sidebar from './Sidebar/Sidebar'
 
 const Navbar = () => {
     return (
-
+        
     )
 }
  
