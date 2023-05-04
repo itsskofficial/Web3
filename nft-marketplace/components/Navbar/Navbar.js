@@ -60,9 +60,10 @@ const Navbar = () => {
                         <p onClick={(e) => {openMenu(e)}}>
                             Discover
                         </p>
-                        <div className={styles.navbarContainerRightDiscoverBox}>
+                        {discover &&  <div className={styles.navbarContainerRightDiscoverBox}>
                             <Discover/>
-                        </div>
+                        </div>}
+                       
                     </div>
                 </div>
             </div>
