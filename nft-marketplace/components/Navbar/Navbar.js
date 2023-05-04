@@ -23,7 +23,7 @@ const Navbar = () => {
             <div className={styles.navbarContainer}>
                 <div classname={styles.navbarContainerLeft}>
                     <div className={styes.logo}>
-                        <Image
+                        <Image src={images.logo}/>
                          
                     </div>
                 </div>
