@@ -13,7 +13,7 @@ import images from '@public/images/index'
 
 const Navbar = () => {
     return (
-        sf
+        const [, set] = useState();
     )
 }
  
