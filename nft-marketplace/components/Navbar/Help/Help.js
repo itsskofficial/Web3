@@ -13,6 +13,10 @@ const Help = () => {
         {
             name: 'Signin',
             link: 'signin'
+        },
+        {
+            name: 'Signin',
+            link: 'signin'
         }
     ]
     return ( 
