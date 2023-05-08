@@ -106,6 +106,24 @@ const Sidebar = () => {
                         </div>
                     )}
                 </div>
+                <div>
+                    <div className={styles.sidebarMenuBox} onClick={() => openDiscoverMenu()}>
+                        <p>Discover</p>
+                        <TiArrowSortedDown/>
+                    </div>
+                    {openDiscover && (
+                        <div className={styles.sidebarDiscover}>
+                            {discover.map((el, i) => {
+                                <p key={i + 1}>
+                                    <Link href={e.link}>
+                                        {e.name}
+                                    </Link>
+                                </p>
+                   
+                            })}
+                        </div>
+                    )}
+                </div>
             </div>
         </div>
     )
