@@ -8,7 +8,7 @@ import { useState } from 'react'
 const Sidebar = (props) => {
     const [openDiscover, setOpenDiscover] = useState(false)
     const [openHelp, setOpenHelp] = useState(false)
-    const [openSidebar, setOpenHelp] = useState(false)
+    const [openSidebar, setOpenSidebarMenu] = useState(false)
 
     const discover = [
         {
