@@ -103,8 +103,9 @@ const Sidebar = () => {
                                     {e.name}
                                 </Link>
                             </p>
-                    </div>
-                    })}
+                   
+                        })}
+                        </div>
                 )}
         </div>
     )
