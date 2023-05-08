@@ -62,7 +62,9 @@ const Sidebar = () => {
         }
     ]
     return (
-
+        <div className={styles.sidebar}>
+            <GrClose className={styles.sidebarClose}
+        </div>
     )
 }
  
