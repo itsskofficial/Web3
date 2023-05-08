@@ -4,7 +4,7 @@ import images from '@public/'
 const Notifications = () => {
     return ( 
         <div>
-
+            
         </div>
     )
 }
