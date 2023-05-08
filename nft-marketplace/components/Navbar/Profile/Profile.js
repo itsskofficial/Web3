@@ -1,7 +1,9 @@
+import {FaUSe}
+
 const Profile = () => {
     return ( 
         <div>
-            
+
         </div>
     )
 }
