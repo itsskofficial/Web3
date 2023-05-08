@@ -104,7 +104,9 @@ const Navbar = () => {
                     </div>
                 </div>
             </div>
-            {openSideMenu && }
+            {openSideMenu && (
+                <div className
+            )}
         </div>
     )
 }
