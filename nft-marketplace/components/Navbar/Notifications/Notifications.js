@@ -3,8 +3,8 @@ import images from '@public/'
 
 const Notifications = () => {
     return ( 
-        <div>
-            
+        <div className={styles.notifications}>
+
         </div>
     )
 }
