@@ -12,6 +12,10 @@ const Discover = () => {
             link: 'search'
         },
         {
+            name: 'Search',
+            link: 'search'
+        },
+        {
             name: 'NFT Details',
             link: 'nft-details'
         },
