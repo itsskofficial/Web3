@@ -14,6 +14,9 @@ const Profile = () => {
                 <p>
                     Sarthak Karandikar
                 </p>
+                <small>
+                    X03492342341434...
+                </small>
             </div>
 
         </div>
