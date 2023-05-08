@@ -125,6 +125,7 @@ const Sidebar = () => {
                     )}
                 </div>
             </div>
+            <div className={styles.sidebarButton}
         </div>
     )
 }
