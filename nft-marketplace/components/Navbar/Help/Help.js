@@ -24,7 +24,11 @@ const Help = () => {
         }
     ]
     return ( 
-        <div className={styles.}
+        <div className={styles.box}>
+            {
+                help
+            }
+        </div>
     )
 }
  
