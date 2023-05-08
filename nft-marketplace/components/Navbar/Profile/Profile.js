@@ -37,6 +37,11 @@ const Profile = () => {
                 </div>
                 <div className={styles.profileMenuTwo}>
                     <div className={styles.profileMenuOneItem}>
+                        <MdHelpCenter/>
+                        <p>
+                            <Link
+                        </p></P>
+                    </div>
                 </div>
             </div>
         </div>
