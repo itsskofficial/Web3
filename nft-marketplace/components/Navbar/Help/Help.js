@@ -11,8 +11,8 @@ const Help = () => {
             link: 'signup'
         },
         {
-            name: 'एगुलग',
-            link: 'about'
+            name: 'Signin',
+            link: 'signin'
         }
     ]
     return ( 
