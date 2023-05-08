@@ -93,7 +93,7 @@ const Sidebar = () => {
                         <p>Discover</p>
                         <TiArrowSortedDown/>
                     </div>
-                    r && (
+                    {openDiscover && (
                     <div className={styles.sidebarDiscover}>
                         {discover.map((el, i) => {
                             <p key={i + 1}>
