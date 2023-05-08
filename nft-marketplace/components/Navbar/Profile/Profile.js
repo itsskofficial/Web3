@@ -26,6 +26,12 @@ const Profile = () => {
                             <Link href={{pathname:'/myprofile'}}>
                                 My Profile
                             </Link>
+                            <Link href={{pathname:'/myprofile'}}>
+                                My Items
+                            </Link>
+                            <Link href={{pathname:'/myprofile'}}>
+                                My Profile
+                            </Link>
                         </p>
                     </div>
                 </div>
