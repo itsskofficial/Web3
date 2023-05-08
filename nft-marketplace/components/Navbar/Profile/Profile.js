@@ -43,6 +43,9 @@ const Profile = () => {
                             <Link href={{ pathname: '/help' }}>
                                 Disconnect Wallet
                             </Link>
+                            <Link href={{ pathname: '/help' }}>
+                                Disconnect Wallet
+                            </Link>
                         </p>
                     </div>
                 </div>
