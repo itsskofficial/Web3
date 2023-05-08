@@ -63,7 +63,7 @@ const Sidebar = () => {
     ]
     return (
         <div className={styles.sidebar}>
-            <GrClose className={styles.sidebarCloseBtn} onClick=
+            <GrClose className={styles.sidebarCloseBtn} onClick={()=>{closeSidebar()}}
         </div>
     )
 }
