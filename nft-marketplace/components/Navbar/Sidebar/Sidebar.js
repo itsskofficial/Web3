@@ -89,8 +89,6 @@ const Sidebar = () => {
             </div>
             <div className={styles.sidebarMenu}>
                 <div>
-
-                </div>
                 <div className={styles.sidebarMenuBox} onClick={() => openDiscoverMenu()}>
                     <p>Discover</p>
                     <TiArrowSortedDown/>
@@ -106,6 +104,8 @@ const Sidebar = () => {
                    
                         })}
                     </div>
+                </div>
+                
                 )}
         </div>
     )
