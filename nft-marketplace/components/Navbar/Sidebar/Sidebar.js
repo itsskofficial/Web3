@@ -62,7 +62,9 @@ const Sidebar = (props) => {
         }
     ]
 
-    const openDiscoverMenu
+    const openDiscoverMenu = () => {
+        setOpenDiscover
+    }
     return (
         <div className={styles.sidebar}>
             <GrClose className={styles.sidebarCloseBtn} onClick={() => { closeSidebar() }} />
