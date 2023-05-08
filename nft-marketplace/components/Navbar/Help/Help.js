@@ -28,13 +28,14 @@ const Help = () => {
             {
                 help.map((e, i) => {
                     <div className={styles.help}>
-                        <Link key={e} href={{ pathname: e.link }}>
+                        <Link key={i+1} href={{ pathname: e.link }}>
                             {e.name}
                         </Link>
+                    </div>
                 })
             }
         </div>
     )
 }
  
-export default H
+export default Help
