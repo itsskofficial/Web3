@@ -19,7 +19,7 @@ const Profile = () => {
                 </small>
             </div>
             <div classname={styles.profileMenu}>
-                
+                <div className = {styles.profileMenuOne}
             </div>
         </div>
     )
