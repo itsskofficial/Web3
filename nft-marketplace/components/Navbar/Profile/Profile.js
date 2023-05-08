@@ -41,7 +41,7 @@ const Profile = () => {
                         <MdHelpCenter/>
                         <p>
                             <Link href={{ pathname: '/help' }}>
-                                Disconnect Wallet
+                                Help
                             </Link>
                             <Link href={{ pathname: '/help' }}>
                                 Disconnect Wallet
