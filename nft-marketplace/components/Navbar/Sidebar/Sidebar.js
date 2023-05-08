@@ -3,10 +3,11 @@ import { TiSocialFacebook, TdSocialLinkedin, TiSocialInstagram, TiArrowSortedDow
 import styles from './Sidebar.module.css'
 import images from '@public/'
 import Button from '@components/UI/Button/Button'
+import { useState } from 'react'
 
 const Sidebar = () => {
     const [openDiscover, setOpenDiscover] = useState(false)
-    const [openDiscover, setOpenDiscover] = useState(false)
+    const [openDiscover, setOpenDHel] = useState(false)
 
     return (
 
