@@ -40,7 +40,7 @@ const Profile = () => {
                     <div className={styles.profileMenuOneItem}>
                         <MdHelpCenter/>
                         <p>
-                            <Link href={{pa}}
+                            <Link href={{pathname:'/help'}}
                         </p></P>
                     </div>
                 </div>
