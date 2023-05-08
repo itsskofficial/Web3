@@ -7,7 +7,7 @@ const Profile = () => {
     return ( 
         <div className={styles.profile}>
             <div className={styles.profileAccount}>
-                <Image src = {images.user1} alt ='profile' wi
+                <Image src = {images.user1} alt ='profile' width='50' heigh='50'
             </div>
 
         </div>
