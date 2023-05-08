@@ -1,5 +1,6 @@
 import { FaUserAlt, FaRegIage, FaUserEdit } frrom 'react-icons/fa'
-i
+import { MdHelpCenter } from 'react-icons/md'
+import {}
 
 const Profile = () => {
     return ( 
