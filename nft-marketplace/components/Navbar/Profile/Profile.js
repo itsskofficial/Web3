@@ -1,6 +1,6 @@
-import { FaUserAlt, FaRegIage, FaUserEdit } frrom 'react-icons/fa'
+import { FaUserAlt, FaRegIage, FaUserEdit } from 'react-icons/fa'
 import { MdHelpCenter } from 'react-icons/md'
-import {TbDownloadOff, TbDownlaa}
+import {TbDownloadOff, TbDownload} from 'react-icons/tb'
 
 const Profile = () => {
     return ( 
