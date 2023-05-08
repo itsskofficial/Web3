@@ -13,8 +13,9 @@ const Notifications = () => {
                 </div>
                 <div className={styles.notificationBoxInfo}>
                     <h4>
-                        
+                        Sarthak Karandikar
                     </h4>
+                    
                 </div>
             </div>
         </div>
