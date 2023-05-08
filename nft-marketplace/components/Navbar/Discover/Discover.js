@@ -1,4 +1,5 @@
-import styles from ''
+import styles from 'Discover.module.css'
+imp
 
 const Discover = () => {
     return (
