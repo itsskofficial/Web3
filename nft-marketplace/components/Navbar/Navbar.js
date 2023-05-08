@@ -59,6 +59,9 @@ const Navbar = () => {
             setDiscover(false)
             setNotifications(false)
         }
+        else {
+            setProfile(false)
+        }
 
     return (
         <div className={styles.navbar}>
