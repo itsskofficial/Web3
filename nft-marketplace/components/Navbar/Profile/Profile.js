@@ -1,4 +1,5 @@
-import {FaUserAlt, FaRegIage, FaUserEdit} frrom 'react-icons/f'
+import { FaUserAlt, FaRegIage, FaUserEdit } frrom 'react-icons/fa'
+i
 
 const Profile = () => {
     return ( 
