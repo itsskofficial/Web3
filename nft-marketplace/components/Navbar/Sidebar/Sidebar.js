@@ -86,6 +86,7 @@ const Sidebar = () => {
                         <TiSocialTwitter/>
                     </a>
                 </div>
+            </div>
         </div>
     )
 }
