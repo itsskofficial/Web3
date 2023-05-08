@@ -56,7 +56,9 @@ const Navbar = () => {
         if (!profile)
         {
             setProfile(true)
-            setHelp
+            setHelp(false)
+            setDiscover(false)
+            setNotifications(false)
     }
 
     return (
