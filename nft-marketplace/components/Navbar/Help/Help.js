@@ -15,7 +15,7 @@ const Help = () => {
             link: 'signin'
         },
         {
-            name: 'Signin',
+            name: 'Subscription',
             link: 'signin'
         }
     ]
