@@ -34,7 +34,9 @@ const Discover = () => {
     ]
     return (
         <div>
-            {discover.map}
+            {discover.map(i => {
+                <div key={i}></div>
+            })}
     )
 }
  
