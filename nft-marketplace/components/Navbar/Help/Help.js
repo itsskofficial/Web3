@@ -3,8 +3,8 @@ import styles from './Help.module.css'
 const Help = () => {
     const help = [
         {
-            name: 'Account Settings',
-            link: 'account-settings'
+            name: 'Contact Us',
+            link: 'contact-us
         },
         {
             name: 'Connect Wallet',
