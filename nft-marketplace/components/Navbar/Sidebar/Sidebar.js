@@ -111,9 +111,9 @@ const Sidebar = () => {
                         <p>Discover</p>
                         <TiArrowSortedDown/>
                     </div>
-                    {openDiscover && (
+                    {openHelp && (
                         <div className={styles.sidebarHelp}>
-                            {dhelp.map((el, i) => {
+                            {help.map((el, i) => {
                                 <p key={i + 1}>
                                     <Link href={e.link}>
                                         {e.name}
