@@ -41,6 +41,7 @@ const Discover = () => {
                     </Link> 
                 </div>
             })}
+        </div>
     )
 }
  
