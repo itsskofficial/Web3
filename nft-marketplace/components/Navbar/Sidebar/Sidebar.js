@@ -94,7 +94,7 @@ const Sidebar = () => {
                         <TiArrowSortedDown/>
                     </div>
                     {openDiscover && (
-                    <div className={styles.sidebarDiscover}>
+                        <div className={styles.sidebarDiscover}>
                             {discover.map((el, i) => {
                                 <p key={i + 1}>
                                     <Link href={e.link}>
@@ -103,7 +103,8 @@ const Sidebar = () => {
                                 </p>
                    
                             })}
-                    </div>
+                        </div>
+                    }
                 </div>
                 
                 )}
