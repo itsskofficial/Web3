@@ -1,3 +1,5 @@
+import styles from ''
+
 const Discover = () => {
     return (
 
