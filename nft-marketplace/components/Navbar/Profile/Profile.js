@@ -29,7 +29,7 @@ const Profile = () => {
                             <Link href={{pathname:'/mynfts'}}>
                                 My NFTs
                             </Link>
-                            <Link href={{pathname:'/myprofile'}}>
+                            <Link href={{pathname:'/edit'}}>
                                 My Profile
                             </Link>
                         </p>
