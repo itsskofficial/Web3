@@ -12,12 +12,12 @@ const Discover = () => {
             link: 'collection'
         },
         {
-            name: 'Collection',
+            name: 'NFT ',
             link: 'collection'
         },
         {
             name: 'Account Settings',
-            link: 'collection'
+            link: 'account-settings'
         },
     ]
     return (
