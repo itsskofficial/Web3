@@ -101,7 +101,9 @@ const Sidebar = () => {
                             <p key={i + 1}>
                                 <Link href={e.link}>
                                     {e.name}
-                            </Link>
+                                </Link>
+                            </p>
+                    </div>
                     })}
                 )}
         </div>
