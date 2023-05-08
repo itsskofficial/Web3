@@ -65,8 +65,8 @@ const Sidebar = (props) => {
     const openDiscoverMenu = () => {
         setOpenDiscover(!openDiscover)
     }
-    const openDiscoverMenu = () => {
-        setOpenDiscover(!openDiscover)
+    const openHelpMenu = () => {
+        setOpenHelp(!openHelp)
     }
     return (
         <div className={styles.sidebar}>
