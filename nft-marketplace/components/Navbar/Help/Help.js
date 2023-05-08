@@ -16,7 +16,7 @@ const Help = () => {
         },
         {
             name: 'Subscription',
-            link: 'signin'
+            link: 'subscription'
         }
     ]
     return ( 
