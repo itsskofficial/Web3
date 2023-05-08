@@ -95,6 +95,7 @@ const Sidebar = () => {
                     <p>Discover</p>
                     <TiArrowSortedDown/>
                 </div>
+                {}
         </div>
     )
 }
