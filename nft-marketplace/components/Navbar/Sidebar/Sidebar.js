@@ -5,7 +5,7 @@ import images from '@public/'
 import Button from '@components/UI/Button/Button'
 import { useState } from 'react'
 
-const Sidebar = () => {
+const Sidebar = ({props}) => {
     const [openDiscover, setOpenDiscover] = useState(false)
     const [openHelp, setOpenHelp] = useState(false)
 
