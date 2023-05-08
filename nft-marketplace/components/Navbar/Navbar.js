@@ -54,6 +54,9 @@ const Navbar = () => {
 
     const openProfile = () => {
         if (!profile)
+        {
+            setProfile(true)
+            setHelp
     }
 
     return (
