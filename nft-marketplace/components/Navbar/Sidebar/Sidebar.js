@@ -64,7 +64,8 @@ const Sidebar = () => {
     return (
         <div className={styles.sidebar}>
             <GrClose className={styles.sidebarCloseBtn} onClick={() => { closeSidebar() }} />
-            <div className = (Styles.sidebarBox)
+            <div className= (Styles.sidebarBox)>
+            <Image src={images.logo} alt='logo' width='150' height='150'
         </div>
     )
 }
