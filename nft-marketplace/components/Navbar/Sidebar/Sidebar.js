@@ -71,7 +71,19 @@ const Sidebar = () => {
             </p>
             <div className={styles.sidebarSocial}>
                 <a href=#>
-                    <TiSocia
+                    <TiSocialFacebook/>
+                </a>
+                <a href=#>
+                    <TiSocialFacebook/>
+                </a>
+                <a href=#>
+                    <TiSocialFacebook/>
+                </a>
+                <a href=#>
+                    <TiSocialFacebook/>
+                </a>
+                <a href=#>
+                    <TiSocialFacebook/>
                 </a>
             </div>
         </div>
