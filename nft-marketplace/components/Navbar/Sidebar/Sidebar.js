@@ -74,7 +74,7 @@ const Sidebar = () => {
                     <TiSocialFacebook/>
                 </a>
                 <a href=#>
-                    <TiSocialFacebook/>
+                    <TiSocialInstagram/>
                 </a>
                 <a href=#>
                     <TiSocialFacebook/>
