@@ -70,8 +70,9 @@ const Sidebar = (props) => {
         setOpenHelp(!openHelp)
     }
     const closeSidebar = () => {
-        setOpenSidebarMenu(false)
+        props.setOpenSidebarMenu(false)
     }
+
     return (
         <div className={styles.sidebar}>
             <GrClose className={styles.sidebarCloseBtn} onClick={() => { closeSidebar() }} />
