@@ -70,7 +70,7 @@ const Sidebar = () => {
                 Discover the most outstanding articles on the NFT world
             </p>
             <div className={styles.sidebarSocial}>
-                <
+                <a href=#></a>
             </div>
         </div>
     )
