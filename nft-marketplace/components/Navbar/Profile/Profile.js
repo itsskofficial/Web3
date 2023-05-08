@@ -7,8 +7,10 @@ const Profile = () => {
     return ( 
         <div className={styles.profile}>
             <div className={styles.profileAccount}>
-                <Image src = {images.user1} alt ='profile' width='50' heigh='50' className={styles.profileAccountImg}></Image>
+                <Image src={images.user1} alt='profile' width='50' heigh='50' className={styles.profileAccountImg} />
+                
             </div>
+            <div
 
         </div>
     )
