@@ -20,7 +20,9 @@ const Profile = () => {
             </div>
             <div classname={styles.profileMenu}>
                 <div className = {styles.profileMenuOne}>
-                    <div className=
+                    <div className={styles.profileMenuOneItem}>
+                        <FaUserAlt/>
+                    </div>
                 </div>
             </div>
         </div>
