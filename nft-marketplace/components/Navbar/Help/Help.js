@@ -4,7 +4,7 @@ const Help = () => {
     const help = [
         {
         
-    }
+        }
     ]
     return ( 
 
