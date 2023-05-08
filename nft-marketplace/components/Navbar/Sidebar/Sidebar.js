@@ -69,6 +69,9 @@ const Sidebar = () => {
             <p>
                 Discover the most outstanding articles on the NFT world
             </p>
+            <div className={styles.sidebarSocial}>
+                <
+            </div>
         </div>
     )
 }
