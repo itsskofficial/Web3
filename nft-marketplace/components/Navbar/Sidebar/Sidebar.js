@@ -70,19 +70,19 @@ const Sidebar = () => {
                 Discover the most outstanding articles on the NFT world
             </p>
             <div className={styles.sidebarSocial}>
-                <a href=#>
+                <a href='#'>
                     <TiSocialFacebook/>
                 </a>
-                <a href=#>
+                <a href='#'>
                     <TiSocialInstagram/>
                 </a>
-                <a href=#>
+                <a href='#'>
                     <TiSocialLinkedin/>
                 </a>
-                <a href=#>
+                <a href='#'>
                     <TiSocialYoutube/>
                 </a>
-                <a href=#>
+                <a href='#'>
                     <TiSocialTwitter/>
                 </a>
             </div>
