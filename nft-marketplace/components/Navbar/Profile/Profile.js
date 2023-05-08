@@ -35,7 +35,9 @@ const Profile = () => {
                         </p>
                     </div>
                 </div>
-                <div className={styles.profileMenuTwo}
+                <div className={styles.profileMenuTwo}>
+                    <div className={styles.profileMenuOneItem}>
+                </div>
             </div>
         </div>
     )
