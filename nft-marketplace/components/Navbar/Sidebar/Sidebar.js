@@ -125,7 +125,9 @@ const Sidebar = () => {
                     )}
                 </div>
             </div>
-            <div className={styles.sidebarButton}
+            <div className={styles.sidebarButton}>
+                <Button
+            </div>
         </div>
     )
 }
