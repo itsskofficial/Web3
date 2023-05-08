@@ -65,27 +65,27 @@ const Sidebar = () => {
         <div className={styles.sidebar}>
             <GrClose className={styles.sidebarCloseBtn} onClick={() => { closeSidebar() }} />
             <div className={styles.sidebarBox}>
-            <Image src={images.logo} alt='logo' width='150' height='150' />
-            <p>
-                Discover the most outstanding articles on the NFT world
-            </p>
-            <div className={styles.sidebarSocial}>
-                <a href='#'>
-                    <TiSocialFacebook/>
-                </a>
-                <a href='#'>
-                    <TiSocialInstagram/>
-                </a>
-                <a href='#'>
-                    <TiSocialLinkedin/>
-                </a>
-                <a href='#'>
-                    <TiSocialYoutube/>
-                </a>
-                <a href='#'>
-                    <TiSocialTwitter/>
-                </a>
-            </div>
+                <Image src={images.logo} alt='logo' width='150' height='150' />
+                <p>
+                    Discover the most outstanding articles on the NFT world
+                </p>
+                <div className={styles.sidebarSocial}>
+                    <a href='#'>
+                        <TiSocialFacebook/>
+                    </a>
+                    <a href='#'>
+                        <TiSocialInstagram/>
+                    </a>
+                    <a href='#'>
+                        <TiSocialLinkedin/>
+                    </a>
+                    <a href='#'>
+                        <TiSocialYoutube/>
+                    </a>
+                    <a href='#'>
+                        <TiSocialTwitter/>
+                    </a>
+                </div>
         </div>
     )
 }
