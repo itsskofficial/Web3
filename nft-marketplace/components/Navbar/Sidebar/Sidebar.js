@@ -126,7 +126,8 @@ const Sidebar = () => {
                 </div>
             </div>
             <div className={styles.sidebarButton}>
-                <Button name='Create' 
+                <Button name='Create' />
+                <Button name='Connect Wallet' />
             </div>
         </div>
     )
