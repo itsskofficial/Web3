@@ -26,7 +26,9 @@ const Help = () => {
     return ( 
         <div className={styles.box}>
             {
-                help
+                help.map((e, i) => {
+                    
+                })
             }
         </div>
     )
