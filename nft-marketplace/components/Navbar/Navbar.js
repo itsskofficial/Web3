@@ -52,6 +52,10 @@ const Navbar = () => {
         }
     }
 
+    const openProfile = () => {
+        if (!profile)
+    }
+
     return (
         <div className={styles.navbar}>
             <div className={styles.navbarContainer}>
