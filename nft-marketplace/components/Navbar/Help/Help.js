@@ -28,7 +28,7 @@ const Help = () => {
             {
                 help.map((e, i) => {
                     <div className={styles.help}>
-                        <Link href={{ pathname: e.link }}>
+                        <Link key={e} href={{ pathname: e.link }}>
                             {e.name}
                         </Link>
                 })
@@ -37,4 +37,4 @@ const Help = () => {
     )
 }
  
-export default Help
+export default H
