@@ -6,7 +6,9 @@ import images from '@public/'
 const Profile = () => {
     return ( 
         <div className={styles.profile}>
-        
+            <div className={styles.profileAccount}>
+                
+            </div>
 
         </div>
     )
