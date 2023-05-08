@@ -63,7 +63,9 @@ const Navbar = () => {
             setProfile(false)
         }
     
-    const openSideBar
+        const openSideBar = () => {
+        if (!openSideMen)
+    }
 
     return (
         <div className={styles.navbar}>
