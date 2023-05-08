@@ -27,7 +27,8 @@ const Help = () => {
         <div className={styles.box}>
             {
                 help.map((e, i) => {
-                    <div className = {styles.help}>
+                    <div className={styles.help}>
+                        <Link href={{pathname:e.link}}
                 })
             }
         </div>
