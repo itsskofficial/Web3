@@ -104,7 +104,7 @@ const Navbar = () => {
                     </div>
                 </div>
             </div>
-            {open}
+            {openSideMenu && }
         </div>
     )
 }
