@@ -91,7 +91,10 @@ const Sidebar = () => {
                 <div>
 
                 </div>
-                <div className={styles.sidebarMenuBox} onClick={()=>openDiscoverMenu()}
+                <div className={styles.sidebarMenuBox} onClick={() => openDiscoverMenu()}>
+                    <p>Discover</p>
+                    <TiArrowSortedDown/>
+                </div>
         </div>
     )
 }
