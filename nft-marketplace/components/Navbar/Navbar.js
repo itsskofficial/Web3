@@ -53,13 +53,12 @@ const Navbar = () => {
     }
 
     const openProfile = () => {
-        if (!profile)
-        {
+        if (!profile){
             setProfile(true)
             setHelp(false)
             setDiscover(false)
             setNotifications(false)
-    }
+        }
 
     return (
         <div className={styles.navbar}>
