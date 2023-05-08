@@ -40,7 +40,9 @@ const Profile = () => {
                     <div className={styles.profileMenuOneItem}>
                         <MdHelpCenter/>
                         <p>
-                            <Link href={{pathname:'/help'}}
+                            <Link href={{ pathname: '/help' }}>
+                                Disconnect Wallet
+                            </Link>
                         </p></P>
                     </div>
                 </div>
