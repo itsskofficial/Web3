@@ -95,7 +95,9 @@ const Sidebar = () => {
                     <p>Discover</p>
                     <TiArrowSortedDown/>
                 </div>
-                {}
+                {openDiscover && (
+                    <div className={styles.sidebarDiscover}>
+                )}
         </div>
     )
 }
