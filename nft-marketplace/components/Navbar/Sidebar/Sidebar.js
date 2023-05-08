@@ -108,7 +108,7 @@ const Sidebar = () => {
                 </div>
                 <div>
                     <div className={styles.sidebarMenuBox} onClick={() => openHelpMenu()}>
-                        <p>Discover</p>
+                        <p>Help</p>
                         <TiArrowSortedDown/>
                     </div>
                     {openHelp && (
