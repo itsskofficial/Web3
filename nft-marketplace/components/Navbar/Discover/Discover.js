@@ -23,6 +23,10 @@ const Discover = () => {
             name: 'Account Settings',
             link: 'account-settings'
         },
+        {
+            name: 'Account Settings',
+            link: 'account-settings'
+        },
     ]
     return (
 
