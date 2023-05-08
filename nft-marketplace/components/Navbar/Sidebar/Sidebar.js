@@ -5,7 +5,9 @@ import images from '@public/'
 import Button from '@components/UI/Button/Button'
 
 const Sidebar = () => {
-    const [openDiscover, set]
+    const [openDiscover, setOpenDiscover] = useState(false)
+    const [openDiscover, setOpenDiscover] = useState(false)
+
     return (
 
     )
