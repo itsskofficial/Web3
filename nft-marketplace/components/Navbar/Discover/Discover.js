@@ -6,7 +6,19 @@ const Discover = () => {
         {
             name: 'Collection',
             link: 'collection'
-        }
+        },
+        {
+            name: 'Collection',
+            link: 'collection'
+        },
+        {
+            name: 'Collection',
+            link: 'collection'
+        },
+        {
+            name: 'Collection',
+            link: 'collection'
+        },
     ]
     return (
 
