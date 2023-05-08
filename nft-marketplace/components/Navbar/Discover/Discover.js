@@ -35,8 +35,8 @@ const Discover = () => {
     return (
         <div>
             {discover.map(i => {
-                <div key={i + 1}>
-
+                <div className={styles.discover} key={i + 1}>
+                    <Link 
                 </div>
             })}
     )
