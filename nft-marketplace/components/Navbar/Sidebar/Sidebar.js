@@ -99,7 +99,9 @@ const Sidebar = () => {
                     <div className={styles.sidebarDiscover}>
                         {discover.map((el, i) => {
                             <p key={i + 1}>
-                            <Link href={e.}
+                                <Link href={e.link}>
+                                    {e.name}
+                            </Link>
                     })}
                 )}
         </div>
