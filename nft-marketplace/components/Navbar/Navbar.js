@@ -53,7 +53,7 @@ const Navbar = () => {
     }
 
     const openProfile = () => {
-        if (!profile){
+        if (!profile) {
             setProfile(true)
             setHelp(false)
             setDiscover(false)
@@ -64,68 +64,69 @@ const Navbar = () => {
         }
     
         const openSideBar = () => {
-        setOpenSideMenu(!openSideMenu)
-    }
+            setOpenSideMenu(!openSideMenu)
+        }
 
-    return (
-        <div className={styles.navbar}>
-            <div className={styles.navbarContainer}>
-                <div classname={styles.navbarContainerLeft}>
-                    <div className={styles.logo}>
-                        <Image src={images.logo} alt='nft marketplace logo' height={100} width={100} />
+        return (
+            <div className={styles.navbar}>
+                <div className={styles.navbarContainer}>
+                    <div classname={styles.navbarContainerLeft}>
+                        <div className={styles.logo}>
+                            <Image src={images.logo} alt='nft marketplace logo' height={100} width={100} />
+                        </div>
+                        <div className={styles.navbarContainerLeftSearch}>
+                            <div className={styles.navbarContainerLeftSearchBox}>
+                                <input type='text' placeholder='Search NFTs'>
+                                    <BsSearch onClick={() => { }} className={styles.search} />
+                                </input>
+                            </div>
+                        </div>
                     </div>
-                    <div className={styles.navbarContainerLeftSearch}>
-                        <div className={styles.navbarContainerLeftSearchBox}>
-                            <input type='text' placeholder='Search NFTs'>
-                                <BsSearch onClick={() => {}} className={styles.search}/>
-                            </input>
+                    <div classname={styles.navbarContainerRight}>
+                        <div className={styles.navbarContainerRightDiscover}>
+                            <p onClick={(e) => { openMenu(e) }}>
+                                Discover
+                            </p>
+                            {discover && <div className={styles.navbarContainerRightDiscoverBox}>
+                                <Discover />
+                            </div>}
+                        </div>
+                        <div className={styles.navbarContainerRightHelp}>
+                            <p onClick={(e) => { openMenu(e) }}>
+                                Help
+                            </p>
+                            {help && <div className={styles.navbarContainerRightHelpBox}>
+                                <Help />
+                            </div>}
+                        </div>
+                        <div className={styles.navbarContainerRightNotifications}>
+                            <MdNotifications className={styles.notify} onClick={(e) => { openNotifications(e) }} />
+                            {notifications && <Notifications />}
+                        </div>
+                        <div className={styles.navbarContainerRightButton}>
+                            <Button btnText='Create' />
+                        </div>
+                        <div className={styles.navbarContainerRightProfileBox}>
+                            <div className={styles.navbarContainerRightProfile}>
+                                <Image src={images.user1} alt='user profile' width={40} height={40} onClick={openProfile} className={styles.navbarContaierRightProfile} />
+                                {profile && <Profile />}
+                            </div>
+                        </div>
+                        <div className={styles.navbarContainerRightMenu}>
+                            <CgMenuRight className={styles.menuIcon} onClick={() => {
+                                openSideBar()
+                            }} />
                         </div>
                     </div>
                 </div>
-                <div classname={styles.navbarContainerRight}>                    
-                    <div className={styles.navbarContainerRightDiscover}>
-                        <p onClick={(e) => {openMenu(e)}}>
-                            Discover
-                        </p>
-                        {discover &&  <div className={styles.navbarContainerRightDiscoverBox}>
-                            <Discover/>
-                        </div>}
+                {openSideMenu && (
+                    <div className={styles.sidebar}>
+                        <Sidebar setOpenSideMenu={setOpenSideMenu} />
                     </div>
-                    <div className={styles.navbarContainerRightHelp}>
-                        <p onClick={(e) => {openMenu(e)}}>
-                            Help
-                        </p>
-                        {help &&  <div className={styles.navbarContainerRightHelpBox}>
-                            <Help/>
-                        </div>}
-                    </div>
-                    <div className={styles.navbarContainerRightNotifications}>
-                        <MdNotifications className={styles.notify} onClick={(e) => { openNotifications(e) }} />
-                        {notifications && <Notifications/>}
-                    </div>
-                    <div className={styles.navbarContainerRightButton}>
-                        <Button btnText='Create'/>
-                    </div>
-                    <div className={styles.navbarContainerRightProfileBox}>
-                        <div className={styles.navbarContainerRightProfile}>
-                            <Image src={images.user1} alt='user profile' width={40} height={40} onClick={openProfile} className={styles.navbarContaierRightProfile} />
-                            {profile && <Profile/>}
-                        </div>
-                    </div>
-                    <div className={styles.navbarContainerRightMenu}>
-                        <CgMenuRight className={styles.menuIcon} onClick={() => {
-                            openSideBar()
-                        }} />
-                    </div>
-                </div>
+                )}
             </div>
-            {openSideMenu && (
-                <div className={styles.sidebar}>
-                    <Sidebar setOpenSideMenu={setOpenSideMenu} />
-                </div>
-            )}
-        </div>
-    )
+        )
+    }
 }
  
 export default Navbar
