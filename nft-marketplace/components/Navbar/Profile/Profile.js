@@ -11,7 +11,9 @@ const Profile = () => {
                 
             </div>
             <div className={styles.profileAccountInfo}>
-                <p></p>
+                <p>
+                    Sarthak Karandikar
+                </p>
             </div>
 
         </div>
