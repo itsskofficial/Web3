@@ -97,6 +97,7 @@ const Sidebar = () => {
                 </div>
                 {openDiscover && (
                     <div className={styles.sidebarDiscover}>
+                    {discover.map((el,i))}
                 )}
         </div>
     )
