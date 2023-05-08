@@ -16,8 +16,11 @@ const Notifications = () => {
                         Sarthak Karandikar
                     </h4>
                     <p>
-                        
+                        Measure action your user...
                     </p>
+                    <small>
+                        3 mins
+                    </small>
                 </div>
             </div>
         </div>
