@@ -2,6 +2,7 @@ import { FaUserAlt, FaRegIage, FaUserEdit } from 'react-icons/fa'
 import { MdHelpCenter } from 'react-icons/md'
 import { TbDownloadOff, TbDownload } from 'react-icons/tb'
 import images from '@public/'
+import Link from 'next/link'
 
 const Profile = () => {
     return ( 
@@ -39,7 +40,7 @@ const Profile = () => {
                     <div className={styles.profileMenuOneItem}>
                         <MdHelpCenter/>
                         <p>
-                            <Link
+                            <Link href={{pa}}
                         </p></P>
                     </div>
                 </div>
