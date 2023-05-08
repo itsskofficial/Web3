@@ -97,7 +97,9 @@ const Navbar = () => {
                             {profile && <Profile/>}
                         </div>
                     </div>
-                    <div className={styles.navbarContainerRightMenu}
+                    <div className={styles.navbarContainerRightMenu}>
+                        <CgMenu
+                    </div>
                 </div>
             </div>
         </div>
