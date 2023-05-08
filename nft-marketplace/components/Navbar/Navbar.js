@@ -98,9 +98,9 @@ const Navbar = () => {
                         </div>
                     </div>
                     <div className={styles.navbarContainerRightMenu}>
-                        <CgMenuRight className={styles.menuIcon} onClick={()=> {
+                        <CgMenuRight className={styles.menuIcon} onClick={() => {
                             openSideBar()
-                        }/>
+                        }} />
                     </div>
                 </div>
             </div>
