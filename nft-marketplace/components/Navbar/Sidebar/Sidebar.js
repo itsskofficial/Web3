@@ -8,7 +8,7 @@ import { useState } from 'react'
 const Sidebar = (props) => {
     const [openDiscover, setOpenDiscover] = useState(false)
     const [openHelp, setOpenHelp] = useState(false)
-    
+
     const discover = [
         {
             name: 'Collection',
@@ -61,6 +61,8 @@ const Sidebar = (props) => {
             link: 'subscription'
         }
     ]
+
+    const openDiscoverMenu
     return (
         <div className={styles.sidebar}>
             <GrClose className={styles.sidebarCloseBtn} onClick={() => { closeSidebar() }} />
