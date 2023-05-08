@@ -1,4 +1,4 @@
-import {FaUSe}
+import {FaUserAlt, FaRegIage, FaUS}
 
 const Profile = () => {
     return ( 
