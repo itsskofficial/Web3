@@ -9,6 +9,36 @@ const Sidebar = () => {
     const [openDiscover, setOpenDiscover] = useState(false)
     const [openHelp, setOpenHelp] = useState(false)
 
+    const discover = [
+        {
+            name: 'Collection',
+            link: 'collection'
+        },
+        {
+            name: 'Search',
+            link: 'search'
+        },
+        {
+            name: 'Profile',
+            link: 'profile'
+        },
+        {
+            name: 'NFT Details',
+            link: 'nft-details'
+        },
+        {
+            name: 'Account Settings',
+            link: 'account-settings'
+        },
+        {
+            name: 'Connect Wallet',
+            link: 'connect-wallet'
+        },
+        {
+            name: 'Blog',
+            link: 'blog'
+        }
+    ]
     return (
 
     )
