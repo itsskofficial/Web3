@@ -18,7 +18,7 @@ const Profile = () => {
                     X03492342341434...
                 </small>
             </div>
-            <div classname={st}
+            <div classname={styles.profileMenu}
         </div>
     )
 }
