@@ -8,8 +8,10 @@ const Notifications = () => {
                 Notificatios
             </p>
             <div className={styles.notificationsBox}>
-                <div className = {styles.notificationBoxImg}
-
+                <div className={styles.notificationBoxImg}>
+                    <Image src={images.user1}/>
+                </div>
+            </div>
         </div>
     )
 }
