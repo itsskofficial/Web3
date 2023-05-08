@@ -8,8 +8,8 @@ const Discover = () => {
             link: 'collection'
         },
         {
-            name: 'Collection',
-            link: 'collection'
+            name: 'Search',
+            link: 'search'
         },
         {
             name: 'NFT Details',
