@@ -1,5 +1,5 @@
 import styles from 'Discover.module.css'
-imp
+import Link from 'next/link'
 
 const Discover = () => {
     return (
