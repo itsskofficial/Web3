@@ -10,7 +10,9 @@ const Profile = () => {
                 <Image src={images.user1} alt='profile' width='50' heigh='50' className={styles.profileAccountImg} />
                 
             </div>
-            <div className={styles.profileAccountInfo}></div>
+            <div className={styles.profileAccountInfo}>
+                <p></p>
+            </div>
 
         </div>
     )
