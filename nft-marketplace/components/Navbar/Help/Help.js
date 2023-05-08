@@ -11,7 +11,7 @@ const Help = () => {
             link: 'signup'
         },
         {
-            name: 'About',
+            name: 'एगुलग',
             link: 'about'
         }
     ]
