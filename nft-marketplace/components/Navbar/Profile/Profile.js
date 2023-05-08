@@ -30,7 +30,7 @@ const Profile = () => {
                                 My NFTs
                             </Link>
                             <Link href={{pathname:'/edit'}}>
-                                My Profile
+                                Edit Profile
                             </Link>
                         </p>
                     </div>
