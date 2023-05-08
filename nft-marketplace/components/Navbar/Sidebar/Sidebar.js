@@ -1,10 +1,10 @@
 import { GrClose } from 'react-icons/gr'
-import { TiSocialFacebook } from 'react-icons/ti'
+import { TiSocialFacebook, TdSocialLinkedin, Td } from 'react-icons/ti'
 
 
 const Sidebar = () => {
     return (
-        
+
     )
 }
  
