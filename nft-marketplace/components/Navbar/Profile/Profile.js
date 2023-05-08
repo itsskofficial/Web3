@@ -18,7 +18,9 @@ const Profile = () => {
                     X03492342341434...
                 </small>
             </div>
-            <div classname={styles.profileMenu}
+            <div classname={styles.profileMenu}>
+                
+            </div>
         </div>
     )
 }
