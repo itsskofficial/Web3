@@ -69,7 +69,7 @@ const Sidebar = (props) => {
         setOpenHelp(!openHelp)
     }
     const closeSidebar = () => {
-        setOpenSidebarMenu
+        setOpenSidebarMenu(false)
     }
     return (
         <div className={styles.sidebar}>
