@@ -4,7 +4,7 @@ const Help = () => {
     const help = [
         {
             name: 'Contact Us',
-            link: 'contact-us
+            link: 'contact-us'
         },
         {
             name: 'Connect Wallet',
