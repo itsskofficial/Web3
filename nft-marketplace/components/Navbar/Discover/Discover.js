@@ -2,7 +2,11 @@ import styles from 'Discover.module.css'
 import Link from 'next/link'
 
 const Discover = () => {
-    const 
+    const discover = [
+        {
+        name: 'Collection',
+        link:'collection'
+    ]
     return (
 
     )
