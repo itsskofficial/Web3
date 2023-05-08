@@ -29,15 +29,11 @@ const Discover = () => {
         },
         {
             name: 'Blog',
-            link: 'connect-wallet'
-        },
-        {
-            name: 'Connect Wallet',
-            link: 'connect-wallet'
-        },
+            link: 'blog'
+        }
     ]
     return (
-
+        <div
     )
 }
  
