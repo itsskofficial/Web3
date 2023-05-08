@@ -43,7 +43,7 @@ const Profile = () => {
                             <Link href={{ pathname: '/help' }}>
                                 Help
                             </Link>
-                            <Link href={{ pathname: '/help' }}>
+                            <Link href={{ pathname: '/disconnect' }}>
                                 Disconnect Wallet
                             </Link>
                         </p>
