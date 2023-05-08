@@ -35,7 +35,7 @@ const Profile = () => {
                         </p>
                     </div>
                 </div>
-                
+                <div className={styles.profileMenuTwo}
             </div>
         </div>
     )
