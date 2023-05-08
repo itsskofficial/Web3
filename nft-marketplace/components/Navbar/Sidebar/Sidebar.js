@@ -1,3 +1,4 @@
+import { GrClose } from 'react-icons/gr'
 import {}
 
 const Sidebar = () => {
