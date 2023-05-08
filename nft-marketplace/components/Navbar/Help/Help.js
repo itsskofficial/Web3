@@ -7,8 +7,8 @@ const Help = () => {
             link: 'contact-us'
         },
         {
-            name: 'Connect Wallet',
-            link: 'connect-wallet'
+            name: 'Signup',
+            link: 'signup'
         },
         {
             name: 'Blog',
