@@ -63,7 +63,7 @@ const Navbar = () => {
             setProfile(false)
         }
     
-    
+    const openSideBar
 
     return (
         <div className={styles.navbar}>
