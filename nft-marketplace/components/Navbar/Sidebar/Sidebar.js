@@ -1,5 +1,5 @@
 import { GrClose } from 'react-icons/gr'
-import { TiSocialFacebook, TdSocialLinkedin, Td } from 'react-icons/ti'
+import { TiSocialFacebook, TdSocialLinkedin, TiSocialInstagram, TiArrow } from 'react-icons/ti'
 
 
 const Sidebar = () => {
