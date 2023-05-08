@@ -93,7 +93,7 @@ const Navbar = () => {
                     </div>
                     <div className={styles.navbarContainerRightProfileBox}>
                         <div className={styles.navbarContainerRightProfile}>
-                            <Image src={images.user1} alt='user profile' width={40} height={40} onClick={openProfile} />
+                            <Image src={images.user1} alt='user profile' width={40} height={40} onClick={openProfile} className={styles.navbarContaierRightProfile/>
                         </div>
                     </div>
                 </div>
