@@ -63,7 +63,10 @@ const Sidebar = (props) => {
     ]
 
     const openDiscoverMenu = () => {
-        setOpenDiscover
+        setOpenDiscover(!openDiscover)
+    }
+    const openDiscoverMenu = () => {
+        setOpenDiscover(!openDiscover)
     }
     return (
         <div className={styles.sidebar}>
