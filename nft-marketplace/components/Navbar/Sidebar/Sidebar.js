@@ -89,11 +89,11 @@ const Sidebar = () => {
             </div>
             <div className={styles.sidebarMenu}>
                 <div>
-                <div className={styles.sidebarMenuBox} onClick={() => openDiscoverMenu()}>
-                    <p>Discover</p>
-                    <TiArrowSortedDown/>
-                </div>
-                {openDiscover && (
+                    <div className={styles.sidebarMenuBox} onClick={() => openDiscoverMenu()}>
+                        <p>Discover</p>
+                        <TiArrowSortedDown/>
+                    </div>
+                    r && (
                     <div className={styles.sidebarDiscover}>
                         {discover.map((el, i) => {
                             <p key={i + 1}>
