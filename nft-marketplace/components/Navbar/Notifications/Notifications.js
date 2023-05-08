@@ -15,7 +15,9 @@ const Notifications = () => {
                     <h4>
                         Sarthak Karandikar
                     </h4>
-                    
+                    <p>
+                        
+                    </p>
                 </div>
             </div>
         </div>
