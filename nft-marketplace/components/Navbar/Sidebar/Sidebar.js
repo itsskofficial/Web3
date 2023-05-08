@@ -107,7 +107,6 @@ const Sidebar = () => {
                     )}
                 </div>
                 
-                )}
         </div>
     )
 }
