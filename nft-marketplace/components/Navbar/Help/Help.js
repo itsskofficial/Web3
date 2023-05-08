@@ -3,6 +3,10 @@ import styles from './Help.module.css'
 const Help = () => {
     const help = [
         {
+            name: 'About',
+            link: 'about'
+        },
+        {
             name: 'Contact Us',
             link: 'contact-us'
         },
@@ -20,7 +24,7 @@ const Help = () => {
         }
     ]
     return ( 
-
+        
     )
 }
  
