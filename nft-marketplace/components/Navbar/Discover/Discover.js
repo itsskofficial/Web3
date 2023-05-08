@@ -16,7 +16,7 @@ const Discover = () => {
             link: 'collection'
         },
         {
-            name: 'Collection',
+            name: 'Accountr',
             link: 'collection'
         },
     ]
