@@ -29,5 +29,6 @@
 
 navbarContainerRight{
     display:grid;
-    grid
+    grid-temolate-columns: 1fr 1fr .5fr 1fr .3fr;
+    
 }
