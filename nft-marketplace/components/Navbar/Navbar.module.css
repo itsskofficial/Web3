@@ -53,5 +53,5 @@ navbarContainerRight{
     font-size:1rem;
     width:15rem;
     border-radius: 1rem;
-    background-color: var(--k);
+    background-color: var(--main-bg-color);
 }
