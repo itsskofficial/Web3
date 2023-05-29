@@ -25,7 +25,8 @@ body {
 }
 
 ::selection{
-  color:var()
+  color:var(--shadow-dark-color);
+  
 }
 
 a {
