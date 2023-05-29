@@ -26,7 +26,7 @@ body {
 
 ::selection{
   color:var(--shadow-dark-color);
-  
+  background:var(--icons-color);
 }
 
 a {
