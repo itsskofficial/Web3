@@ -23,4 +23,6 @@
     border-radius2rem;
 }
 
-.navbarContainerLeftBoxInput
+.navbarContainerLeftBoxInput input{
+    width:90%
+}
