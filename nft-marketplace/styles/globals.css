@@ -41,7 +41,8 @@ body {
 
 ::-webkit-scrollbar-thumb{
   border-radius: 2rem;
-  back
+  background: var(--icons-color);
+  width:
 }
 a {
   color: #0070f3;
