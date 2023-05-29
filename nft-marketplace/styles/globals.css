@@ -39,7 +39,9 @@ body {
   background-color:var(--main-bg-color);
 }
 
-::webkit
+::-webkit-scrollbar-thumb{
+  
+}
 a {
   color: #0070f3;
   text-decoration: none;
