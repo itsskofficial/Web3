@@ -6,7 +6,7 @@
   --shadow-light-color:#fff;
   --main-bg-color:#ecf0f3;
   --box-shadow:1rem 1rem 1 rem var(var(var(--shadow-dark-color), -1rem -1re, 1rem var(var(var(--shadow-dark-color)))));
-  
+
 }
 
 html,
@@ -22,6 +22,10 @@ body {
 * {
   box-sizing: border-box;
   -webkit-tap-highlight-color:none;
+}
+
+::selection{
+  color:var()
 }
 
 a {
