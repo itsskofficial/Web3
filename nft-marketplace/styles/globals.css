@@ -35,7 +35,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb{
-  width
+  border-radius
 }
 
 a {
