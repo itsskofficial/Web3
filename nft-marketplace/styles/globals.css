@@ -30,7 +30,8 @@ body {
 }
 
 ::-webkit-scrollbar{
-  width:1re
+  width:1rem;
+  border:1px solid var()
 }
 
 a {
