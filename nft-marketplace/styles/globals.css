@@ -34,6 +34,8 @@ body {
   border:1px solid var(--main-bg-color);
 }
 
+::webkit-
+
 a {
   color: #0070f3;
   text-decoration: none;
