@@ -48,5 +48,7 @@ navbarContainerRight{
 .navbarContainerRightDiscoverBox,
 .navbarContainerRightHelpBox{
     position:absolute;
-    padding:1rem .5rem
+    padding:1rem .5rem;
+    box-shadow:var(--box-shadow);
+    
 }
