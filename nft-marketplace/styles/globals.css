@@ -29,7 +29,9 @@ body {
   background:var(--icons-color);
 }
 
-::
+::-webkit-scrollbar{
+  width:1re
+}
 
 a {
   color: #0070f3;
