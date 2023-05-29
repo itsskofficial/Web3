@@ -50,5 +50,6 @@ navbarContainerRight{
     position:absolute;
     padding:1rem .5rem;
     box-shadow:var(--box-shadow);
-    
+    font-size:1rem;
+    width:1
 }
