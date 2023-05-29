@@ -17,4 +17,7 @@
 .navbarContainerLeftInput{
     width:60%;
     border:1px solid var(--icons-color);
+    display: flex;
+    align-items:center;
+    
 }
