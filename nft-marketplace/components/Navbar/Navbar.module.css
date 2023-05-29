@@ -12,5 +12,5 @@
 
 .navbarContainerLeftInput{
     width:60%;
-    border:1px solid var;
+    border:1px solid var();
 }
