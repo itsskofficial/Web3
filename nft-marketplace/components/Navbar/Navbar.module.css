@@ -36,5 +36,6 @@ navbarContainerRight{
 }
 
 .navbarContainerRightDiscover{
-    
+    postion:relative;
+    cursor:pointer;
 }
