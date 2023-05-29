@@ -42,8 +42,9 @@ body {
 ::-webkit-scrollbar-thumb{
   border-radius: 2rem;
   background: var(--icons-color);
-  width:
+  width:.5rem;
 }
+
 a {
   color: #0070f3;
   text-decoration: none;
