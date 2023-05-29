@@ -1,0 +1,24 @@
+.navbar{
+    width:100%;
+    padding-block:1.5 rem;
+
+}
+
+.navbarContainer{
+
+}
+
+.navbarContainerLeft{
+    display:grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
+}
+
+.navbarContainerLeftInput{
+    width:60%;
+    border:1px solid var(--icons-color);
+    display: flex;
+    align-items:center;
+    padding:.5rem;
+    
+}
