@@ -6,7 +6,7 @@
   --shadow-light-color:#fff;
   --main-bg-color:#ecf0f3;
   --box-shadow:1rem 1rem 1 rem var(var(var(--shadow-dark-color), -1rem -1re, 1rem var(var(var(--shadow-dark-color)))));
-  
+
 }
 
 html,
@@ -28,6 +28,8 @@ body {
   color:var(--shadow-dark-color);
   background:var(--icons-color);
 }
+
+::
 
 a {
   color: #0070f3;
