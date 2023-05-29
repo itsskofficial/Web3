@@ -34,7 +34,9 @@ body {
   border:1px solid var(--main-bg-color);
 }
 
-::webkit-scrollbar-
+::-webkit-scrollbar-thumb{
+  width
+}
 
 a {
   color: #0070f3;
