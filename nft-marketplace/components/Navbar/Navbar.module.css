@@ -39,3 +39,10 @@ navbarContainerRight{
     postion:relative;
     cursor:pointer;
 }
+
+.navbarContainerRightHelp{
+    position:relative;
+    cursor:pointer;
+}
+
+.navbarContainerRightDiscoverBox,
