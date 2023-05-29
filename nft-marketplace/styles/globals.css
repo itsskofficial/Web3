@@ -34,7 +34,7 @@ body {
   border:1px solid var(--main-bg-color);
 }
 
-::webkit-
+::webkit-scrollbar-
 
 a {
   color: #0070f3;
