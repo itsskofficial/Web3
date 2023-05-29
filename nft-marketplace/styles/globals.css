@@ -34,11 +34,12 @@ body {
   border:1px solid var(--main-bg-color);
 }
 
-::-webkit-scrollbar-thumb{
+::-webkit-scrollbar-track{
   border-radius:0;
   background-color:var(--main-bg-color);
 }
 
+::webkit
 a {
   color: #0070f3;
   text-decoration: none;
