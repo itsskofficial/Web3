@@ -32,7 +32,7 @@
 
 ## About The Project
 
-![Screen Shot](ethereum-course-marketplace.png)
+![Screen Shot](eth-course-marketplace.png)
 
 CourseMarketplace is an Ethereum-based course marketplace project that leverages technologies like Ganache, Truffle, Next.js, and more. The project allows users to buy and sell courses securely on the Ethereum blockchain, providing a decentralized and transparent platform for education.
 
