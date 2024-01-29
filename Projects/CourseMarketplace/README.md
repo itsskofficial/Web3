@@ -15,7 +15,7 @@
   </p>
 </p>
 
-![License](https://img.shields.io/github/license/yourusername/Web3/Projects/CourseMarketplace) 
+![License](https://img.shields.io/github/license/itsskofficial/Web3) 
 
 ## Table Of Contents
 
