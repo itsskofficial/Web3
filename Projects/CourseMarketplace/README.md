@@ -1,23 +1,113 @@
-This is a [Next.js](https://nextjs.org/) project. Full process and video lectures how to create the application can be found here: [Solidity & Ethereum in React (Next JS): The Complete Guide
-](https://www.udemy.com/course/solidity-ethereum-in-react-next-js-the-complete-guide/?referralCode=2436B1CB6ED554938127)
+<br/>
+<p align="center">
 
-## Overview
+  <h3 align="center">CourseMarketplace</h3>
 
-Marketplace has dependencies on multiple technologies.
+  <p align="center">
+    An Ethereum-based course marketplace project using Ganache, Truffle, Next.js, and more.
+    <br/>
+    <br/>
+    <a href="https://itsskofficial-ethereum-course-marketplace.vercel.app">View Demo</a>
+    .
+    <a href="https://github.com/itsskofficial/Web3/Projects/CourseMarketplace/issues">Report Bug</a>
+    .
+    <a href="https://github.com/itsskofficial/Web3/Projects/CourseMarketplace/issues">Request Feature</a>
+  </p>
+</p>
 
-* [Ganache](https://trufflesuite.com/ganache/) - private Blockchain, to run application localy
+![License](https://img.shields.io/github/license/yourusername/Web3/Projects/CourseMarketplace) 
 
-## To run the app
-1. run `npm install` to install dependencies
+## Table Of Contents
 
-2. Then migrate a contract to Ganache, contract can be found in the `contracts` folder. It's called `CourseMarketplace.sol`
+* [About The Project](#about-the-project)
+* [Tech Stack](#tech-stack)
+* [Getting Started](#getting-started)
+  * [Prerequisites](#prerequisites)
+  * [Installation](#installation)
+* [Usage](#usage)
+* [Contributing](#contributing)
+* [License](#license)
+* [Authors](#authors)
+* [Acknowledgements](#acknowledgements)
 
-* To migrate the contract run `truffle migrate` in the terminal while Ganache network is setup and running.
+## About The Project
 
-* Do not forget to link `trufle-config.js` with Ganache, just go to `config` and click `Add Project`
+![Screen Shot](ethereum-course-marketplace.png)
 
-* `keys.json` must be created if you want to deploy to Ropsten, if not, just remove import of `keys.json` from `trufle-config.js` and also comment out `ropsten` configuration
+CourseMarketplace is an Ethereum-based course marketplace project that leverages technologies like Ganache, Truffle, Next.js, and more. The project allows users to buy and sell courses securely on the Ethereum blockchain, providing a decentralized and transparent platform for education.
 
-3. Now everything is setup and you can test out the app.
+## Built With
 
-* Run `npm run dev` in the terminal. App will run at `localhost:3000`
+- [Ethereum](https://ethereum.org/)
+- [Ganache](https://www.trufflesuite.com/ganache)
+- [Truffle](https://www.trufflesuite.com/truffle)
+- [Next.js](https://nextjs.org/)
+- [Solidity](https://docs.soliditylang.org/)
+
+## Getting Started
+
+This is an example of how you may give instructions on setting up your project locally.
+To get a local copy up and running follow these simple example steps.
+
+### Prerequisites
+
+* **Node.js:**
+  
+  Ensure you have Node.js installed. You can download it from [here](https://nodejs.org/).
+
+* **Ganache:**
+  
+  Install Ganache, a personal blockchain for Ethereum development. You can download it from [here](https://www.trufflesuite.com/ganache).
+
+* **Truffle:**
+  
+  Install Truffle, a development environment, testing framework, and asset pipeline for Ethereum. You can install it using the following command:
+  ```sh
+  npm install -g truffle
+
+### Installation
+
+1. **Clone the repo**
+   ```sh
+   git clone https://github.com/itsskofficial/Web3
+
+2. **Enter into the direcory**
+   ```sh
+   cd Projects/CourseMarketplace
+
+3. **Install dependencies**
+   ```sh
+   npm install
+
+
+## Usage
+
+CourseMarketplace is a decentralized platform for buying and selling courses. Users can securely transact using Ethereum. The project utilizes smart contracts for transparent and tamper-proof transactions
+
+## Contributing
+
+Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are greatly appreciated.
+
+If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement". Don't forget to give the repository a star! Thanks again!
+
+### Creating A Pull Request
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## License
+
+Distributed under the MIT License. See [LICENSE](https://github.com/itsskofficial/Machine-Learning/blob/main/LICENSE.md) for more information.
+
+
+## Acknowledgements
+
+## Acknowledgements
+
+* [Eincode](https://eincode.com/)
+* [Ethereum Foundation](https://ethereum.org/)
+* [Truffle Suite](https://www.trufflesuite.com/)
+* [Next.js](https://nextjs.org/)
