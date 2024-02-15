@@ -1,5 +1,4 @@
 # Web3 Roadmap
----------------------------------
 
 ### 1\. **Blockchain Basics:**
 
