@@ -239,4 +239,7 @@ blockchain/history
 yarn.lock
 package-lock.json
 
+#custom
+encryptedKey.json
+
 # End of https://www.toptal.com/developers/gitignore/api/soliditytruffle,solidity,node

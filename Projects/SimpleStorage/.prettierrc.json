@@ -27,8 +27,14 @@
             "options": {}
         },
         {
-            "files": "*.js",
-            "options": {}
+          "files": "*.js",
+          "options": {
+            "printWidth": 80,
+            "tabWidth": 4,
+            "useTabs": false,
+            "singleQuote": false,
+            "bracketSpacing": false
+          }
         },
         {
             "files": "*.ts",
