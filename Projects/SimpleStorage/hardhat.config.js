@@ -14,12 +14,20 @@ module.exports = {
         chainId: 31337
         },
         sepolia: {
-            url: process.env.SEPOLIA_RPC_URL,
-            accounts: [process.env.METAMASK_PRIVATE_KEY],
+            url: process.env.SEPOLIA_RPC_URL || "null",
+            accounts: [process.env.METAMASK_PRIVATE_KEY || "null"],
             chainId: 11155111,
         },
     },
     etherscan: {
-      apiKey: process.env.ETHERSCAN_API_KEY
+      apiKey: process.env.ETHERSCAN_API_KEY || "null"
+    },
+    gasReporter: {
+        enabled: true,
+        outputFile: "gas-report.txt",
+        noColors: true,
+        currency: "USD",
+        coinmarketcap: process.env.COINMARKETCAP_API_KEY || "null", 
+        token: "ETH"
     }
 };
