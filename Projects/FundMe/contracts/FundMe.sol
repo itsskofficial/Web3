@@ -2,6 +2,7 @@
 pragma solidity >=0.6.12 <0.9.0;
 
 import "./PriceConverter.sol";
+import {AggregatorV3Interface} from "@chainlink/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol";
 
 error NotOwner();
 
@@ -12,13 +13,15 @@ contract FundMe {
     address[] public funders;
     mapping(address => uint256) public addressToAmountFunded;
     address public immutable owner;
+    AggregatorV3Interface public priceFeed;
 
-    constructor() {
+    constructor(address priceFeedAddress) {
         owner = msg.sender;
+        priceFeed = AggregatorV3Interface(priceFeedAddress);
     }
 
     function fund() public payable {
-        require(msg.value.getConversionRate() >= MIN_USD, "Atleast 50 USD required");
+        require(msg.value.getConversionRate(priceFeed) >= MIN_USD, "Atleast 50 USD required");
         funders.push(msg.sender);
         addressToAmountFunded[msg.sender] = msg.value;
     }

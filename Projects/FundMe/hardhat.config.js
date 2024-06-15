@@ -1,8 +1,8 @@
 require("@nomicfoundation/hardhat-toolbox");
 require("@nomicfoundation/hardhat-verify");
+require("hardhat-deploy")
 const path = require("path"); // Importing the path module to resolve the path to the .env file
 require("dotenv").config({path: path.resolve(__dirname, ".env")}); // Importing the dotenv module to read the .env file
-require("@nomicfoundation/hardhat-ignition-ethers")
 
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
@@ -17,6 +17,7 @@ module.exports = {
             url: process.env.SEPOLIA_RPC_URL || "null",
             accounts: [process.env.METAMASK_PRIVATE_KEY || "null"],
             chainId: 11155111,
+            blockConfirmations: 3,
         },
     },
     etherscan: {
@@ -29,5 +30,13 @@ module.exports = {
         currency: "USD",
         coinmarketcap: process.env.COINMARKETCAP_API_KEY || "null",
         token: "ETH",
+    },
+    namedAccounts: {
+        deployer: {
+            default: 0,
+        },
+        user: {
+            default: 1,
+        },
     },
 };
