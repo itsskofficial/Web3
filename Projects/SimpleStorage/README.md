@@ -142,4 +142,4 @@ Acknowledgements
 
 *   [FreeCodeCamp](https://www.freecodecamp.org/)
 *   [Hardhat Documentation](https://hardhat.org/getting-started/)
-*   [Ethers.js Documentation](https://docs.ethers.io/v5/)
+*   [Ethers.js Documentation](https://docs.ethers.io/v6/)

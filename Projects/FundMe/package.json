@@ -1,4 +1,7 @@
 {
+  "name": "fundme",
+  "version": "1.0.0",
+  "author": "itsskofficial",
   "devDependencies": {
     "@chainlink/contracts": "^1.1.1",
     "@nomicfoundation/hardhat-toolbox": "^5.0.0",
@@ -7,5 +10,15 @@
   },
   "dependencies": {
     "dotenv": "^16.4.5"
+  },
+  "scripts": {
+    "compile": "npx hardhat compile",
+    "test:unit": "npx hardhat test",
+    "test:staging": "npx hardhat test --network sepolia",
+    "deploy": "npx hardhat deploy",
+    "verify": "npx hardhat verify --network sepolia",
+    "coverage": "npx hardhat coverage",
+    "fund": "node ./scripts/fund",
+    "withdraw": "node ./scripts/withdraw"
   }
 }
