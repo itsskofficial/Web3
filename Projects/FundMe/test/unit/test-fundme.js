@@ -1,5 +1,5 @@
 const { deployments, ethers, getNamedAccounts } = require("hardhat")
-const {assert, expect} = require("chai")
+const { assert, expect } = require("chai")
 
 describe("FundMe", async () => {
     let fundMe, deployer, mockV3Aggregator
@@ -7,20 +7,23 @@ describe("FundMe", async () => {
     beforeEach(async () => {
         deployer = (await getNamedAccounts()).deployer
         await deployments.fixture(["all"])
-        fundMe = await ethers.getContractAt("FundMe", deployer)
-        mockV3Aggregator = await ethers.getContractAt("MockV3Aggregator", deployer)
+        const fundMeDeployment = await deployments.get("FundMe");
+        const mockV3AggregatorDeployment = await deployments.get("MockV3Aggregator");
+
+        fundMe = await ethers.getContractAt(fundMeDeployment.abi, fundMeDeployment.address)
+        mockV3Aggregator = await ethers.getContractAt(mockV3AggregatorDeployment.abi, mockV3AggregatorDeployment.address)
     })
 
     describe("constructor", async () => {
         it("sets the aggregator address correctly", async () => {
             const response = await fundMe.getPriceFeed()
-            assert.equal(response, mockV3Aggregator.address)
+            assert.equal(response, mockV3Aggregator.target)
         })
     })
 
-    describe("fund", async () => {
+    describe("fund", () => {
         it("fails if you don't send enough ETH", async () => {
-            await expect(fundMe.fund()).to.be.revertedWith("You need to spend more ETH!")
+            await expect(fundMe.fund()).to.be.revertedWithCustomError(fundMe, "FundMe__NotEnoughETH")
         })
 
         it("updates the amount funded data structure", async () => {
@@ -36,25 +39,25 @@ describe("FundMe", async () => {
         })
     })
 
-    describe("withdraw", async () => {
+    describe("withdraw", () => {
         beforeEach(async () => {
             await fundMe.fund({ value: ethers.parseEther("1") })
         })
 
         it("withdraw ETH from a single funder", async () => {
             // Arrange
-            const startingFundMeBalance = await fundMe.provider.getBalance(fundMe.address) 
-            const startingDeployerBalance = await fundMe.provider.getBalance(deployer)  
+            const startingFundMeBalance = await ethers.provider.getBalance(fundMe.target) 
+            const startingDeployerBalance = await ethers.provider.getBalance(deployer)  
             // Act
             const transactionResponse = await fundMe.withdraw()
             const transactionReceipt = await transactionResponse.wait(1)
-            const { gasUsed, effectiveGasPrice } = transactionReceipt
-            const gasCost = gasUsed.mul(effectiveGasPrice)
-            const endingFundMeBalance = await fundMe.provider.getBalance(fundMe.address)
-            const endingDeployerBalance = await fundMe.provider.getBalance(deployer)  
+            const { gasUsed, gasPrice } = transactionReceipt
+            const gasCost = gasUsed * gasPrice
+            const endingFundMeBalance = await ethers.provider.getBalance(fundMe.target)
+            const endingDeployerBalance = await ethers.provider.getBalance(deployer)  
             // Assert
-            assert.equal(endingFundMeBalance, 0)
-            assert.equal(startingFundMeBalance.add(startingDeployerBalance).toString(), endingDeployerBalance.add(gasCost).toString())
+            assert.equal(endingFundMeBalance, 0n)
+            assert.equal(startingFundMeBalance + startingDeployerBalance, endingDeployerBalance + gasCost)
         })
 
         it("allows us to withdraw with multiple getFunder", async () => {
@@ -64,22 +67,22 @@ describe("FundMe", async () => {
                 const fundMeConnectedContract = await fundMe.connect(accounts[i])
                 await fundMeConnectedContract.fund({ value: ethers.parseEther("1") })
             }
-            const startingFundMeBalance = await fundMe.provider.getBalance(fundMe.address)
-            const startingDeployerBalance = await fundMe.provider.getBalance(deployer)
+            const startingFundMeBalance = await ethers.provider.getBalance(fundMe.target)
+            const startingDeployerBalance = await ethers.provider.getBalance(deployer)
             // Act
             const transactionResponse = await fundMe.withdraw()
             const transactionReceipt = await transactionResponse.wait(1)
-            const { gasUsed, effectiveGasPrice } = transactionReceipt
-            const gasCost = gasUsed.mul(effectiveGasPrice)
-            const endingFundMeBalance = await fundMe.provider.getBalance(fundMe.address)
-            const endingDeployerBalance = await fundMe.provider.getBalance(deployer)
+            const { gasUsed, gasPrice } = transactionReceipt
+            const gasCost = gasUsed * gasPrice
+            const endingFundMeBalance = await ethers.provider.getBalance(fundMe.target)
+            const endingDeployerBalance = await ethers.provider.getBalance(deployer)
             // Assert
-            assert.equal(endingFundMeBalance, 0)
-            assert.equal(startingFundMeBalance.add(startingDeployerBalance).toString(), endingDeployerBalance.add(gasCost).toString())
-            await expect(fundMe.getFunder(0)).to.be.reverted
+            assert.equal(endingFundMeBalance, 0n)
+            assert.equal(startingFundMeBalance + startingDeployerBalance, endingDeployerBalance + gasCost)
+            await expect(fundMe.getFunder(0)).to.be.reverted;
 
             for (i = 1; i < 6; i++) {
-                assert.equal(await fundMe.getAddressToAmountFunded(accounts[i].address), 0)
+                assert.equal(await fundMe.getAddressToAmountFunded(accounts[i]), 0)
             }
         })
 
@@ -87,7 +90,7 @@ describe("FundMe", async () => {
             const accounts = await ethers.getSigners()
             const attacker = accounts[1]
             const attackerConnectedContract = await fundMe.connect(attacker)
-            await expect(attackerConnectedContract.withdraw()).to.be.revertedWith("FundMe__NotOwner")
+            await expect(attackerConnectedContract.withdraw()).to.be.revertedWithCustomError(fundMe, "FundMe__NotOwner")
         })
     })
 })

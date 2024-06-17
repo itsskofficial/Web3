@@ -2,9 +2,11 @@
 pragma solidity >=0.6.12 <0.9.0;
 
 import "./PriceConverter.sol";
+import "hardhat/console.sol";
 import {AggregatorV3Interface} from "@chainlink/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol";
 
 error FundMe__NotOwner();
+error FundMe__NotEnoughETH();
 
 /** 
  * @title FundMe
@@ -17,15 +19,14 @@ contract FundMe {
     using PriceConverter for uint256;
 
     uint256 public constant MIN_USD = 50 * 1e18;
-    address[] public s_funders;
-    mapping(address => uint256) public s_addressToAmountFunded;
-    address public immutable i_owner;
+    address[] private s_funders;
+    mapping(address => uint256) private s_addressToAmountFunded;
+    address private immutable i_owner;
     AggregatorV3Interface public s_priceFeed;
 
     modifier onlyOwner {
-        // require(msg.sender == owner, "Sender is not owner");
         if (msg.sender != i_owner) {
-            revert FundMe__NotOwner(); // revert("Sender is not owner"); 
+            revert FundMe__NotOwner();
         }
         _;
     }
@@ -36,7 +37,10 @@ contract FundMe {
     }
 
     function fund() public payable {
-        require(msg.value.getConversionRate(s_priceFeed) >= MIN_USD, "Atleast 50 USD required");
+        if (msg.value.getConversionRate(s_priceFeed) < MIN_USD) {
+            revert FundMe__NotEnoughETH();
+        }
+        
         s_funders.push(msg.sender);
         s_addressToAmountFunded[msg.sender] = msg.value;
     }
@@ -59,11 +63,16 @@ contract FundMe {
         return s_priceFeed;
     }
 
-    function getFunders() public view returns (address[] memory) {
-        return s_funders;
+    function getFunder(uint256 index) public view returns (address) {
+        return s_funders[index];
     }
 
-    function getAddressToAmountFunded() public view returns (mapping(address => uint256)) {
-        return s_addressToAmountFunded;
+    function getAddressToAmountFunded(address funder) public view returns (uint256) {
+        return s_addressToAmountFunded[funder];
     }
+
+    function getOwner() public view returns (address) {
+        return i_owner;
+    }
+
 }
