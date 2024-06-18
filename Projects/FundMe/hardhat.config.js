@@ -1,5 +1,4 @@
 require("@nomicfoundation/hardhat-toolbox");
-require("@nomicfoundation/hardhat-verify");
 require("hardhat-deploy")
 const path = require("path"); // Importing the path module to resolve the path to the .env file
 require("dotenv").config({path: path.resolve(__dirname, ".env")}); // Importing the dotenv module to read the .env file

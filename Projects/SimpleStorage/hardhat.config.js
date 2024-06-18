@@ -1,5 +1,4 @@
 require("@nomicfoundation/hardhat-toolbox");
-require("@nomicfoundation/hardhat-verify")
 const path = require("path"); // Importing the path module to resolve the path to the .env file
 require("dotenv").config({ path: path.resolve(__dirname, ".env") }); // Importing the dotenv module to read the .env file
 require("./tasks/block-number") // Importing the block-number task from tasks/block-number.js
