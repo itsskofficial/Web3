@@ -7,7 +7,7 @@ import {AutomationCompatibleInterface} from "@chainlink/contracts/src/v0.8/autom
 
 error Raffle__NotEnoughETHEntered();
 error Raffle__TransferFailed();
-error Raffle__LotteryNotOpen();
+error Raffle__NotOpen();
 error Raffle__UpkeepNotNeeded(uint256 balance, uint256 numPlayers, uint256 raffleState);
 
 
@@ -66,7 +66,7 @@ contract Raffle is VRFConsumerBaseV2, AutomationCompatibleInterface {
         }
 
         if (s_raffleState != RaffleState.OPEN) {
-            revert Raffle__LotteryNotOpen();
+            revert Raffle__NotOpen();
         }
 
         s_players.push(payable(msg.sender));
@@ -149,5 +149,9 @@ contract Raffle is VRFConsumerBaseV2, AutomationCompatibleInterface {
 
     function getRequestConfirmations() public pure returns (uint256) {
         return REQUEST_CONFIRMATIONS;
+    }
+
+    function getInterval() public view returns (uint256) {
+        return i_interval;
     }
 }
