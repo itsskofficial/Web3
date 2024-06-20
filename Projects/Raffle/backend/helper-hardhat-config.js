@@ -7,7 +7,8 @@ const networkConfig = {
         entranceFee: ethers.parseEther("0.01"),
         gasLane:
             "0x787d74caea10b2b357790d5b5247c2f63d1d91572a9846f780606e4d953677ae",
-        subscriptionId: "0",
+        subscriptionId:
+            "66845934560283432536180671947727435581582947144976014058069151677014042118510",
         callbackGasLimit: "500000",
         interval: "30",
     },
