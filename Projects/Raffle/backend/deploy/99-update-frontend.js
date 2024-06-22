@@ -1,6 +1,6 @@
 const { ethers, deployments, network } = require("hardhat")
 
-const FRONTEND_ADDRESS_PATH = "../frontend/constants/address.json"
+const FRONTEND_ADDRESS_PATH = "../frontend/constants/addresses.json"
 const FRONTEND_ABI_PATH = "../frontend/constants/abi.json"
 
 module.exports = async () => {
