@@ -2,7 +2,7 @@ import { useMoralis, useWeb3Contract } from "react-moralis"
 import abi from "@constants/abi.json"
 import addresses from "@constants/addresses.json"
 import { useEffect, useState } from "react"
-import ethers from "ethers"
+import { ethers } from "ethers"
 
 const LotteryEntrance = () => {
     const { chainId: chainIdHex, isWeb3Enabled } = useMoralis()
