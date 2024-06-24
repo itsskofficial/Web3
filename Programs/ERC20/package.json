@@ -1,6 +1,14 @@
 {
   "devDependencies": {
-    "@openzeppelin/contracts": "^5.0.2",
-    "hardhat": "^2.22.5"
+    "@chainlink/contracts": "^1.1.1",
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "hardhat": "^2.22.5",
+    "hardhat-contract-sizer": "^2.10.0",
+    "hardhat-deploy": "^0.12.4",
+    "@openzeppelin/contracts": "^5.0.2"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5"
   }
 }
+
