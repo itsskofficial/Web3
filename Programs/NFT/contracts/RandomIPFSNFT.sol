@@ -14,7 +14,7 @@ contract RandomIPFSNFT is ERC721URIStorage, VRFConsumerBaseV2 {
     enum Breed {
         PUG,
         SHIBA_INU,
-        PEPESUSHI
+        ST_BERNARD
     }
 
     VRFCoordinatorV2Interface private immutable i_vrfCoordinator;
