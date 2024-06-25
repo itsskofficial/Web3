@@ -102,3 +102,5 @@ module.exports = async () => {
 
     log("-------------------------");
 }
+
+module.exports.tags = ["all", "randomIPFSNFT"]
