@@ -5,7 +5,7 @@ contract Encoding {
     function combineStrings() public pure returns (string memory) {
         string memory a = "Hello";
         string memory b = "World";
-        string memory c = abi.encodePacked(a, b).toString();
+        string memory c = string(abi.encodePacked(a, b));
         return c;
     }
 
@@ -30,7 +30,7 @@ contract Encoding {
     }
 
     function decodeString() public pure returns (string memory) {
-        string memory someString = abi.decode(bytes(abi.encode("Hello World!")), string);
+        string memory someString = abi.decode(bytes(abi.encode("Hello World!")), (string));
         return someString;
     }
 
@@ -48,6 +48,6 @@ contract Encoding {
         string memory a = "Hello";
         string memory b = "World";
         string memory c = string(abi.encodePacked(a, b));
-        return c;
+        return c; 
     }
 }
