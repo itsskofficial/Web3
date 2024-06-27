@@ -1,0 +1,15 @@
+{
+    "devDependencies": {
+        "@chainlink/contracts": "^1.1.1",
+        "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+        "@openzeppelin/contracts": "^5.0.2",
+        "@pinata/sdk": "^2.1.0",
+        "base64-sol": "^1.1.0",
+        "hardhat": "^2.22.5",
+        "hardhat-contract-sizer": "^2.10.0",
+        "hardhat-deploy": "^0.12.4"
+    },
+    "dependencies": {
+        "dotenv": "^16.4.5"
+    }
+}
