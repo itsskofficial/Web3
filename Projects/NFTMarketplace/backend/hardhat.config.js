@@ -35,7 +35,7 @@ module.exports = {
         token: "ETH",
     },
     contractSizer: {
-        runOnCompile: true,
+        runOnCompile: false,
         only: ["NFTMarketplace"],
     },
     namedAccounts: {

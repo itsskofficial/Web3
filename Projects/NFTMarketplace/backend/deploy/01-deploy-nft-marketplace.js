@@ -10,7 +10,7 @@ module.exports = async () => {
 
     log("-------------------------");
 
-    const nftMarketplace = await deploy("BasicNFT", {
+    const nftMarketplace = await deploy("NFTMarketplace", {
         from: deployer,
         args: [],
         log: true,
@@ -28,6 +28,7 @@ module.exports = async () => {
         await verify(nftMarketplace.address, []);
     }
 
+    log("Verified");
     log("-------------------------");
 };
 

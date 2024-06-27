@@ -28,6 +28,7 @@ module.exports = async () => {
         await verify(basicNFT.address, []);
     }
 
+    log("Verified");
     log("-------------------------");
 };
 
