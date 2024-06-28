@@ -7,7 +7,7 @@ const main = async () => {
     console.log("Minting...")
     const mintTx = await basicNFT.mint()
     const mintTxReceipt = await mintTx.wait(1)
-    const tokenId = mintTxReceipt.logs[0].topics[0]
+    const tokenId = mintTxReceipt.logs[1].topics[1]
     console.log("Minted NFT with tokenId:", tokenId)
 
     console.log("Approving NFT...")
