@@ -1,5 +1,9 @@
 import "./globals.css";
-import {MoralisProvider} from "react-moralis"
+import { WagmiProvider } from "wagmi";
+import { config } from "../wagmi.config";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
+const queryClient = new QueryClient();
 
 export const metadata = {
   title: "Raffle",
@@ -9,11 +13,13 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-          <body>
-              <MoralisProvider initializeOnMount={false}>
-                  {children}
-              </MoralisProvider>
-          </body>
-      </html>  
+        <body>
+              <WagmiProvider config={config}>
+                  <QueryClientProvider client={queryClient}>
+                      {children}
+                  </QueryClientProvider>
+            </WagmiProvider>
+        </body>
+    </html>  
   );
 }
