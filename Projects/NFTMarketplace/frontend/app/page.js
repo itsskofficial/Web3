@@ -1,19 +1,19 @@
 "use client"
 
 import Header from "@components/Header";
-import { useMoralis } from "react-moralis";
+import { useAccount } from "wagmi";
 import addresses from "@constants/addresses.json";
 import NFTCard from "@components/NFTCard";
 import { GET_ACTIVE_ITEMS } from "@utils/graph";
 
 const Home = () => {
-  const {chainId, isWeb3Enabled} = useMoralis();
-  const chainString = chainId ? parseInt(chainId).toString() : null;
-  const marketplaceAddress = chainId
-        ? addresses[chainString].NFTMarketplace[0]
-      : null;
+    const { chainId, isConnected } = useAccount();
+    const chainString = chainId ? chainId.toString() : null;
+    const marketplaceAddress = chainId
+            ? addresses[chainString].NFTMarketplace[0]
+        : null;
 
-      const {loading, error, data: listedNfts} = useQuery(GET_ACTIVE_ITEMS);
+    const {loading, error, data: listedNfts} = useQuery(GET_ACTIVE_ITEMS);
   
   return (
       <div>
@@ -21,7 +21,7 @@ const Home = () => {
           <div className="container mx-auto">
               <h1 className="py-4 px-4 font-bold text-2xl">Recently Listed</h1>
               <div className="flex flex-wrap">
-                  {isWeb3Enabled && chainId ? (
+                  {isConnected && chainId ? (
                       loading || !listedNfts ? (
                           <div>Loading...</div>
                       ) : (

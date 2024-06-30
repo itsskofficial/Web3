@@ -1,77 +1,91 @@
-import { useEffect, useState } from "react"
-import { useWeb3Contract, useMoralis } from "react-moralis"
-import nftMarketPlaceAbi from "@constants/NFTMarketplace.json"
-import nftAbi from "@constants/BasicNFT.json"
-import Image from "next/image"
-import ethers from "ethers"
-import truncateString from "@utils/truncateString"
-import UpdateListing from "./UpdateListing"
-import Notification from "./Notification"
+import {useEffect, useState} from "react";
+import {useAccount, useReadContract, useWriteContract} from "wagmi";
+import nftMarketPlaceAbi from "../constants/NFTMarketplace.json";
+import nftAbi from "../constants/BasicNFT.json";
+import Image from "next/image";
+import {ethers} from "ethers";
+import truncateString from "../utils/truncateString";
+import UpdateListing from "./UpdateListing";
+import Notification from "./Notification";
 
-const NFTCard = ({ price, nftAddress, marketplaceAddress, tokenId, seller }) => {
-    const {isWeb3Enabled, account} = useMoralis()
-    const [imageURI, setImageURI] = useState("")
-    const [tokenName, setTokenName] = useState("")
-    const [tokenDescription, setTokenDescription] = useState("")
-    const [showModal, setShowModal] = useState(false)
+const NFTCard = ({price, nftAddress, marketplaceAddress, tokenId, seller}) => {
+    const {address: account, isConnected} = useAccount();
+    const [imageURI, setImageURI] = useState("");
+    const [tokenName, setTokenName] = useState("");
+    const [tokenDescription, setTokenDescription] = useState("");
+    const [showModal, setShowModal] = useState(false);
     const [notificationDetails, setNotificationDetails] = useState(null);
 
-    const { runContractFunction: getTokenURI } = useWeb3Contract({
+    const {data: tokenURI} = useReadContract({
         abi: nftAbi,
         address: nftAddress,
         functionName: "tokenURI",
-        params: {
-            tokenId
-        }
-    })
+        args: [tokenId],
+    });
 
-    const { runContractFunction: buyItem } = useWeb3Contract({
-        abi: nftMarketPlaceAbi,
-        address: marketplaceAddress,
-        functionName: "buyItem",
-        msgValue: price,
-        params: {
-            nftAddress,
-            tokenId
-        }
-    })
+    const {writeContract} = useWriteContract();
 
-    const updateInfo = async () => {
-        const tokenURI = await getTokenURI()
-        if (tokenURI) {
-            const requestURL = tokenURI.replace("ipfs://", "https://ipfs.io/ipfs/")
-            const tokenResponse = await fetch(requestURL)
-            const metadata = await tokenResponse.json()
-            const imageURI = metadata.image.replace("ipfs://", "https://ipfs.io/ipfs/")
-            setTokenName(metadata.name)
-            setTokenDescription(metadata.description)
-            setImageURI(imageURI)
-        }
-    }
-    
     useEffect(() => {
-        updateInfo()
-    }, [isWeb3Enabled])
+        if (tokenURI) {
+            const fetchMetadata = async () => {
+                const requestURL = tokenURI.replace(
+                    "ipfs://",
+                    "https://ipfs.io/ipfs/"
+                );
+                const response = await fetch(requestURL);
+                const metadata = await response.json();
+                const image = metadata.image.replace(
+                    "ipfs://",
+                    "https://ipfs.io/ipfs/"
+                );
+                setTokenName(metadata.name);
+                setTokenDescription(metadata.description);
+                setImageURI(image);
+            };
+            fetchMetadata();
+        }
+    }, [tokenURI]);
 
-    const isOwnedByUser = seller === account || seller === undefined
-    const formattedSeller = isOwnedByUser ? "You" : truncateString(seller || "", 15)
-    
+    const isOwnedByUser = seller === account || seller === undefined;
+    const formattedSeller = isOwnedByUser
+        ? "You"
+        : truncateString(seller || "", 15);
+
     const handleCardClick = () => {
-        isOwnedByUser ? setShowModal(true) : buyItem({
-            onError: (error) => console.log(error),
-            onSuccess: handleBuyItemSuccess
-         })
-    }
+        if (isOwnedByUser) {
+            setShowModal(true);
+        } else {
+            buyItem();
+        }
+    };
+
+    const buyItem = async () => {
+        try {
+            const transaction = await writeContract({
+                abi: nftMarketPlaceAbi,
+                address: marketplaceAddress,
+                functionName: "buyItem",
+                args: [nftAddress, tokenId],
+                overrides: {
+                    value: price,
+                },
+            });
+            handleBuyItemSuccess(transaction);
+        } catch (error) {
+            console.log(error);
+        }
+    };
 
     const handleBuyItemSuccess = async (transaction) => {
-        await transaction.wait(1)
+        await transaction.wait(1);
         setNotificationDetails({
             type: "success",
-            message: "NFT bought successfully - please refresh (and move blocks)",
+            message:
+                "NFT bought successfully - please refresh (and move blocks)",
             title: "NFT Bought",
         });
-        setShowModal(false)
-    }
+        setShowModal(false);
+    };
 
     return (
         <div>
@@ -109,13 +123,14 @@ const NFTCard = ({ price, nftAddress, marketplaceAddress, tokenId, seller }) => 
                                     {tokenDescription}
                                 </div>
                                 <div className="text-lg font-bold">
-                                    {ethers.formatUnits(price, "ether")} ETH
+                                    {ethers.utils.formatUnits(price, "ether")}{" "}
+                                    ETH
                                 </div>
                                 <div className="text-gray-600 text-sm mt-2">
                                     #{tokenId}
                                 </div>
                                 <div className="text-gray-600 text-sm">
-                                    Owner By {formattedSeller}
+                                    Owned By {formattedSeller}
                                 </div>
                             </div>
                         </div>
@@ -125,13 +140,13 @@ const NFTCard = ({ price, nftAddress, marketplaceAddress, tokenId, seller }) => 
                 )}
             </div>
             {notificationDetails && (
-            <Notification
-                details={notificationDetails}
-                onClose={() => setNotificationDetails(null)}
-            />
+                <Notification
+                    details={notificationDetails}
+                    onClose={() => setNotificationDetails(null)}
+                />
             )}
         </div>
     );
-}
+};
 
-export default NFTCard
+export default NFTCard;

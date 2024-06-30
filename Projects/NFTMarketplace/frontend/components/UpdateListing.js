@@ -1,17 +1,33 @@
-import {useState} from "react";
-import {useWeb3Contract} from "react-moralis";
+import {useState, useEffect} from "react";
+import {useWriteContract} from "wagmi";
 import nftMarketplaceAbi from "../constants/NftMarketplace.json";
 import {ethers} from "ethers";
 import Notification from "./Notification";
 import Modal from "./Modal";
 import Input from "./Input";
 
-const UpdateListing = ({ nftAddress, tokenId, isVisible }) => {
-    const [priceToUpdateListingWith, setPriceToUpdateListingWith] = useState(0);
+const UpdateListing = ({
+    nftAddress,
+    tokenId,
+    isVisible,
+    onClose,
+    marketplaceAddress,
+}) => {
+    const [priceToUpdateListingWith, setPriceToUpdateListingWith] =
+        useState("0");
     const [notificationDetails, setNotificationDetails] = useState(null);
 
+    const {writeContract, data, isSuccess, isError, error} =
+        useWriteContract();
+
+    useEffect(() => {
+        if (isSuccess) {
+            handleUpdateListingSuccess(data);
+        }
+    }, [isSuccess, data]);
+
     const handleUpdateListingSuccess = async (transaction) => {
-        await transaction.wait(1)
+        await transaction.wait(1);
         setNotificationDetails({
             type: "success",
             message: "Listing updated - please refresh (and move blocks)",
@@ -19,18 +35,20 @@ const UpdateListing = ({ nftAddress, tokenId, isVisible }) => {
         });
         onClose && onClose();
         setPriceToUpdateListingWith("0");
-    }
+    };
 
-    const {runContractFunction: updateListing} = useWeb3Contract({
-        abi: nftMarketplaceAbi,
-        contractAddress: marketplaceAddress,
-        functionName: "updateListing",
-        params: {
-            nftAddress: nftAddress,
-            tokenId: tokenId,
-            newPrice: ethers.parseEther(priceToUpdateListingWith || "0"),
-        },
-    });
+    const handleUpdateListing = () => {
+        writeContract({
+            abi: nftMarketplaceAbi,
+            address: marketplaceAddress,
+            functionName: "updateListing",
+            args: [
+                nftAddress,
+                tokenId,
+                ethers.parseEther(priceToUpdateListingWith),
+            ],
+        });
+    };
 
     return (
         <>
@@ -38,22 +56,16 @@ const UpdateListing = ({ nftAddress, tokenId, isVisible }) => {
                 isVisible={isVisible}
                 onCancel={onClose}
                 onCloseButtonPressed={onClose}
-                onOk={() => {
-                    updateListing({
-                        onError: (error) => {
-                            console.log(error);
-                        },
-                        onSuccess: handleUpdateListingSuccess,
-                    });
-                }}
+                onOk={handleUpdateListing}
             >
                 <Input
                     label="Update listing price in L1 Currency (ETH)"
                     name="New listing price"
                     type="number"
-                    onChange={(event) => {
-                        setPriceToUpdateListingWith(event.target.value);
-                    }}
+                    value={priceToUpdateListingWith}
+                    onChange={(event) =>
+                        setPriceToUpdateListingWith(event.target.value)
+                    }
                 />
             </Modal>
             {notificationDetails && (
@@ -62,8 +74,18 @@ const UpdateListing = ({ nftAddress, tokenId, isVisible }) => {
                     onClose={() => setNotificationDetails(null)}
                 />
             )}
+            {isError && (
+                <Notification
+                    details={{
+                        type: "error",
+                        message: error?.message,
+                        title: "Transaction Error",
+                    }}
+                    onClose={() => setNotificationDetails(null)}
+                />
+            )}
         </>
     );
 };
 
-export default UpdateListing
+export default UpdateListing;
