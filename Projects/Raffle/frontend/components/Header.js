@@ -1,12 +1,12 @@
+"use client";
+
 import { useEffect } from "react";
-import { useAccount, useConnect} from "wagmi";
+import { useAccount, useConnect } from "wagmi";
 import { injected } from "wagmi/connectors";
 
 const Header = () => {
 	const { address, isConnected } = useAccount();
-	const { connect, isPending } = useConnect({
-		connector: injected
-	});
+	const { connect, isPending } = useConnect();
 
 	useEffect(() => {
 		if (isConnected) return;
@@ -14,7 +14,7 @@ const Header = () => {
 			typeof window !== "undefined" &&
 			window.localStorage.getItem("connected")
 		) {
-			connect();
+			connect({connector: injected()});
 		}
 	}, [isConnected, connect]);
 
@@ -26,8 +26,8 @@ const Header = () => {
 		}
 	}, [isConnected]);
 
-	const handleConnect = async () => {
-		connect();
+	const handleConnect = () => {
+		connect({connector: injected()});
 	};
 
 	return (

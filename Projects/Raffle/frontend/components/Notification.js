@@ -1,3 +1,5 @@
+"use client"
+
 const Notification = ({ details, onClose }) => {
     const typeStyles = {
         info: "bg-blue-100 border-blue-500 text-blue-700",
