@@ -5,6 +5,7 @@ import { useAccount } from "wagmi";
 import addresses from "@constants/addresses.json";
 import NFTCard from "@components/NFTCard";
 import { GET_ACTIVE_ITEMS } from "@utils/graph";
+import { useQuery } from "@apollo/client";
 
 const Home = () => {
     const { chainId, isConnected } = useAccount();
@@ -13,7 +14,7 @@ const Home = () => {
             ? addresses[chainString].NFTMarketplace[0]
         : null;
 
-    const {loading, error, data: listedNfts} = useQuery(GET_ACTIVE_ITEMS);
+    const {loading, data: listedNfts} = useQuery(GET_ACTIVE_ITEMS);
   
   return (
       <div>

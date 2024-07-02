@@ -1,12 +1,12 @@
 import {useEffect, useState} from "react";
 import {useAccount, useReadContract, useWriteContract} from "wagmi";
-import nftMarketPlaceAbi from "../constants/NFTMarketplace.json";
-import nftAbi from "../constants/BasicNFT.json";
+import nftMarketPlaceAbi from "@constants/NFTMarketplace.json";
+import nftAbi from "@constants/BasicNFT.json";
 import Image from "next/image";
 import {ethers} from "ethers";
-import truncateString from "../utils/truncateString";
-import UpdateListing from "./UpdateListing";
-import Notification from "./Notification";
+import truncateString from "@utils/truncateString";
+import UpdateListing from "@components/UpdateListing";
+import Notification from "@components/Notification";
 
 const NFTCard = ({price, nftAddress, marketplaceAddress, tokenId, seller}) => {
     const {address: account, isConnected} = useAccount();
@@ -15,36 +15,68 @@ const NFTCard = ({price, nftAddress, marketplaceAddress, tokenId, seller}) => {
     const [tokenDescription, setTokenDescription] = useState("");
     const [showModal, setShowModal] = useState(false);
     const [notificationDetails, setNotificationDetails] = useState(null);
+    const [tokenURI, setTokenURI] = useState(null);
 
-    const {data: tokenURI} = useReadContract({
+    const {data: tokenURIData, refetch: refetchTokenURI} = useReadContract({
         abi: nftAbi,
         address: nftAddress,
         functionName: "tokenURI",
         args: [tokenId],
     });
 
-    const {writeContract} = useWriteContract();
+    const { writeContract } = useWriteContract();
+
+    const updateInfo = async () => {
+        await Promise.all([
+            refetchTokenURI(),
+        ]);
+    };
 
     useEffect(() => {
-        if (tokenURI) {
-            const fetchMetadata = async () => {
-                const requestURL = tokenURI.replace(
-                    "ipfs://",
-                    "https://ipfs.io/ipfs/"
-                );
-                const response = await fetch(requestURL);
-                const metadata = await response.json();
-                const image = metadata.image.replace(
-                    "ipfs://",
-                    "https://ipfs.io/ipfs/"
-                );
-                setTokenName(metadata.name);
-                setTokenDescription(metadata.description);
-                setImageURI(image);
-            };
-            fetchMetadata();
-        }
+        updateInfo();
+    }, [isConnected]);
+
+    useEffect(() => {
+        if (tokenURIData) setTokenURI(tokenURIData.toString());
+    }, [tokenURIData]);
+
+    useEffect(() => {
+      const fetchMetadata = async () => {
+          if (tokenURI) {
+              const requestURL = tokenURI.replace(
+                  "ipfs://",
+                  "https://ipfs.io/ipfs/"
+              );
+
+              const proxyURL = process.env.NODE_ENV == "development" ? `https://cors-anywhere.herokuapp.com/${requestURL}` : requestURL;
+
+              try {
+                  const response = await fetch(proxyURL);
+                  if (!response.ok) {
+                      throw new Error(`HTTP error! status: ${response.status}`);
+                  }
+                  const metadata = await response.json();
+                  const image = metadata.image.replace(
+                      "ipfs://",
+                      "https://ipfs.io/ipfs/"
+                  );
+
+                  setTokenName(metadata.name);
+                  setTokenDescription(metadata.description);
+                  setImageURI(image);
+              } catch (error) {
+                  setNotificationDetails({
+                        type: "error",
+                        message: error.message || "Error fetching metadata",
+                        title: "Metadata Error",
+                    });
+              }
+          }
+      };
+
+        fetchMetadata();
     }, [tokenURI]);
+
 
     const isOwnedByUser = seller === account || seller === undefined;
     const formattedSeller = isOwnedByUser
@@ -59,32 +91,41 @@ const NFTCard = ({price, nftAddress, marketplaceAddress, tokenId, seller}) => {
         }
     };
 
-    const buyItem = async () => {
-        try {
-            const transaction = await writeContract({
-                abi: nftMarketPlaceAbi,
-                address: marketplaceAddress,
-                functionName: "buyItem",
-                args: [nftAddress, tokenId],
-                overrides: {
-                    value: price,
-                },
-            });
-            handleBuyItemSuccess(transaction);
-        } catch (error) {
-            console.log(error);
-        }
+    const buyItem = () => {
+        writeContract({
+            abi: nftMarketPlaceAbi,
+            address: marketplaceAddress,
+            functionName: "buyItem",
+            args: [nftAddress, tokenId],
+            overrides: {
+                value: price,
+            },
+            onSuccess: handleSuccess,
+            onError: handleError,
+        });
     };
 
-    const handleBuyItemSuccess = async (transaction) => {
+    const handleSuccess = async (transaction) => {
         await transaction.wait(1);
         setNotificationDetails({
-            type: "success",
-            message:
-                "NFT bought successfully - please refresh (and move blocks)",
-            title: "NFT Bought",
+            type: "info",
+            message: "Transaction Complete!",
+            title: "Transaction Info",
         });
         setShowModal(false);
+    };
+
+    const handleError = (error) => {
+        setNotificationDetails({
+            type: "error",
+            message: error.message || "Transaction Failed",
+            title: "Transaction Error",
+        });
+        setShowModal(false);
+    };
+
+    const handleNotificationClose = () => {
+        setNotificationDetails(null);
     };
 
     return (
@@ -123,7 +164,7 @@ const NFTCard = ({price, nftAddress, marketplaceAddress, tokenId, seller}) => {
                                     {tokenDescription}
                                 </div>
                                 <div className="text-lg font-bold">
-                                    {ethers.utils.formatUnits(price, "ether")}{" "}
+                                    {ethers.formatUnits(price, "ether")}{" "}
                                     ETH
                                 </div>
                                 <div className="text-gray-600 text-sm mt-2">
@@ -142,7 +183,7 @@ const NFTCard = ({price, nftAddress, marketplaceAddress, tokenId, seller}) => {
             {notificationDetails && (
                 <Notification
                     details={notificationDetails}
-                    onClose={() => setNotificationDetails(null)}
+                    onClose={handleNotificationClose}
                 />
             )}
         </div>

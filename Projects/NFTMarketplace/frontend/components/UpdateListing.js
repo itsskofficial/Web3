@@ -1,10 +1,10 @@
 import {useState, useEffect} from "react";
 import {useWriteContract} from "wagmi";
-import nftMarketplaceAbi from "../constants/NftMarketplace.json";
+import nftMarketplaceAbi from "@/constants/NFTMarketplace.json";
 import {ethers} from "ethers";
-import Notification from "./Notification";
-import Modal from "./Modal";
-import Input from "./Input";
+import Notification from "@components/Notification";
+import Modal from "@components/Modal";
+import Input from "@components/Input";
 
 const UpdateListing = ({
     nftAddress,

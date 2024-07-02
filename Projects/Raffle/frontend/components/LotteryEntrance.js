@@ -13,7 +13,7 @@ const LotteryEntrance = () => {
 	const [entranceFee, setEntranceFee] = useState("0");
 	const [numPlayers, setNumPlayers] = useState("0");
 	const [recentWinner, setRecentWinner] = useState(null);
-	const [notification, setNotification] = useState(null);
+	const [notificationDetails, setNotificationDetails] = useState(null);
 	const [isLoading, setIsLoading] = useState(false);
 
 	const { writeContract } = useWriteContract();
@@ -57,7 +57,7 @@ const LotteryEntrance = () => {
 	}, [isConnected]);
 
 	useEffect(() => {
-		if (entranceFeeData) setEntranceFee(entranceFeeData.toString());
+		if (entranceFeeData) setEntranceFee(entranceFeeData);
 		if (numPlayersData) setNumPlayers(numPlayersData.toString());
 		if (recentWinnerData) setRecentWinner(recentWinnerData);
 	}, [entranceFeeData, numPlayersData, recentWinnerData]);
@@ -81,7 +81,7 @@ const LotteryEntrance = () => {
 
 	const handleSuccess = async (transaction) => {
 		await transaction.wait(1);
-		setNotification({
+		setNotificationDetails({
 			type: "info",
 			message: "Transaction Complete!",
 			title: "Transaction Info",
@@ -91,7 +91,7 @@ const LotteryEntrance = () => {
 	};
 
 	const handleError = (error) => {
-		setNotification({
+		setNotificationDetails({
 			type: "error",
 			message: error.message || "Transaction Failed",
 			title: "Transaction Error",
@@ -100,7 +100,7 @@ const LotteryEntrance = () => {
 	};
 
 	const handleNotificationClose = () => {
-		setNotification(null);
+		setNotificationDetails(null);
 	};
 
 	return (
@@ -117,7 +117,7 @@ const LotteryEntrance = () => {
 							: "Enter Raffle"}
 					</button>
 					<p className="mt-4">
-						Entrance Fee: {ethers.formatEther(entranceFee)}{" "}
+						Entrance Fee: {ethers.formatUnits(entranceFee, "ether")}{" "}
 						ETH
 					</p>
 					<p>Number of Players: {numPlayers}</p>
@@ -127,9 +127,9 @@ const LotteryEntrance = () => {
 				<p className="text-red-500">No Raffle Address</p>
 			)}
 
-			{notification && (
+			{notificationDetails && (
 				<Notification
-					details={notification}
+					details={notificationDetails}
 					onClose={handleNotificationClose}
 				/>
 			)}

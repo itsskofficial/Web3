@@ -1,13 +1,11 @@
 import {useEffect} from "react";
 import {useAccount, useConnect} from "wagmi";
-import { injected } from "wagmi/connectors";
+import {injected} from "wagmi/connectors";
 import Link from "next/link";
 
 const Header = () => {
     const {address, isConnected} = useAccount();
-    const {connect, isPending} = useConnect({
-        connector: injected,
-    });
+    const {connect, isPending} = useConnect();
 
     useEffect(() => {
         if (isConnected) return;
@@ -15,7 +13,7 @@ const Header = () => {
             typeof window !== "undefined" &&
             window.localStorage.getItem("connected")
         ) {
-            connect();
+            connect({connector: injected()});
         }
     }, [isConnected, connect]);
 
@@ -28,7 +26,7 @@ const Header = () => {
     }, [isConnected]);
 
     const handleConnect = async () => {
-        connect();
+        connect({connector: injected()});
     };
 
     return (
@@ -38,15 +36,17 @@ const Header = () => {
                     <h1 className="py-4 px-4 font-bold text-3xl text-white">
                         NFT Marketplace
                     </h1>
-                    <Link href="/">
-                        <a className="text-2xl font-bold text-white hover:text-gray-300">
-                            Home
-                        </a>
+                    <Link
+                        href="/"
+                        className="text-2xl font-bold text-white hover:text-gray-300"
+                    >
+                        Home
                     </Link>
-                    <Link href="/sell">
-                        <a className="text-lg font-semibold text-gray-300 hover:text-white">
-                            Sell NFT
-                        </a>
+                    <Link
+                        href="/sell"
+                        className="text-2xl font-bold text-white hover:text-gray-300"
+                    >
+                        Sell NFT
                     </Link>
                 </div>
                 <div>
