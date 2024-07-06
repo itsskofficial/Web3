@@ -1,129 +1,114 @@
-import { useMoralis, useWeb3Contract } from "react-moralis"
-import { ethers } from "ethers"
-import nftAbi from "@constants/BasicNFT.json"
-import nftMarketplaceAbi from "@constants/NFTMarketplace.json"
-import addresses from "@constants/addresses.json"
-import { useEffect, useState } from "react"
-import Header from "@components/Header"
-import Notification from "@components/Notification"
+"use client"
+
+import { useEffect, useState } from "react";
+import { useAccount, useReadContract, useWriteContract } from "wagmi";
+import { ethers } from "ethers";
+import nftAbi from "../constants/BasicNFT.json";
+import nftMarketplaceAbi from "../constants/NFTMarketplace.json";
+import addresses from "../constants/addresses.json";
+import Header from "../components/Header";
+import Notification from "../components/Notification";
 
 const Sell = () => {
     const [nftAddress, setNftAddress] = useState("");
     const [tokenId, setTokenId] = useState("");
     const [price, setPrice] = useState("");
-    const [proceeds, setProceeds] = useState("0")
+    const [proceeds, setProceeds] = useState("0");
     const [loading, setLoading] = useState(false);
     const [notificationDetails, setNotificationDetails] = useState(null);
 
-    const { chainId, account, isWeb3Enabled } = useMoralis()
-    const chainString = chainId ? parseInt(chainId).toString() : "31337"
-    const marketplaceAddress = addresses[chainString].NFTMarketplace[0]
+    const { address: account, isConnected } = useAccount();
+    const chainId = "31337"; // Change this according to your setup
+    const marketplaceAddress = addresses[chainId].NFTMarketplace[0];
 
-    const { runContractFunction } = useWeb3Contract()
+    const { data: proceedsData, refetch: refetchProceeds } = useReadContract({
+        abi: nftMarketplaceAbi,
+        address: marketplaceAddress,
+        functionName: "getProceeds",
+        args: [account],
+    });
 
-    const approveItem = async () => {
-        const approveOptions = {
-            abi: nftAbi,
-            contractAddress: nftAddress,
-            functionName: "approve",
-            params: {
-                to: marketplaceAddress,
-                tokenId: tokenId,
-            },
-        };
+    const { write: approveWrite, isLoading: approveLoading } = useWriteContract({
+        abi: nftAbi,
+        address: nftAddress,
+        functionName: "approve",
+        args: [marketplaceAddress, tokenId],
+        onSuccess: (transaction) => listItem(transaction),
+        onError: (error) => {
+            console.log(error);
+            setNotificationDetails({
+                type: "error",
+                message: error.message || "Approval failed",
+                title: "Approval Error",
+            });
+        },
+    });
 
-        await runContractFunction({
-            params: approveOptions,
-            onSuccess: (transaction) => listItem(transaction, nftAddress, tokenId, price),
-            onError: (error) => {
-                console.log(error);
-            },
-        });
-    }
+    const { write: listWrite, isLoading: listLoading } = useWriteContract({
+        abi: nftMarketplaceAbi,
+        address: marketplaceAddress,
+        functionName: "listItem",
+        args: [nftAddress, tokenId, ethers.utils.parseUnits(price, "ether")],
+        onSuccess: handleApproveAndListSuccess,
+        onError: (error) => {
+            console.log(error);
+            setNotificationDetails({
+                type: "error",
+                message: error.message || "Listing failed",
+                title: "Listing Error",
+            });
+        },
+    });
 
-    const listItem = async (transaction, nftAddress, tokenId, price) => {
-        await transaction.wait(1)
-        const listOptions = {
-            abi: nftMarketplaceAbi,
-            contractAddress: marketplaceAddress,
-            functionName: "listItem",
-            params: {
-                nftAddress: nftAddress,
-                tokenId: tokenId,
-                price: price,
-            },
+    const { write: withdrawWrite, isLoading: withdrawLoading } = useWriteContract({
+        abi: nftMarketplaceAbi,
+        address: marketplaceAddress,
+        functionName: "withdrawProceeds",
+        onSuccess: handleWithdrawSuccess,
+        onError: (error) => {
+            console.log(error);
+            setNotificationDetails({
+                type: "error",
+                message: error.message || "Withdrawal failed",
+                title: "Withdrawal Error",
+            });
+        },
+    });
+
+    useEffect(() => {
+        if (proceedsData) {
+            setProceeds(proceedsData.toString());
         }
+    }, [proceedsData]);
 
-        await runContractFunction({
-            params: listOptions,
-            onSuccess: handleApproveAndListSuccess,
-            onError: (error) => console.log(error),
-        })
-    }
+    const listItem = async (transaction) => {
+        await transaction.wait(1);
+        listWrite();
+    };
 
     const handleApproveAndListSuccess = async (transaction) => {
-        await transaction.wait(1)
+        await transaction.wait(1);
         setNotificationDetails({
             type: "success",
             message: "Listing created - please refresh (and move blocks)",
             title: "Listing Created",
         });
-    }
-
-    const handleWithdraw = async () => {
-        setLoading(true);
-        await runContractFunction({
-            params: {
-                abi: nftMarketplaceAbi,
-                contractAddress: marketplaceAddress,
-                functionName: "withdrawProceeds",
-                params: {},
-            },
-            onError: (error) => {
-                console.error(error);
-                setLoading(false);
-            },
-            onSuccess: (transaction) => {
-                handleWithdrawSuccess(transaction);
-                setLoading(false);
-            },
-        });
     };
 
     const handleWithdrawSuccess = async (transaction) => {
-        await transaction.wait(1)
+        await transaction.wait(1);
         setNotificationDetails({
             type: "success",
             message: "Withdrawals initiated - please refresh (and move blocks)",
             title: "Withdrawals Initiated",
         });
+        refetchProceeds();
     };
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        await approveItem();
+        approveWrite();
     };
-
-    const updateInfo = async () => {
-        const returnedProceeds = await runContractFunction({
-            params: {
-                abi: nftMarketplaceAbi,
-                contractAddress: marketplaceAddress,
-                functionName: "getProceeds",
-                params: {
-                    seller: account,
-                },
-            },
-            onError: (error) => console.log(error),
-        });
-        if (returnedProceeds) {
-            setProceeds(returnedProceeds.toString());
-        }
-    }
-
-     useEffect(() => {
-         updateInfo();
-     }, [proceeds, account, isWeb3Enabled, chainId])
 
     return (
         <>
@@ -188,38 +173,41 @@ const Sell = () => {
                 <div className="flex justify-end">
                     <button
                         type="submit"
-                        className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700"
+                        className={`bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700 ${
+                            approveLoading || listLoading ? "opacity-50 cursor-not-allowed" : ""
+                        }`}
+                        disabled={approveLoading || listLoading}
                     >
-                        Submit
+                        {approveLoading || listLoading ? "Processing..." : "Submit"}
                     </button>
                 </div>
             </form>
             <div className="max-w-lg mx-auto p-6 bg-white rounded shadow-md text-center">
                 <div className="text-xl font-semibold mb-4">
-                    Withdraw {ethers.formatUnits(proceeds, "ether")} proceeds
+                    Withdraw {ethers.utils.formatUnits(proceeds, "ether")} proceeds
                 </div>
                 {proceeds !== "0" ? (
                     <button
-                        onClick={handleWithdraw}
+                        onClick={() => withdrawWrite()}
                         className={`px-6 py-2 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-700 transition ${
-                            loading ? "opacity-50 cursor-not-allowed" : ""
+                            withdrawLoading ? "opacity-50 cursor-not-allowed" : ""
                         }`}
-                        disabled={loading}
+                        disabled={withdrawLoading}
                     >
-                        {loading ? "Withdrawing..." : "Withdraw"}
+                        {withdrawLoading ? "Withdrawing..." : "Withdraw"}
                     </button>
                 ) : (
                     <div className="text-red-500">No proceeds detected</div>
                 )}
             </div>
             {notificationDetails && (
-            <Notification
-                details={notificationDetails}
-                onClose={() => setNotificationDetails(null)}
-            />
+                <Notification
+                    details={notificationDetails}
+                    onClose={() => setNotificationDetails(null)}
+                />
             )}
         </>
     );
-}
+};
 
-export default Sell
+export default Sell;
