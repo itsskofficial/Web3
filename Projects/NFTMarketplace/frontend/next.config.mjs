@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 
-const withPlugins = require("next-compose-plugins");
-const withImages = require("next-images");
+import withPlugins from "next-compose-plugins";
+import withImages from "next-images";
 
 const nextConfig = {
     output: "export",
