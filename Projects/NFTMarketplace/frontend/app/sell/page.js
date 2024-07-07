@@ -15,6 +15,7 @@ const Sell = () => {
     const [price, setPrice] = useState("");
     const [proceeds, setProceeds] = useState("0");
     const [notificationDetails, setNotificationDetails] = useState(null);
+    const [isLoading, setIsLoading] = useState(false)
 
     const { address: account, chainId, isConnected } = useAccount();
     const chainString = chainId ? chainId.toString() : null;
@@ -46,6 +47,7 @@ const Sell = () => {
     }, [proceedsData]);
 
     const listItem = () => {
+        setIsLoading(true)
         writeContract({
             abi: nftMarketplaceAbi,
             address: marketplaceAddress,
@@ -57,6 +59,7 @@ const Sell = () => {
     };
 
     const approveItem = () => {
+        setIsLoading(true)
         writeContract({
             abi: nftAbi,
             address: nftAddress,
@@ -68,6 +71,7 @@ const Sell = () => {
     };
 
     const withdrawProceeds = () => {
+        setIsLoading(true)
         writeContract({
             abi: nftMarketplaceAbi,
             address: marketplaceAddress,
@@ -84,6 +88,7 @@ const Sell = () => {
             message: "Listing created - please refresh (and move blocks)",
             title: "Listing Created",
         });
+        setIsLoading(false)
     };
 
     const handleWithdrawSuccess = async (transaction) => {
@@ -94,6 +99,7 @@ const Sell = () => {
             title: "Withdrawals Initiated",
         });
         refetchProceeds();
+        setIsLoading(false)
     };
 
     const handleError = (error) => {
@@ -102,6 +108,7 @@ const Sell = () => {
             message: error.message || "Transaction Failed",
             title: "Transaction Error",
         });
+        setIsLoading(false)
     };
 
     const handleSubmit = async (event) => {
@@ -173,11 +180,11 @@ const Sell = () => {
                     <button
                         type="submit"
                         className={`bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700 ${
-                            loading ? "opacity-50 cursor-not-allowed" : ""
+                            isLoading ? "opacity-50 cursor-not-allowed" : ""
                         }`}
-                        disabled={loading}
+                        disabled={isLoading}
                     >
-                        {loading ? "Processing..." : "Submit"}
+                        {isLoading ? "Processing..." : "Submit"}
                     </button>
                 </div>
             </form>
@@ -189,11 +196,11 @@ const Sell = () => {
                     <button
                         onClick={withdrawProceeds}
                         className={`px-6 py-2 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-700 transition ${
-                            loading ? "opacity-50 cursor-not-allowed" : ""
+                            isLoading ? "opacity-50 cursor-not-allowed" : ""
                         }`}
-                        disabled={loading}
+                        disabled={isLoading}
                     >
-                        {loading ? "Withdrawing..." : "Withdraw"}
+                        {isLoading ? "Withdrawing..." : "Withdraw"}
                     </button>
                 ) : (
                     <div className="text-red-500">No proceeds detected</div>
