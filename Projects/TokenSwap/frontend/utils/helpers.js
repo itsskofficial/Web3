@@ -9,4 +9,9 @@ const weiToEth = (amount, decimals = 18) => {
     return ethers.formatUnits(amount, decimals).toString()
 }
 
-export { ethToWei, weiToEth }
+const parseErrorMsg = (e) => {
+	const jsonError = JSON.parse(JSON.stringify(e));
+	return jsonError.reason || jsonError.error;
+};
+
+export { ethToWei, weiToEth, parseErrorMsg }

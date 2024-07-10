@@ -1,5 +1,21 @@
 import "@styles/globals.css";
-import Providers from "@components/Providers";
+import "@rainbow-me/rainbowkit/styles.css"
+
+import {
+	chain,
+	configureChains,
+	createClient,
+	WagmiConfig,
+	alchemyRpcUrls,
+} from "wagmi";
+import { getDefaultWallets, RainbowKitProvider, darkTheme, midnightTheme } from "@rainbow-me/rainbowkit";
+
+const { chains, provider } = configureChains(
+	[chain.localhost, chain.sepolia],
+	[
+		alchemyRpcUrls()
+	]
+)
 
 export const metadata = {
 	title: "NFT Marketplace",
