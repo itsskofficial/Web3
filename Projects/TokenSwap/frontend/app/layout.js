@@ -9,6 +9,7 @@ import {
 	alchemyRpcUrls,
 } from "wagmi";
 import { getDefaultWallets, RainbowKitProvider, darkTheme, midnightTheme } from "@rainbow-me/rainbowkit";
+import merge from "lodash/merge";
 
 const { chains, provider } = configureChains(
 	[chain.localhost, chain.sepolia],
@@ -16,6 +17,24 @@ const { chains, provider } = configureChains(
 		alchemyRpcUrls()
 	]
 )
+
+const { connectors } = getDefaultWallets({
+	appName: "Custom Dex",
+	chains
+})
+
+const wagmiClient = createClient({
+	autoConnect: true,
+	connectors,
+	provider
+})
+
+const theme = merge(midnightTheme(), {
+	colors: {
+		accentColor: "#18181b",
+		accentColorForeground: "#ffffff"
+	}
+})
 
 export const metadata = {
 	title: "NFT Marketplace",
@@ -26,7 +45,11 @@ export default function RootLayout({ children }) {
 	return (
 		<html lang="en">
 			<body>
-				<Providers>{children}</Providers>
+				<WagmiConfig client={wagmiClient} >
+					<RainbowKitProvider chains={chains} theme={theme}>
+						{children}
+					</RainbowKitProvider>
+				</WagmiConfig>
 			</body>
 		</html>
 	);
