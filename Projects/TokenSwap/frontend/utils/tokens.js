@@ -1,5 +1,5 @@
-const tokenNames = ["Tether USD", "Binance Coin", "USD Coin", "Tron", "Matic", "Ethereum", "Bitcoin", "Polkadot"];
-const tokenSymbols = ["USDT", "BNB", "USDC", "TRX", "MATIC", "ETH", "BTC", "DOT"];
+const tokenNames = ["Tether USD", "Binance Coin", "USD Coin", "Tron", "Matic", "Ethereum", "Bitcoin", "Polkadot", "Default"];
+const tokenSymbols = ["USDT", "BNB", "USDC", "TRX", "MATIC", "ETH", "BTC", "DOT", "Select Token"];
 
 const TOKENS = {};
 

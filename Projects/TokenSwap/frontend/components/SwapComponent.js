@@ -10,8 +10,8 @@ import { TOKENS } from "@utils/tokens";
 import { useAccount } from "wagmi";
 
 const SwapComponent = () => {
-  const [tokenA, setTokenA] = useState(TOKENS["ETH"])
-  const [tokenB, setTokenB] = useState(TOKENS["USDT"])
+  const [tokenA, setTokenA] = useState(TOKENS["Ethereum"])
+  const [tokenB, setTokenB] = useState(TOKENS["Default"])
   const [inputValue, setInputValue] = useState("")
   const [outputValue, setOutputValue] = useState("")
 
@@ -19,8 +19,8 @@ const SwapComponent = () => {
   const outputValueRef = useRef()
   const isReversedRef = useRef(false)
   const [swapStatus, setSwapStatus] = useState("Swap")
-  const [tokenAState, setTokenAState] = useState("ETH")
-  const [tokenBState, setTokenBState] = useState("USDT")
+  const [tokenAState, setTokenAState] = useState()
+  const [tokenBState, setTokenBState] = useState()
   const [transactionPending, setTransactionPending] = useState(false)
 
   const tokenAObj = {
@@ -89,7 +89,7 @@ const SwapComponent = () => {
   }, [outputValue, tokenA])
 
   const handleSwap = async () => {
-    if (tokenA === TOKENS["ETH"] && tokenB !== TOKENS["ETH"]) {
+    if (tokenA === TOKENS["Ethereum"] && tokenB !== TOKENS["Ethereum"]) {
       performSwap()
     }
     else {
@@ -145,16 +145,16 @@ const SwapComponent = () => {
   }
 
   const populateOutputValue = () => {
-    if (tokenA === TOKENS["ETH"] || tokenB === TOKENS["ETH"] || !inputValue) {
+    if (tokenA === TOKENS["Ethereum"] || tokenB === TOKENS["Ethereum"] || !inputValue) {
       return
     }
 
     try {
-      if (tokenA !== TOKENS["ETH"] && tokenB !== TOKENS["ETH"])
+      if (tokenA !== TOKENS["Ethereum"] && tokenB !== TOKENS["Ethereum"])
         setOutputValue(inputValue)
-      else if (tokenA === TOKENS["ETH"] && tokenB !== TOKENS["ETH"]) {
+      else if (tokenA === TOKENS["Ethereum"] && tokenB !== TOKENS["Ethereum"]) {
         setOutputValue(weiToEth(ethToWei(inputValue, 14)))
-      } else if (tokenA !== TOKENS["ETH"] && tokenB === TOKENS["ETH"]) {
+      } else if (tokenA !== TOKENS["Ethereum"] && tokenB === TOKENS["Ethereum"]) {
         setOutputValue(weiToEth(ethToWei(inputValue, 14)))
       }
     } catch (error) {
@@ -163,16 +163,16 @@ const SwapComponent = () => {
   }
 
   const populateInputValue = () => {
-    if (tokenA === TOKENS["ETH"] || tokenB === TOKENS["ETH"] || !outputValue) {
+    if (tokenA === TOKENS["Ethereum"] || tokenB === TOKENS["Ethereum"] || !outputValue) {
       return
     }
 
     try {
-      if (tokenA !== TOKENS["ETH"] && tokenB !== TOKENS["ETH"])
+      if (tokenA !== TOKENS["Ethereum"] && tokenB !== TOKENS["Ethereum"])
         setInputValue(outputValue)
-      else if (tokenA === TOKENS["ETH"] && tokenB !== TOKENS["ETH"]) {
+      else if (tokenA === TOKENS["Ethereum"] && tokenB !== TOKENS["Ethereum"]) {
         setInputValue(weiToEth(ethToWei(outputValue, 14)))
-      } else if (tokenA !== TOKENS["ETH"] && tokenB === TOKENS["ETH"]) {
+      } else if (tokenA !== TOKENS["Ethereum"] && tokenB === TOKENS["Ethereum"]) {
         setInputValue(weiToEth(ethToWei(outputValue, 14)))
       }
     } catch (error) {
@@ -184,9 +184,9 @@ const SwapComponent = () => {
     setTransactionPending(true)
     let result
 
-    if (tokenA === TOKENS["ETH"] && tokenB !== TOKENS["ETH"]) {
+    if (tokenA === TOKENS["Ethereum"] && tokenB !== TOKENS["Ethereum"]) {
       result = await swapEthToToken(address, tokenB, inputValue)
-    } else if (tokenA !== TOKENS["ETH"] && tokenB === TOKENS["ETH"]) {
+    } else if (tokenA !== TOKENS["Ethereum"] && tokenB === TOKENS["Ethereum"]) {
       result = await swapTokenToEth(address, tokenA, inputValue)
     } else {
       result = await swapTokenToToken(address, tokenA, tokenB, inputValue)
