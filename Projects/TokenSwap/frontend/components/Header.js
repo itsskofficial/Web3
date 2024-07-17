@@ -42,10 +42,10 @@ const Header = () => {
             <li className="flex">
               <a
                 rel="noopener noreferrer"
-                href="#"
+                href="/transactions"
                 className="flex items-center px-2 -mb-1 dark:border-transparent text-[#7765F3] border-[#7765F3]"
               >
-                Tokens
+                Transactions
               </a>
             </li>
             <li className="flex">
@@ -69,8 +69,8 @@ const Header = () => {
           </ul>
         </div>
         <div className="items-center flex-shrink-0 hidden lg:flex">
-          <TokenBalance name={"USDC"} walletAddress={address} />
           <TokenBalance name={"ETH"} walletAddress={address} />
+          <TokenBalance name={"USDC"} walletAddress={address} />
           <ConnectButton />
         </div>
         <button className="p-4 lg:hidden">

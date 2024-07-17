@@ -1,6 +1,5 @@
 import { useEffect, useState, useRef } from "react";
 import { ethers } from "ethers";
-import toast, { Toaster } from "react-hot-toast";
 import {
   ClipboardIcon,
   ClipboardCheckIcon,
@@ -10,7 +9,6 @@ import { TransactionStatus } from "@components/TransactionStatus";
 import {
   getTokenAddress, 
   getTokenBalance,
-  increaseAllowance
  } from "@utils/context";
 
 const TokenBalance = ({name, walletAddress}) => {
@@ -18,9 +16,6 @@ const TokenBalance = ({name, walletAddress}) => {
   const [tokenAddress, setTokenAddress] = useState("");
   const [copyIcon, setCopyIcon] = useState(<ClipboardIcon className="h-5 w-5" />);
   const [transactionPending, setTransactionPending] = useState(false);
-
-  const notifyError = (msg) => toast.error(msg, { duration: 4000 });
-  const notifySuccess = () => toast.success("Transaction completed", { duration: 4000 });
 
   const fetchTokenBalance = async () => {
     let balance = await getTokenBalance(walletAddress).toString();
@@ -64,7 +59,6 @@ const TokenBalance = ({name, walletAddress}) => {
                     }}
               />
               {transactionPending && <TransactionStatus />}
-              <Toaster />
           </div>
     </div>
   )

@@ -115,4 +115,4 @@ const getTransactionHistory = async () => {
 	}
 }
 
-export {swapEthToToken, swapTokenToToken, swapTokenToToken, getTokenAddress, getTokenBalance, getTransactionHistory, checkAllowance, increaseAllowance}
+export {swapEthToToken, swapTokenToEth, swapTokenToToken, getTokenAddress, getTokenBalance, getTransactionHistory, checkAllowance, increaseAllowance}
