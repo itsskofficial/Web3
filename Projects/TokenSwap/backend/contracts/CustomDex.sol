@@ -3,7 +3,7 @@ pragma solidity >=0.6.12 <0.9.0;
 
 import "./CustomToken.sol";
 
-error CustomDex__InsufficientFunds;
+error CustomDex__InsufficientFunds();
 
 contract CustomDex {
     string[] public tokenNames = ["Tether USD", "Binance Coin", "USD Coin", "Tron", "Matic", "Ethereum", "Bitcoin", "Polkadot"];
@@ -69,7 +69,7 @@ contract CustomDex {
         return outputValue;
     }
 
-    function swapTokenToToken(string memory tokenA, string memory tokenB, uint256 amount) public returns (uint256) {
+    function swapTokenToToken(string memory tokenA, string memory tokenB, uint256 amount) public {
         require(tokenToInstance[tokenA].transferFrom(msg.sender, address(this), amount), "Transfer failed");
         require(tokenToInstance[tokenB].transfer(msg.sender, amount), "Transfer failed");
 

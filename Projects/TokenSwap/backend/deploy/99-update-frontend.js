@@ -21,23 +21,20 @@ const updateContractInfo = async () => {
         customDexDeployment.address
     );
 
-    const customTokenDeployment = await deployments.get("CustomToken");
-    const customToken = await ethers.getContractAt(
-        customTokenDeployment.abi,
-        customTokenDeployment.address
-    );
-
     const chainId = network.config.chainId.toString();
     const addresses = JSON.parse(
         fs.readFileSync(FRONTEND_ADDRESSES_PATH, "utf8")
     );
 
-     if (chainId in addresses) {
+    if (chainId in addresses) {
         if (!addresses[chainId]["CustomDex"].includes(customDex.target)) {
             addresses[chainId]["CustomDex"].push(customDex.target)
         }
     } else {
-        addresses[chainId] = { CustomDex: [customDex.target] }
+        addresses[chainId] = {
+            CustomDex: [customDex.target]
+        }
+    }
 
     fs.writeFileSync(
         FRONTEND_ADDRESSES_PATH,
@@ -45,18 +42,11 @@ const updateContractInfo = async () => {
     );
 
     const customDexAbi = customDex.interface.fragments
-    const customTokenAbi = customToken.interface.fragments
 
     fs.writeFileSync(
         `${FRONTEND_ABI_PATH}CustomDex.json`,
         JSON.stringify(customDexAbi)
     );
-
-    fs.writeFileSync(
-        `${FRONTEND_ABI_PATH}CustomToken.json`,
-        JSON.stringify(customTokenAbi)
-    );
-    }
 };
 
 module.exports.tags = ["all", "frontend"];

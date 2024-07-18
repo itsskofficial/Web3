@@ -20,14 +20,16 @@ const theme = merge(midnightTheme(), {
 	},
 });
 
-const Providers = ({children}) => (
-	<WagmiProvider config={config} >
-		<QueryClientProvider client={queryClient}>
-			<RainbowKitProvider chains={config.chains} theme={theme}>
-				{children}
-			</RainbowKitProvider>
-		</QueryClientProvider>
-	</WagmiProvider>
-);
+const Providers = () => {
+	return (
+		<WagmiProvider config={config}>
+			<QueryClientProvider client={queryClient}>
+				<RainbowKitProvider theme={theme}>
+					{children}
+				</RainbowKitProvider>
+			</QueryClientProvider>
+		</WagmiProvider>
+	);
+};
 
 export default Providers;

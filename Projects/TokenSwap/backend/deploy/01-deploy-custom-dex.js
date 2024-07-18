@@ -9,16 +9,16 @@ module.exports = async () => {
     const {deployer} = await getNamedAccounts();
 
     log("-------------------------");
-    log("Deploying CustomToken...");
+    log("Deploying CustomDex...");
 
-    const customToken = await deploy("CustomToken", {
+    const customDex = await deploy("CustomDex", {
         from: deployer,
         args: [],
         log: true,
         waitConfirmations: network.config.blockConfirmations || 1,
     });
 
-    log(`CustomToken deployed at ${customToken.address}`);
+    log(`CustomDex deployed at ${customDex.address}`);
     log("-------------------------");
     log("Verifying...")
 
@@ -26,11 +26,11 @@ module.exports = async () => {
         !developmentChains.includes(network.name) &&
         process.env.ETHERSCAN_API_KEY
     ) {
-        await verify(customToken.address, []);
+        await verify(customDex.address, []);
     }
 
     log("Verified");
     log("-------------------------");
 };
 
-module.exports.tags = ["all", "customToken"]
+module.exports.tags = ["all", "customDex"]
