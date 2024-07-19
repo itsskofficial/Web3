@@ -1,6 +1,6 @@
-const {ethers, deployments, network} = require("hardhat");
+const { ethers, deployments, network } = require("hardhat");
 const path = require("path");
-require("dotenv").config({path: path.resolve(__dirname, "../.env")});
+require("dotenv").config({ path: path.resolve(__dirname, "../.env") });
 const fs = require("fs");
 
 const FRONTEND_ADDRESSES_PATH = "../frontend/constants/addresses.json";
@@ -27,26 +27,38 @@ const updateContractInfo = async () => {
     );
 
     if (chainId in addresses) {
-        if (!addresses[chainId]["CustomDex"].includes(customDex.target)) {
-            addresses[chainId]["CustomDex"].push(customDex.target)
+        if (!addresses[chainId]["CustomDex"].includes(customDex.address)) {
+            addresses[chainId]["CustomDex"].push(customDex.address);
         }
     } else {
         addresses[chainId] = {
-            CustomDex: [customDex.target]
-        }
+            CustomDex: [customDex.address]
+        };
     }
 
     fs.writeFileSync(
         FRONTEND_ADDRESSES_PATH,
-        JSON.stringify(addresses)
+        JSON.stringify(addresses, null, 2)
     );
 
-    const customDexAbi = customDex.interface.fragments
-
+    const customDexAbi = customDex.interface.fragments;
     fs.writeFileSync(
         `${FRONTEND_ABI_PATH}CustomDex.json`,
-        JSON.stringify(customDexAbi)
+        JSON.stringify(customDexAbi, null, 2)
     );
+
+    // Update the CustomToken ABI
+    const customTokenAbi = getAbi("CustomToken");
+    fs.writeFileSync(
+        `${FRONTEND_ABI_PATH}CustomToken.json`,
+        JSON.stringify(customTokenAbi, null, 2)
+    );
+};
+
+const getAbi = (contractName) => {
+    const artifactsPath = path.join(__dirname, '..', 'artifacts', 'contracts', `${contractName}.sol`, `${contractName}.json`);
+    const artifact = JSON.parse(fs.readFileSync(artifactsPath, 'utf8'));
+    return artifact.abi;
 };
 
 module.exports.tags = ["all", "frontend"];

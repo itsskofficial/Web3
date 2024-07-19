@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 
 import { checkAllowance, increaseAllowance, swapEthToToken, swapTokenToToken, swapTokenToEth } from "@utils/context";
-import { CogIcon, ArrowSmDownIcon } from "@heroicons/react/outline";
+import { CogIcon, ArrowDownIcon } from "@heroicons/react/24/outline";
 import SwapField from "./SwapField";
 import TransactionStatus from "./TransactionStatus";
 import toast, { Toaster } from "react-hot-toast";
@@ -216,7 +216,7 @@ const SwapComponent = () => {
       </div>
       <div className="relative bg-[#212429] p-4 py-6 roudned-xl mb-2 border-[2px] border-transparent hover:border-zinc-600">
         {tokenAState}
-        <ArrowSmDownIcon
+        <ArrowDownIcon
           className="absolute left-1/2 -translate-x-1/2 -bottom-6 h-10 p-1 bg-[#212429] rounded-full text-[#7765f3] cursor-pointer hover:scale-110"
           onClick={handleReverseExchange}
         />

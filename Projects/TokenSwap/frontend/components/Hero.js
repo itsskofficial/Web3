@@ -1,6 +1,6 @@
 import SwapComponent from "./SwapComponent";
 
-const HeroSection = () => {
+const Hero = () => {
   return (
     <section className="bg-[#1a1a1a] text-gray-100">
       <div className="container flex flex-col justify-center p-6 mx-auto sm:py-12 lg:py-24 lg:flex-row lg:justify-between">
@@ -39,4 +39,4 @@ const HeroSection = () => {
   )
 };
 
-export default HeroSection;
+export default Hero;

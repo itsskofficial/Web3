@@ -3,7 +3,7 @@ import customDexAbi from "@constants/CustomDex.json";
 import customTokenAbi from "@constants/CustomToken.json";
 
 const getTokenContract = async (address) => {
-    const provider = new ethers.providers.Web3Provider(window.ethereum)
+    const provider = new ethers.BrowserProvider(window.ethereum)
 
     if (window.ethereum) {
         const signer = provider.getSigner()
@@ -13,7 +13,7 @@ const getTokenContract = async (address) => {
 }
 
 const getDexContract = async (address) => {
-    const provider = new ethers.providers.Web3Provider(window.ethereum)
+    const provider = new ethers.BrowserProvider(window.ethereum)
 
     if (window.ethereum) {
         const signer = provider.getSigner()

@@ -1,4 +1,4 @@
-import { ClipboardCheckIcon, ClipboardIcon } from "@heroicons/react/outline";
+import { ClipboardCheckIcon, ClipboardIcon } from "@heroicons/react/24/outline";
 import { getTokenAddress, getTokenBalance } from "@utils/context";
 import { ethers } from "ethers";
 import React, { useEffect, useState } from "react";

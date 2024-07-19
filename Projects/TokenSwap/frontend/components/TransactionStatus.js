@@ -1,5 +1,5 @@
-import { Fragment, useRef, useState } from "react";
-import { Loading } from "@nextui-org/react";
+import { Fragment, useState } from "react";
+import { Button } from "@nextui-org/react";
 import { Dialog, Transition } from "@headlessui/react";
 
 const TransactionStatus = () => {
@@ -39,9 +39,9 @@ const TransactionStatus = () => {
             leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
           >
             <div className="status inline-block align-bottom bg-zinc-900 rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
-              <Loading>
+              <Button isLoading>
                 Completing the transaction...
-              </Loading>
+              </Button>
             </div>
             <p className="px-4 py-4 text-black text-sm justify-center sm:px-6 sm:flex sm:flex-row-reverse">
               Transaction usually takes a few seconds

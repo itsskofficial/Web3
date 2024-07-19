@@ -1,1 +1,10 @@
-{"31337":{"CustomDex":[]},"11155111":{"CustomDex":[null]}}
+{
+  "11155111": {
+    "CustomDex": [
+      null,
+      null,
+      null,
+      "0x525B9d5BD8D778eDFB2128834305d8a89582d533"
+    ]
+  }
+}

@@ -1,4 +1,3 @@
-import { BigNumber } from "ethers";
 import { getTokenContract, getDexContract } from "@utils/contracts";
 import { ethToWei, weiToEth, parseErrorMsg } from "@utils/helpers";
 
@@ -22,10 +21,10 @@ const checkAllowance = async (owner, tokenSymbol, amount) => {
         const customToken = await getTokenContract(tokenAddress)
         const transaction = await customToken.allowance(
             owner, 
-            "contractAddress"
+            customDex.address
         )
 
-        const result = BigNumber.from(transaction.toString()).gte(BigNumber.from(ethToWei(amount)))
+        const result = BigInt(transaction.toString()).gte(BigInt.from(ethToWei(amount)))
         return result
     } catch (e) {
         return parseErrorMsg(e)
