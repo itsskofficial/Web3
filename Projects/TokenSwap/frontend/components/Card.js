@@ -1,5 +1,6 @@
 import SingleCard from "./SingleCard";
 import { useAccount } from "wagmi";
+import { TOKENS } from "@utils/tokens";
 
 const Card = () => {
   const { address } = useAccount()
@@ -13,8 +14,9 @@ const Card = () => {
 						Select a token to get started
 					</p>
 				</div>
-				<div className="grid gird-cols-1 gap-x-4 gap-y-8 md:grid-cols-2 lg:grid-cols-4">
-					{Object.keys(TOKENS).map((name, index) => (
+				<div className="grid grid-cols-1 gap-x-4 gap-y-8 md:grid-cols-2 lg:grid-cols-4">
+				  {Object.keys(TOKENS).map((name, index) => (
+						name === "Default" ? null :
 						<SingleCard
 							key={index}
 							index={index}

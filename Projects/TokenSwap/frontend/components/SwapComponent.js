@@ -51,11 +51,9 @@ const SwapComponent = () => {
       setSwapStatus("Connect wallet")
     else if (!inputValue || !outputValue)
       setSwapStatus("Enter amount")
-    else if (!allowanceStatus)
-      setSwapStatus("Increase allowance")
     else
       setSwapStatus("Swap")
-  }, [address, inputValue, outputValue, allowanceStatus])
+  }, [address, inputValue, outputValue])
 
   useEffect(() => {
     if (
