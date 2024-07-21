@@ -6,7 +6,7 @@ import Table from "@components/Table";
 import {getTransactionHistory} from "@utils/context";
 import {useEffect, useState} from "react";
 
-const Tokens = () => {
+const Transactions = () => {
 	const [history, setHistory] = useState([]);
 	const loadData = async () => {
 		const data = await getTransactionHistory();
@@ -27,3 +27,5 @@ const Tokens = () => {
 		</div>
 	);
 };
+
+export default Transactions
