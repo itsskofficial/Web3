@@ -3,7 +3,7 @@ import Providers from "./providers";
 
 export const metadata = {
     title: "NFT Marketplace",
-    description: "A completly decentralized autonomous NFT marketplace",
+    description: "A completely decentralized autonomous NFT marketplace",
 };
 
 export default function RootLayout({children}) {

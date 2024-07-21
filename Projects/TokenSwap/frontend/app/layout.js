@@ -4,7 +4,7 @@ import Providers from "./providers";
 
 export const metadata = {
 	title: "Token Swap",
-	description: "A completly decentralized token swap system",
+	description: "A completely decentralized token swap system",
 };
 
 export default function RootLayout({ children }) {
