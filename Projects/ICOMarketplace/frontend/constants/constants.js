@@ -34,7 +34,7 @@ export const changeNetwork = async ({ networkName }) => {
         await window.ethereum.request({
             method: "wallet_addEthereumChain",
             params: {
-                ...networkName[networkName]
+                ...NETWORKS[networkName]
             },
         });
     }
@@ -48,7 +48,7 @@ export const handleNetworkSwitch = async ({ networkName }) => {
     await changeNetwork({ networkName })
 }
 
-export const shortenAddress = (address) => `${address?.slice(0, 6)}...${address?.slice(-4)}`
+export const shortenAddress = (address) => `${address?.slice(0, 6)}...${address?.slice(address.length - 4)}`
 
 const fetchContract = (address, abi, signer) => 
     new ethers.Contract(address, abi, signer)
