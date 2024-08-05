@@ -78,17 +78,17 @@ const Home = () => {
       }
       {
         openTokenCreator && (
-        <TokenCreator />
+          <TokenCreator createToken={createToken} shortenAddress={shortenAddress} setOpenTokenCreator={setOpenTokenCreator} address={address} connectWallet={connectWallet} />
         )
       }
       {
         openTokenHistory && (
-          <TokenHistory />
+          <TokenHistory shortenAddress={shortenAddress} setOpenTokenHistory={setOpenTokenHistory} />
         )
       }
       {
         openIcoCreator && (
-          <CreateICO />
+          <CreateICO shortenAddress={shortenAddress} address={address} connectWallet={connectWallet} setOpenIcoCreator={setOpenIcoCreator} createTokenIco={createTokenIco} />
         )
       }
       {

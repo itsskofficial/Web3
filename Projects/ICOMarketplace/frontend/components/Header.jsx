@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Button from "./Button";
 
 const Header = ({
     accountBalance,
@@ -80,22 +81,25 @@ const Header = ({
 									: setOpenTokenHistory(true)
 							}
 						>
-              History
-            </a>
-          </li>
-          {address ? (
-            <li>
-              <a
-                onClick={() =>
-                  openTokenCreator
-                    ? setOpenTokenCreator(false)
-                    : setOpenTokenCreator(true)
-                }
-              >
-                Token Creator
-              </a>
-            </li>
-          ): null}
+							History
+						</a>
+					</li>
+					{address ? (
+						<li>
+							<Button
+								name={`${shortenAddress(
+									address
+								)}: ${accountBalance?.slice(0, 5)}`}
+							/>
+						</li>
+					) : (
+						<li>
+							<Button
+								  name="Connect wallet"
+								  handleClick = {connectWallet}
+							/>
+						</li>
+					)}
 				</ul>
 			</nav>
 		</header>
