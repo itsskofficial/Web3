@@ -413,7 +413,8 @@ export const StateContextProvider = ({ children }) => {
 				createToken,
 				createTokenIco,
                 getTokensForSale,
-                setAddress
+                setAddress,
+                getUserTokensForSale
 			}}
 		>
 			{children}
