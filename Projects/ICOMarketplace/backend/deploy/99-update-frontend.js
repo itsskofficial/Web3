@@ -1,10 +1,11 @@
-const { ethers, deployments, network } = require("hardhat");
+const {ethers, deployments, network} = require("hardhat");
 const path = require("path");
-require("dotenv").config({ path: path.resolve(__dirname, "../.env") });
+require("dotenv").config({path: path.resolve(__dirname, "../.env")});
 const fs = require("fs");
 
 const FRONTEND_ADDRESSES_PATH = "../frontend/constants/addresses.json";
 const FRONTEND_ABI_PATH = "../frontend/constants/";
+const FRONTEND_BYTECODES_PATH = "../frontend/constants/bytecodes.json";
 
 module.exports = async () => {
     if (process.env.UPDATE_FRONTEND === "true") {
@@ -15,10 +16,16 @@ module.exports = async () => {
 };
 
 const updateContractInfo = async () => {
-    const customDexDeployment = await deployments.get("CustomDex");
-    const customDex = await ethers.getContractAt(
-        customDexDeployment.abi,
-        customDexDeployment.address
+    const icoMarketplaceDeployment = await deployments.get("ICOMarketplace");
+    const icoMarketplace = await ethers.getContractAt(
+        icoMarketplaceDeployment.abi,
+        icoMarketplaceDeployment.address
+    );
+
+    const customTokenDeployment = await deployments.get("CustomToken");
+    const customToken = await ethers.getContractAt(
+        customTokenDeployment.abi,
+        customTokenDeployment.address
     );
 
     const chainId = network.config.chainId.toString();
@@ -26,14 +33,27 @@ const updateContractInfo = async () => {
         fs.readFileSync(FRONTEND_ADDRESSES_PATH, "utf8")
     );
 
-    if (chainId in addresses) {
-        if (!addresses[chainId]["CustomDex"].includes(customDex.address)) {
-            addresses[chainId]["CustomDex"].push(customDex.address);
-        }
-    } else {
-        addresses[chainId] = {
-            CustomDex: [customDex.address]
-        };
+    // Ensure both contract addresses are stored
+    if (!(chainId in addresses)) {
+        addresses[chainId] = {};
+    }
+
+    if (!addresses[chainId]["ICOMarketplace"]) {
+        addresses[chainId]["ICOMarketplace"] = [];
+    }
+
+    if (
+        !addresses[chainId]["ICOMarketplace"].includes(icoMarketplace.address)
+    ) {
+        addresses[chainId]["ICOMarketplace"].push(icoMarketplace.address);
+    }
+
+    if (!addresses[chainId]["CustomToken"]) {
+        addresses[chainId]["CustomToken"] = [];
+    }
+
+    if (!addresses[chainId]["CustomToken"].includes(customToken.address)) {
+        addresses[chainId]["CustomToken"].push(customToken.address);
     }
 
     fs.writeFileSync(
@@ -41,24 +61,30 @@ const updateContractInfo = async () => {
         JSON.stringify(addresses, null, 2)
     );
 
-    const customDexAbi = customDex.interface.fragments;
+    // Update ABIs
+    const icoMarketplaceAbi = icoMarketplace.interface.fragments;
+    const customTokenAbi = customToken.interface.fragments;
+
     fs.writeFileSync(
-        `${FRONTEND_ABI_PATH}CustomDex.json`,
-        JSON.stringify(customDexAbi, null, 2)
+        `${FRONTEND_ABI_PATH}ICOMarketplace.json`,
+        JSON.stringify(icoMarketplaceAbi, null, 2)
     );
 
-    // Update the CustomToken ABI
-    const customTokenAbi = getAbi("CustomToken");
     fs.writeFileSync(
         `${FRONTEND_ABI_PATH}CustomToken.json`,
         JSON.stringify(customTokenAbi, null, 2)
     );
-};
 
-const getAbi = (contractName) => {
-    const artifactsPath = path.join(__dirname, '..', 'artifacts', 'contracts', `${contractName}.sol`, `${contractName}.json`);
-    const artifact = JSON.parse(fs.readFileSync(artifactsPath, 'utf8'));
-    return artifact.abi;
+    // Update Bytecodes
+    const bytecodes = {};
+
+    bytecodes["ICOMarketplace"] = icoMarketplaceDeployment.bytecode;
+    bytecodes["CustomToken"] = customTokenDeployment.bytecode;
+
+    fs.writeFileSync(
+        FRONTEND_BYTECODES_PATH,
+        JSON.stringify(bytecodes, null, 2)
+    );
 };
 
 module.exports.tags = ["all", "frontend"];

@@ -1,8 +1,7 @@
 import {useState, createContext, useContext, useEffect} from "react";
 import { ethers } from "ethers";
 import Web3Modal from "web3modal";
-import "@constants/constants";
-import { CUSTOM_TOKEN_CONTRACT, handleNetworkSwitch, ICO_MARKETPLACE_ADDRESS, ICO_MARKETPLACE_CONTRACT } from "./constants";
+import { CUSTOM_TOKEN_CONTRACT, ICO_MARKETPLACE_CONTRACT, handleNetworkSwitch, ICO_MARKETPLACE_ADDRESS, CUSTOM_TOKEN_BYTECODE } from "./constants";
 
 const StateContext = createContext()
 
@@ -28,12 +27,12 @@ export const StateContextProvider = ({ children }) => {
             }
             await handleNetworkSwitch()
             const accounts = await window.ethereum.request({ method: "eth_accounts" })
-            if (accounts.length) {
+            if (accounts.length > 0) {
                 const account = accounts[0]
                 setAddress(account)
-                const provider = new ethers.providers.Web3Provider(window.ethereum)
+                const provider = new ethers.BrowserProvider(window.ethereum)
                 const balance = await provider.getBalance(account)
-                setBalance(ethers.utils.formatEther(balance))
+                setBalance(ethers.formatEther(balance))
                 return account
             } else {
                 notifyError("No authorized account found")
@@ -56,14 +55,14 @@ export const StateContextProvider = ({ children }) => {
 			const accounts = await window.ethereum.request({
 				method: "eth_requestAccounts",
 			});
-			if (accounts.length) {
+			if (accounts.length > 0) {
 				const account = accounts[0];
 				setAddress(account);
-				const provider = new ethers.providers.Web3Provider(
+				const provider = new ethers.BrowserProvider(
 					window.ethereum
 				);
 				const balance = await provider.getBalance(account);
-				setBalance(ethers.utils.formatEther(balance));
+				setBalance(ethers.formatEther(balance));
 				return account;
 			} else {
 				notifyError("No authorized account found");
@@ -73,51 +72,67 @@ export const StateContextProvider = ({ children }) => {
 		}
     };
     
-    const deployContract = async (signer, account, name, symbol, supply, imageURL) => {
-        try {
-            const contractFactory = new ethers.ContractFactory(ICO_MARKETPLACE_ABI, ICO_MARKETPLACE_BYTECODE, signer)
-            const totalSupply = ethers.utils.parseEther(supply)
-            let contract = await contractFactory.deploy(name, symbol, totalSupply, imageURL)
-            const transaction = await contract.deployTransaction.wait()
-            if (contract.address) {
-                const today = Date.now()
-                let date = new Date(today)
-                const tokenCreatedDate = date
-                const token = {
-                    account: account, 
-                    name: name,
-                    symbol: symbol,
-                    supply: supply,
-                    logo: imageURL,
-                    created: tokenCreatedDate,
-                    transactionHash: contract.deployTransaction.hash,
-                }
-            }
+   const deployContract = async (
+		signer,
+		account,
+		name,
+		symbol,
+		supply,
+		imageURL
+   ) => {
+		try {
+			// Create a new contract factory
+			const contractFactory = new ethers.ContractFactory(
+				CUSTOM_TOKEN_CONTRACT,
+				CUSTOM_TOKEN_BYTECODE,
+				signer
+			);
 
-            let tokenHistory = []
-            const history = localStorage.getItem("tokenHistory")
-            if (history) {
-                tokenHistory = JSON.parse(localStorage.getItem("tokenHistory"))
-                tokenHistory.push(token)
-                localStorage.setItem("tokenHistory", JSON.stringify(tokenHistory))
-                setLoader(false)
-                setRecall(recall + 1)
-                setOpenTokenCreator(false)
-            }
-            else {
-                tokenHistory.push(token)
-                localStorage.setItem("tokenHistory", JSON.stringify(tokenHistory))
-                setLoader(false)
-                setRecall(recall + 1)
-                setOpenTokenCreator(false)
-            }
-        }
-        catch (error) {
-            setLoader(false)
-            notifyError("Something went wrong")
-            console.log(error)
-        }
-    }
+			// Deploy the contract with the token name and symbol
+			let contract = await contractFactory.deploy(name, symbol);
+
+			// Wait for the deployment transaction to be mined
+			const transaction = await contractFactory.getDeployTransaction();
+
+			if (contract.address) {
+				// Get the current date
+				const today = Date.now();
+				const tokenCreatedDate = new Date(today);
+
+				// Create the token object with details
+				const token = {
+					account: account,
+					name: name,
+					symbol: symbol,
+					supply: supply, // Supply and imageURL are not used in the contract but kept for your records
+					logo: imageURL,
+					created: tokenCreatedDate,
+					transactionHash: transaction.nonce,
+				};
+				// Retrieve token history from localStorage
+				let tokenHistory =
+					JSON.parse(localStorage.getItem("tokenHistory")) || [];
+				// Add the new token to the history
+				tokenHistory.push(token);
+				// Save the updated history back to localStorage
+				localStorage.setItem(
+					"tokenHistory",
+					JSON.stringify(tokenHistory)
+				);
+
+				// Handle post-deployment UI updates
+				setLoader(false);
+				setRecall(recall + 1);
+				setOpenTokenCreator(false);
+			}
+		} catch (error) {
+			setLoader(false);
+			notifyError("Something went wrong");
+			console.error(error);
+		}
+   };
+
+
     const createToken = async (token, account, imageURL) => {
         const { name, symbol, supply } = token
         try {
@@ -129,7 +144,7 @@ export const StateContextProvider = ({ children }) => {
             else {
                 const web3Modal = new Web3Modal()
                 const connection = await web3Modal.connect()
-                const provider = new ethers.providers.Web3Provider(connection)
+                const provider = new ethers.BrowserProvider(connection)
                 const signer = provider.getSigner()
 
                 deployContract(signer, account, name, symbol, supply, imageURL)
@@ -152,17 +167,17 @@ export const StateContextProvider = ({ children }) => {
                 const tokensForSale = await contract.getAllTokens()
 
                 const tokensForSaleArray = Promise.all(tokensForSale.map(async (token) => {
-                    const contract = await CUSTOM_TOKEN_CONTRACT(token?.address)
+                    const contract = await CUSTOM_TOKEN_CONTRACT(token?.tokenAddress)
                     const balance = await contract.balanceOf(ICO_MARKETPLACE_ADDRESS)
                     const tokenDetails = {
                         creator: token?.creator,
-                        address: token?.address,
+                        address: token?.tokenAddress,
                         name: token?.name,
                         symbol: token?.symbol,
-                        supply: token?.supply,
+                        supply: ethers.formatEther(50000 * 10 ** 18),
                         supported: token?.supported,
-                        price: ethers.utils.formatEther(token?.price),
-                        balance: ethers.utils.formatEther(balance),
+                        price: ethers.formatEther(token?.price),
+                        balance: ethers.formatEther(balance),
                     }
 
                     return tokenDetails
@@ -190,25 +205,25 @@ export const StateContextProvider = ({ children }) => {
 				await connectWallet();
 				const contract = await ICO_MARKETPLACE_CONTRACT();
 				if (address) {
-					const tokensForSale = await contract.getCreatedTokens();
+					const tokensForSale = await contract.getCreatedTokens(address);
 
 					const tokensForSaleArray = Promise.all(
 						tokensForSale.map(async (token) => {
 							const contract = await CUSTOM_TOKEN_CONTRACT(
-								token?.address
+								token?.tokenAddress
 							);
 							const balance = await contract.balanceOf(
 								ICO_MARKETPLACE_ADDRESS
 							);
 							const tokenDetails = {
 								creator: token?.creator,
-								address: token?.address,
+								address: token?.tokenAddress,
 								name: token?.name,
 								symbol: token?.symbol,
-								supply: token?.supply,
+								supply: ethers.formatEther(50000 * 10 ** 18),
 								supported: token?.supported,
-								price: ethers.utils.formatEther(token?.price),
-								balance: ethers.utils.formatEther(balance),
+								price: ethers.formatEther(token?.price),
+								balance: ethers.formatEther(balance),
 							};
 
 							return tokenDetails;
@@ -240,9 +255,9 @@ export const StateContextProvider = ({ children }) => {
             await connectWallet()
 
             const contract = await ICO_MARKETPLACE_CONTRACT()
-            const payAmount = ethers.utils.parseUnits(price.toString(), "ethers")
+            const payAmount = ethers.parseUnits(price.toString(), "ether")
             const transaction = await contract.createIcoSale(address, payAmount, {
-                gasLimit: ethers.utils.hexlify(100000),
+                gasLimit: ethers.hexlify(100000),
             })
             const transactionReceipt = await transaction.wait()
             if (transactionReceipt) {
@@ -274,13 +289,13 @@ export const StateContextProvider = ({ children }) => {
             const tokenBalance = await contract.getBalance(tokenAddress)
             const tokenDetails = await contract.getTokenDetails(tokenAddress)
 
-            const availableTokenBalance = ethers.utils.formatEther(tokenBalance.toString())
+            const availableTokenBalance = ethers.formatEther(tokenBalance.toString())
             if (availableTokenBalance > 0) {
-                const price = ethers.utils.formatEther(tokenDetails.price.toString()) * tokenQuantity
-                const payAmount = ethers.utils.parseUnits(price.toString(), "ether")
+                const price = ethers.formatEther(tokenDetails.price.toString()) * tokenQuantity
+                const payAmount = ethers.parseUnits(price.toString(), "ether")
                 const transaction = await contract.buyToken(tokenAddress, tokenQuantity, {
                     value: payAmount,
-                    gasLimit: ethers.utils.hexlify(100000),
+                    gasLimit: ethers.hexlify(100000),
                 })
                 const transactionReceipt = await transaction.wait()
                 if (transactionReceipt) {
@@ -306,9 +321,9 @@ export const StateContextProvider = ({ children }) => {
         }
     }
 
-    const transferToken = async (transferTokenData) => {
+    const transferToken = async (transferAddress, tokenAddress, amount) => {
         try {
-            if (!transferTokenData.address || !transferTokenData.amount || !transferTokenData.tokenAddress) {
+            if (!transferAddress || !amount || !tokenAddress) {
                 return notifyError("All fields are required")
             }
 
@@ -316,14 +331,14 @@ export const StateContextProvider = ({ children }) => {
             notifySuccess("Transferring token...")
             const address = await connectWallet()
 
-            const contract = await CUSTOM_TOKEN_CONTRACT(transferTokenData.tokenAddress)
+            const contract = await CUSTOM_TOKEN_CONTRACT(tokenAddress)
             const userBalance = await contract.balanceOf(address)
-            const availableUserBalance = ethers.utils.formatEther(userBalance.toString())
+            const availableUserBalance = ethers.formatEther(userBalance.toString())
 
             if (availableUserBalance > 1) {
-                const payAmount = ethers.utils.parseUnits(transferTokenData.amount.toString(), "ether")
-                const transaction = await contract.transfer(transferTokenData.address, payAmount, {
-                    gasLimit: ethers.utils.hexlify(100000),
+                const payAmount = ethers.parseUnits(amount.toString(), "ether")
+                const transaction = await contract.transfer(transferAddress, payAmount, {
+                    gasLimit: ethers.hexlify(100000),
                 })
                 const transactionReceipt = await transaction.wait()
                 if (transactionReceipt) {
@@ -349,21 +364,20 @@ export const StateContextProvider = ({ children }) => {
         }
     }
 
-    const withdrawToken = async (withdrawTokenData) => {
+    const withdrawToken = async (tokenAddress, amount) => {
         try {
 
-            if (!withdrawTokenData.address || !withdrawTokenData.amount) {
+            if (!tokenAddress || !amount) {
                 return notifyError("All fields are required")
             }
 
             setLoader(true)
             notifySuccess("Withdrawing token...")
-            const address = await connectWallet()
 
             const contract = await ICO_MARKETPLACE_CONTRACT()
-            const payAmount = ethers.utils.parseUnits(withdrawTokenData.amount.toString(), "ether")
-            const transaction = await contract.withdraw(withdrawTokenData.address, payAmount, {
-                gasLimit: ethers.utils.hexlify(100000),
+            const payAmount = ethers.parseUnits(amount.toString(), "ether")
+            const transaction = await contract.withdrawToken(tokenAddress, payAmount, {
+                gasLimit: ethers.hexlify(100000),
             })
             const transactionReceipt = await transaction.wait()
             if (transactionReceipt) {
@@ -414,7 +428,8 @@ export const StateContextProvider = ({ children }) => {
 				createTokenIco,
                 getTokensForSale,
                 setAddress,
-                getUserTokensForSale
+                getUserTokensForSale,
+                setCurrency
 			}}
 		>
 			{children}

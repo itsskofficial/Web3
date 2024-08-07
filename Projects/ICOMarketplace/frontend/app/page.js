@@ -5,7 +5,7 @@ import Footer from "@components/Footer"
 import Loader from "@components/Loader";
 import ICOMarket from "@components/ICOMarket";
 import TokenCreator from "@components/TokenCreator";
-import TokenHistory from "@components/TokenHistory";
+import TokenHistory from "@components/TokenHistory.j";
 import CreateICO from "@components/CreateICO";
 import BuyToken from "@components/BuyToken";
 import WidthdrawToken from "@components/WidthdrawToken";

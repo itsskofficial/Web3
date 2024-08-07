@@ -5,6 +5,6 @@ import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
 contract CustomToken is ERC20{
     constructor() ERC20("itsskofficial", "SK") {
-        _mint(msg.msg.sender, 50000 ** 18);
+        _mint(msg.sender, 50000 * 10 ** 18);
     }
 }

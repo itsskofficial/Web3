@@ -61,14 +61,15 @@ contract ICOMarketplace {
             supported: true,
             price: price,
             name: tokenName,
-            symbol: tokenSymbol
-        })
+            symbol: tokenSymbol,
+            creator: msg.sender
+        });
 
         supportedTokens.push(tokenAddress);
         emit TokenAdded(tokenAddress, price, msg.sender, tokenName, tokenSymbol);
     }
 
-    function multiply(uint256, x, uint256 y) internal pure returns (uint256 z){
+    function multiply(uint256 x, uint256 y) internal pure returns (uint256 z){
         require(y == 0 || (z = x * y) / y == x);
     }
 
@@ -119,7 +120,7 @@ contract ICOMarketplace {
 
     function getCreatedTokens(address creator) external view returns (TokenDetails[] memory) {
         uint256 count = 0;
-        for (uint256 i = 0, i < supportedTokens.length; i++) {
+        for (uint256 i = 0; i < supportedTokens.length; i++) {
             if (tokens[supportedTokens[i]].creator == creator) {
                 count++;
             }
@@ -128,9 +129,9 @@ contract ICOMarketplace {
         TokenDetails[] memory tokenDetails = new TokenDetails[](count);
 
         uint256 index = 0;
-        for (uint256 i = 0, i < supportedTokens.length; i++) {
+        for (uint256 i = 0; i < supportedTokens.length; i++) {
             if (tokens[supportedTokens[i]].creator == creator) {
-                tokenDetails[index] = tokenDetails[supportedTokens[i]];
+                tokenDetails[index] = tokens[supportedTokens[i]];
                 index++;
             }
         }
@@ -144,7 +145,7 @@ contract ICOMarketplace {
         TokenDetails[] memory tokenDetails = new TokenDetails[](length);
 
         for (uint256 i = 0; i < length; i++) {
-            tokensDetails[i] = tokenDetails[supportedTokens[i]];
+            tokenDetails[i] = tokens[supportedTokens[i]];
         }
 
         return tokenDetails;
