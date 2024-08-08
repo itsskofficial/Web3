@@ -1,43 +1,45 @@
-import { useEffect, useState } from "react";
+import {useEffect, useState} from "react";
 import Button from "./Button";
 
 const Header = ({
-    accountBalance,
-    setAddress,
-    address,
-    connectWallet,
-    ICO_MARKETPLACE_ADDRESS,
-    shortenAddress,
-    setOpenAllIcos,
-    openAllIcos,
-    setOpenTokenCreator,
-    openTokenCreator,
-    openIcoMarketplace,
-    setOpenIcoMarketplace
+	accountBalance,
+	setAddress,
+	address,
+	connectWallet,
+	shortenAddress,
+	setOpenTokenCreator,
+	openTokenCreator,
+	openUserIcos,
+	setOpenUserIcos,
+	openIcoMarketplace,
+	setOpenIcoMarketplace,
+	openTokenHistory,
+	setOpenTokenHistory,
 }) => {
-  const [isMetamaskInstalled, setIsMetamaskInstalled] = useState(false)
-  
-  useEffect(() => {
-    if (typeof window.ethereum !== "undefined") {
-      setIsMetamaskInstalled(true)
-    }
+	const [isMetamaskInstalled, setIsMetamaskInstalled] = useState(false);
 
-    window.ethereum.on("accountsChanged", handleAccountsChanged)
+	useEffect(() => {
+		if (typeof window.ethereum !== "undefined") {
+			setIsMetamaskInstalled(true);
+		}
 
-    return () => {
-      if (typeof window.ethereum !== "undefined") {
-        window.ethereum.removeListener("accountsChanged", handleAccountsChanged)
-      }
-    }
+		window.ethereum?.on("accountsChanged", handleAccountsChanged);
 
-  }, [address])
+		return () => {
+			if (typeof window.ethereum !== "undefined") {
+				window.ethereum?.removeListener(
+					"accountsChanged",
+					handleAccountsChanged
+				);
+			}
+		};
+	}, [address]);
 
-  const handleAccountsChanged = (accounts) => {
-    setAddress(accounts[0])
-  }
+	const handleAccountsChanged = (accounts) => {
+		setAddress(accounts[0]);
+	};
 
-
-  return (
+	return (
 		<header className="header">
 			<nav>
 				<div className="logo">
@@ -67,13 +69,15 @@ const Header = ({
 					<li>
 						<a
 							onClick={() =>
-								openAllIcos
-									? setOpenAllIcos(false)
-									: setOpenAllIcos(true)
+								openUserIcos
+									? setOpenUserIcos(false)
+									: setOpenUserIcos(true)
 							}
 						>
 							Created ICOs
 						</a>
+					</li>
+					<li>
 						<a
 							onClick={() =>
 								openTokenHistory
@@ -84,26 +88,37 @@ const Header = ({
 							History
 						</a>
 					</li>
+					<li>
+						<a
+							onClick={() =>
+								openTokenCreator
+									? setOpenTokenCreator(false)
+									: setOpenTokenCreator(true)
+							}
+						>
+							Create Token
+						</a>
+					</li>
 					{address ? (
 						<li>
 							<Button
 								name={`${shortenAddress(
 									address
-								)}: ${accountBalance?.slice(0, 5)}`}
+								)}: ${accountBalance.toString().slice(0, 5)} ETH`}
 							/>
 						</li>
 					) : (
 						<li>
 							<Button
-								  name="Connect wallet"
-								  handleClick = {connectWallet}
+								name={isMetamaskInstalled ? "Connect Wallet" : "Install Metamask"}
+								handleClick={connectWallet}
 							/>
 						</li>
 					)}
 				</ul>
 			</nav>
 		</header>
-  );
+	);
 };
 
 export default Header;

@@ -8,8 +8,8 @@ import bytecodes from "@constants/bytecodes.json";
 export const CUSTOM_TOKEN_ABI = customTokenAbi;
 export const ICO_MARKETPLACE_ABI = icoMarketplaceAbi;
 
-export const ICO_MARKETPLACE_ADDRESS = addresses["11155111"]["ICOMarketplace"];
-export const CUSTOM_TOKEN_ADDRESS = addresses["11155111"]["CustomToken"];
+export const ICO_MARKETPLACE_ADDRESS = addresses["11155111"]["ICOMarketplace"][0];
+export const CUSTOM_TOKEN_ADDRESS = addresses["11155111"]["CustomToken"][0];
 
 export const CUSTOM_TOKEN_BYTECODE = bytecodes["CustomToken"];
 export const ICO_MARKETPLACE_BYTECODE = bytecodes["ICOMarketplace"];
@@ -17,38 +17,44 @@ export const ICO_MARKETPLACE_BYTECODE = bytecodes["ICOMarketplace"];
 export const NETWORKS = {
 	sepolia: {
 		chainId: 11155111,
-		chainName: "sepolia",
-		rpcUrl: process.env.SEPOLIA_RPC_URL,
-		blockExplorerUrl: "",
+		chainName: "Sepolia",
+        rpcUrl: process.env.NEXT_PUBLIC_SEPOLIA_RPC_URL,
+        blockExplorerUrl: "https://sepolia.etherscan.io/",
 		nativeCurrency: {
 			name: "SEPOLIA",
-			symbol: "SEPOLIA",
+			symbol: "SPL",
 			decimals: 18,
 		},
 	},
 };
 
-export const changeNetwork = async ({ networkName }) => {
-    try {
-        if (!window.ethereum) 
-            throw new Error("No crypto wallet found")
-        await window.ethereum.request({
-            method: "wallet_addEthereumChain",
-            params: {
-                ...NETWORKS[networkName]
-            },
-        });
-    }
-    catch (error) {
-        console.log(error)
-    }
+export const changeNetwork = async (networkName) => {
+	try {
+		if (!window.ethereum) throw new Error("No crypto wallet found");
+		await window.ethereum?.request({
+			method: "wallet_addEthereumChain",
+			params: [
+				{
+					chainId: `0x${NETWORKS[networkName].chainId.toString(16)}`,
+					chainName: NETWORKS[networkName].chainName,
+                    rpcUrls: [NETWORKS[networkName].rpcUrl],
+                    blockExplorerUrls: [NETWORKS[networkName].blockExplorerUrl],
+					nativeCurrency: NETWORKS[networkName].nativeCurrency,
+				},
+			],
+		});
+	} catch (error) {
+		console.log(error);
+	}
+};
+
+
+export const handleNetworkSwitch = async (networkName = "sepolia") => {
+    if (networkName != "sepolia") 
+        await changeNetwork(networkName)
 }
 
-export const handleNetworkSwitch = async ({ networkName = "sepolia" }) => {
-    await changeNetwork({ networkName })
-}
-
-export const shortenAddress = (address) => `${address?.slice(0, 6)}...${address?.slice(address.length - 4)}`
+export const shortenAddress = (address) => `${address?.toString().slice(0, 6)}...${address?.toString().slice(address?.toString().length - 4)}`
 
 const fetchContract = (address, abi, signer) => 
     new ethers.Contract(address, abi, signer)

@@ -1,9 +1,10 @@
 import { useState } from "react";
 import UploadLogo from "./UploadLogo";
 import Input from "./Input";
+import Button from "./Button";
 
 const TokenCreator = ({
-  createToken, shortenAddress, setOpenTokenCreator, address, connectWallet
+  createToken, setOpenTokenCreator, address, connectWallet, setLoader
 }) => {
 
   const [imageURL, setImageURL] = useState("")
@@ -23,7 +24,7 @@ const TokenCreator = ({
           Create Token
         </h2>
         <UploadLogo 
-        imageURL = {imageURL}
+          imageURL = {imageURL}
           setImageURL={setImageURL}
           setLoader={setLoader}
         />

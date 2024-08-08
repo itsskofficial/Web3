@@ -1,27 +1,30 @@
-import { shortenAddress, useStateContext } from "@constants/constants";
+"use client"
+
+import { shortenAddress } from "@constants/constants";
 import { ICO_MARKETPLACE_ADDRESS } from "@constants/constants";
 import Header from "@components/Header";
 import Footer from "@components/Footer"
 import Loader from "@components/Loader";
 import ICOMarket from "@components/ICOMarket";
 import TokenCreator from "@components/TokenCreator";
-import TokenHistory from "@components/TokenHistory.j";
+import TokenHistory from "@components/TokenHistory";
 import CreateICO from "@components/CreateICO";
 import BuyToken from "@components/BuyToken";
 import WidthdrawToken from "@components/WidthdrawToken";
 import TokenTransfer from "@components/TokenTransfer"
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import Marketplace from "@components/Marketplace";
-import Card from "@components/Card";
+import Cards from "@components/Cards";
+import { useStateContext } from "@constants";
 
 const Home = () => {
 
-  const {
+const {
+	loader,
     openIcoCreator,
     openBuyToken,
     openTransferToken,
     openWithdrawToken,
-    loader,
     recall,
     address,
     openTokenCreator,
@@ -30,41 +33,31 @@ const Home = () => {
     withdrawToken,
     transferToken,
     buyToken,
-    deployContract,
     setOpenIcoCreator,
     setOpenBuyToken,
     setOpenTransferToken,
     setOpenWithdrawToken,
-    setLoader,
-    setRecall,
     connectWallet,
     setOpenTokenCreator,
     createToken,
     createTokenIco,
     getTokensForSale,
     getUserTokensForSale,
-    setAddress
+    setAddress,
+	setLoader
   } = useStateContext()
-
-
-  const notifySuccess = (msg) => toast.success(msg, { duration: 200 })
-  const notifyError = (msg) => toast.error(msg, { duration: 200 })
   
-  const [openAllIcos, setOpenAllIcos] = useState(false)
-  const [openTokenHistory, setOpenTokenHistory] = useState(false)
-  const [openIcoMarketplace, setOpenIcoMarketplace] = useState(false)
-  const [buyIco, setBuyIco] = useState(false)
-  const [allIcos, setAllIcos] = useState([])
-  const [allUserIcos, setAllUserIcos] = useState([])
-
-  const copyAddress = () => {
-    navigator.clipboard.writeText(ICO_MARKETPLACE_ADDRESS)
-    notifySuccess("Copied successfully")
-  }
+	const [openAllIcos, setOpenAllIcos] = useState(false)
+	const [openUserIcos, setOpenUserIcos] = useState(false)
+	const [openTokenHistory, setOpenTokenHistory] = useState(false)
+	const [openIcoMarketplace, setOpenIcoMarketplace] = useState(false)
+	const [buyIco, setBuyIco] = useState(false)
+	const [allIcos, setAllIcos] = useState([])
+	const [allUserIcos, setAllUserIcos] = useState([])
 
   useEffect(() => {
     const setTokensForSale = async () => {
-      const tokens = await getTokensForSale()
+		const tokens = await getTokensForSale()
       setAllIcos(tokens)
       const userTokens = await getUserTokensForSale()
       setAllUserIcos(userTokens)
@@ -84,25 +77,32 @@ const Home = () => {
 				connectWallet={connectWallet}
 				ICO_MARKETPLACE_ADDRESS={ICO_MARKETPLACE_ADDRESS}
 				shortenAddress={shortenAddress}
-				setOpenAllIco={setOpenAllIcos}
-				openAllIco={openAllIcos}
+			  	setOpenAllIcos={setOpenAllIcos}
+			  	allUserIcos={allUserIcos}
+			  	setAllUserIcos={setAllUserIcos}
+				openAllIcos={openAllIcos}
+				openUserIcos={openUserIcos}
+				setOpenUserIcos={setOpenUserIcos}
 				setOpenTokenCreator={setOpenTokenCreator}
 				openTokenCreator={openTokenCreator}
-				setOpenIcoMarketplace={openIcoMarketplace}
+				openIcoMarketplace={openIcoMarketplace}
+			  setOpenIcoMarketplace={setOpenIcoMarketplace}
+			  openTokenHistory={openTokenHistory}
+			  setOpenTokenHistory={setOpenTokenHistory}
 			/>
 
 			<div className="create">
 				<h1 style={{fontSize: "2rem"}}>ICO Marketplace</h1>
 				{allIcos?.length > 0 && (
 					<Marketplace
-						icos={allIcos}
+						allIcos={allIcos}
 						shortenAddress={shortenAddress}
 						setBuyIco={setBuyIco}
 						setOpenBuyToken={setOpenBuyToken}
 						currency={currency}
 					/>
 				)}
-				<Card
+				<Cards
 					setOpenAllIcos={setOpenAllIcos}
 					setOpenTokenCreator={setOpenTokenCreator}
 					setOpenTransferToken={setOpenTransferToken}
@@ -127,6 +127,7 @@ const Home = () => {
 					setOpenTokenCreator={setOpenTokenCreator}
 					address={address}
 					connectWallet={connectWallet}
+					setLoader={setLoader}
 				/>
 			)}
 			{openTokenHistory && (
@@ -162,14 +163,14 @@ const Home = () => {
 					currency={currency}
 				/>
 			)}
-      {openWithdrawToken && (
-        <WidthdrawToken 
-          address={address}
-          withdrawToken={withdrawToken}
-          connectWallet={connectWallet}
-          setOpenWithdrawToken={setOpenWithdrawToken}
-        />
-      )}
+			{openWithdrawToken && (
+				<WidthdrawToken 
+				address={address}
+				withdrawToken={withdrawToken}
+				connectWallet={connectWallet}
+				setOpenWithdrawToken={setOpenWithdrawToken}
+				/>
+			)}
 			{openTransferToken && (
 				<TokenTransfer
 					address={address}
@@ -177,9 +178,9 @@ const Home = () => {
 					connectWallet={connectWallet}
 					setOpenTransferToken={setOpenTransferToken}
 				/>
-			)}
+		  )}
+		  {loader && <Loader />}
 			<Footer />
-			<Loader />
 		</div>
   );
 };

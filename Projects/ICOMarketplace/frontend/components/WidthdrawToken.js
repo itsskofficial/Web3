@@ -1,5 +1,6 @@
 import Button from "./Button";
 import Input from "./Input";
+import { useState } from "react";
 
 const WithdrawToken = ({
 	address,
@@ -21,7 +22,7 @@ const WithdrawToken = ({
 				>
 					&times;
 				</span>
-				<h2 style={{marginBottom: "1rem"}}>Token Transfer</h2>
+				<h2 style={{marginBottom: "1rem"}}>Withdraw Token</h2>
 				<div className="input-container">
 					<Input
 						placeholder="Token Address"

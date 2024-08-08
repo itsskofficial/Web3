@@ -166,7 +166,7 @@ a {
   margin-bottom: 1rem;
 }
 
-.custum-file-upload {
+.custom-file-upload {
   height: 200px;
   width: 300px;
   display: flex;
@@ -183,29 +183,30 @@ a {
   box-shadow: 0px 48px 35px -48px #e8e8e8;
 }
 
-.custum-file-upload .icon {
+.custom-file-upload .icon {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.custum-file-upload .icon svg {
+.custom-file-upload .icon svg {
   height: 80px;
+  width: 80px;
   fill: #e8e8e8;
 }
 
-.custum-file-upload .text {
+.custom-file-upload .text {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.custum-file-upload .text span {
+.custom-file-upload .text span {
   font-weight: 400;
   color: #e8e8e8;
 }
 
-.custum-file-upload input {
+.custom-file-upload input {
   display: none;
 }
 /* //END UPLOAD LOGO */
@@ -564,6 +565,7 @@ footer {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  height: 100%;
 }
 .card {
   max-width: 300px;
@@ -618,4 +620,8 @@ footer {
 .card:last-child .card-btn:hover {
   color: #673ab7;
   background: #fff;
+}
+
+a{
+  cursor: pointer;
 }
