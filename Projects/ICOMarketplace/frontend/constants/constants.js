@@ -1,7 +1,7 @@
 import { ethers } from "ethers";
 import Web3Modal from "web3modal";
 import customTokenAbi from "@constants/CustomToken.json";
-import icoMarketplaceAbi from "@constants/IcoMarketplace.json";
+import icoMarketplaceAbi from "@constants/ICOMarketplace.json";
 import addresses from "@constants/addresses.json";
 import bytecodes from "@constants/bytecodes.json";
 
